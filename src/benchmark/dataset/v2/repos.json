@@ -1,0 +1,110 @@
+{
+  "datasetVersion": "v2",
+  "repos": [
+    {
+      "repo": "sindresorhus/ky",
+      "split": "tuning",
+      "kind": "library",
+      "language": "ts",
+      "sha": "0d59458a0a58e1c3d7c6db0ab17ed5c7cd671e47"
+    },
+    {
+      "repo": "expressjs/express",
+      "split": "tuning",
+      "kind": "framework",
+      "language": "js",
+      "sha": "7ef98448f8b38099ab1ded55e458538ad47a51e7"
+    },
+    {
+      "repo": "vercel/commerce",
+      "split": "tuning",
+      "kind": "application",
+      "language": "tsx",
+      "sha": "3761e52e60df9c6a316e067dbfd7032e494d3634"
+    },
+    {
+      "repo": "vitejs/vite",
+      "split": "tuning",
+      "kind": "monorepo",
+      "language": "ts",
+      "sha": "10033218d239c927cdc375970b5741cce408e81b"
+    },
+    {
+      "repo": "facebook/react",
+      "split": "tuning",
+      "kind": "monorepo-large",
+      "language": "js-flow",
+      "sha": "7c6ac13e19fef500b7f669a16bbd01ecc95965ca"
+    },
+    {
+      "repo": "pmndrs/zustand",
+      "split": "tuning",
+      "kind": "library",
+      "language": "ts",
+      "sha": "d7a5583cffd80af515f7dfb69583c95cbdc9e2ce"
+    },
+    {
+      "repo": "koajs/koa",
+      "split": "tuning",
+      "kind": "framework",
+      "language": "js",
+      "sha": "824c1cf8de9a91a2941973b25dc8a3d3029b9e4f"
+    },
+    {
+      "repo": "honojs/hono",
+      "split": "tuning",
+      "kind": "framework",
+      "language": "ts",
+      "sha": "f23b146afcec63606144cde50b5fbd360dd60238"
+    },
+    {
+      "repo": "fastify/fastify",
+      "split": "holdout",
+      "kind": "framework",
+      "language": "js",
+      "sha": "19d5be0daf1c0daace758efe3ea788f924ca1224"
+    },
+    {
+      "repo": "axios/axios",
+      "split": "holdout",
+      "kind": "library",
+      "language": "js",
+      "sha": "2426e03ba9020be31ed013873423cea6b7cd2e67"
+    },
+    {
+      "repo": "colinhacks/zod",
+      "split": "holdout",
+      "kind": "monorepo",
+      "language": "ts",
+      "sha": "004d800c9e3cd4c79930f55aa4ad080225b22efd"
+    },
+    {
+      "repo": "typicode/json-server",
+      "split": "holdout",
+      "kind": "application",
+      "language": "ts",
+      "sha": "89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea"
+    },
+    {
+      "repo": "excalidraw/excalidraw",
+      "split": "holdout",
+      "kind": "application-large",
+      "language": "tsx",
+      "sha": "ed10ac7dca7e40f3f4a31269b4bfba980d0db41e"
+    },
+    {
+      "repo": "TanStack/query",
+      "split": "holdout",
+      "kind": "monorepo",
+      "language": "tsx",
+      "sha": "782b2e6fff01175e89c6af0a4d7c7a2c5a3a2676"
+    },
+    {
+      "repo": "facebook/create-react-app",
+      "split": "holdout",
+      "kind": "monorepo",
+      "language": "jsx",
+      "sha": "6254386531d263688ccfa542d0e628fbc0de0b28"
+    }
+  ]
+}

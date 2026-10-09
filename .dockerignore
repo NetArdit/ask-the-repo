@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.env
+.env.*
+!.env.example
+.index-store
+.cache
+e2e/artifacts
+e2e/.fixtures
+reports
+*.tsbuildinfo

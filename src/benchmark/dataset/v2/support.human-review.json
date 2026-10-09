@@ -1,0 +1,170 @@
+[
+  {
+    "id": "S01",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S02",
+    "reviewed": true,
+    "final_label": "PARTIAL",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S03",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S04",
+    "reviewed": true,
+    "final_label": "CONTRADICTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S05",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S06",
+    "reviewed": true,
+    "final_label": "UNSUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S07",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S08",
+    "reviewed": true,
+    "final_label": "CONTRADICTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S09",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S10",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S11",
+    "reviewed": true,
+    "final_label": "PARTIAL",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S12",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S13",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S14",
+    "reviewed": true,
+    "final_label": "UNSUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S15",
+    "reviewed": true,
+    "final_label": "UNSUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "S16",
+    "reviewed": true,
+    "final_label": "UNSUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H01",
+    "reviewed": true,
+    "final_label": "PARTIAL",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H02",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H03",
+    "reviewed": true,
+    "final_label": "UNSUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H04",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H05",
+    "reviewed": true,
+    "final_label": "CONTRADICTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H06",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H07",
+    "reviewed": true,
+    "final_label": "CONTRADICTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H08",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H09",
+    "reviewed": true,
+    "final_label": "UNSUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H10",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H11",
+    "reviewed": true,
+    "final_label": "SUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  },
+  {
+    "id": "H12",
+    "reviewed": true,
+    "final_label": "UNSUPPORTED",
+    "reviewer_note": "Owner-supplied reference label, transcribed verbatim. Identical to the earlier assistant-draft label, so this is a provenance-limited reference, NOT independently reproduced ground truth."
+  }
+]

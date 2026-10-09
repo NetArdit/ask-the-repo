@@ -1,0 +1,29 @@
+# Render blueprint for a free demo instance. NOT YET DEPLOYED: written from Render's documentation, never applied.
+# The free instance has 512 MB of memory and a fraction of a CPU, sleeps when idle and loses its disk when it does,
+# so indexing is slower there and every index is rebuilt after a sleep.
+services:
+  - type: web
+    name: asktherepo
+    runtime: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /
+    envVars:
+      # Secrets are entered in the Render dashboard, never committed.
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      # Render's proxy appends the client address to X-Forwarded-For, so per-client limits can be trusted.
+      - key: TRUST_PROXY
+        value: "1"
+      # One index build at a time: a build can use several hundred MB.
+      - key: INGEST_CONCURRENCY
+        value: "1"
+      - key: INDEX_STORE_MAX_MB
+        value: "300"
+      # About half of the model's free daily token allowance at the measured cost of an answer.
+      - key: ANSWERS_PER_DAY
+        value: "25"

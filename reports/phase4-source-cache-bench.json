@@ -1,0 +1,52 @@
+{
+ "emulated": true,
+ "emulatedUpstreamLatencyMs": 120,
+ "fileBytes": 5200,
+ "missPath": {
+  "requests": 50,
+  "medianMs": 124.9,
+  "upstreamCalls": 50
+ },
+ "memoryHitPath": {
+  "requests": 50,
+  "medianMs": 0.014,
+  "upstreamCalls": 50,
+  "stats": {
+   "hits": 50,
+   "negativeHits": 0,
+   "misses": 50,
+   "coalesced": 0,
+   "stores": 50,
+   "skippedTooLarge": 0,
+   "retries": 0,
+   "failures": 0,
+   "expired": 0
+  }
+ },
+ "diskHitPathNewProcessState": {
+  "requests": 50,
+  "medianMs": 0.95,
+  "upstreamCalls": 0
+ },
+ "concurrency": {
+  "requests": 200,
+  "distinctFiles": 10,
+  "upstreamCalls": 10,
+  "wallMs": 133,
+  "coalesced": 190
+ },
+ "transientFailures": {
+  "failureEvery": 3,
+  "requests": 30,
+  "ok": 30,
+  "failed": 0,
+  "retries": 14,
+  "upstreamCalls": 44
+ },
+ "byteLimit": {
+  "limitBytes": 102400,
+  "filesFetched": 50,
+  "evictions": 31,
+  "bytesHeld": 100339
+ }
+}

@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/*
+ * AskTheRepo design tokens.
+ *
+ * One idea runs through the interface: the page is a marked-up source listing. Neutral surface and ink, monospace for anything
+ * that is an identifier (repository, commit, path, evidence id), and colour used only where it means something:
+ *   ok     = a check passed            mark   = evidence being pointed at, or caution
+ *   danger = a check failed            focus  = keyboard focus, and nothing else
+ *
+ * Dark is the primary scheme; a light scheme is supplied for systems that ask for one. Components never branch on the scheme:
+ * they use the semantic colours below, and only these custom properties change.
+ */
+:root {
+  color-scheme: dark;
+  --bg: #0f1113;
+  --surface: #16191c;
+  --surface-sunk: #1d2125;
+  --ink: #ebe9e3;
+  --ink-soft: #c9ccd2;
+  --muted: #a1a8b3;
+  --line: #2c3137;
+  --line-strong: #6f7782;
+  --ok: #66cdb3;
+  --ok-soft: #12302a;
+  --mark: #2f2a12;
+  --mark-edge: #d6b13a;
+  --warn: #f0c36b;
+  --warn-soft: #2f2510;
+  --danger: #ff9f98;
+  --danger-soft: #351715;
+  --focus: #8ab4ff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f5f4ef;
+    --surface: #ffffff;
+    --surface-sunk: #eeece5;
+    --ink: #14161a;
+    --ink-soft: #363b44;
+    --muted: #59606b;
+    --line: #d6d3c8;
+    --line-strong: #8c897e;
+    --ok: #0b5e4f;
+    --ok-soft: #e0efea;
+    --mark: #fff6d6;
+    --mark-edge: #8a6a00;
+    --warn: #6f4500;
+    --warn-soft: #fbedcf;
+    --danger: #9b1c18;
+    --danger-soft: #fae6e4;
+    --focus: #1257d6;
+  }
+}
+
+/* The stock palette is switched off so that only the semantic colours exist; a stray `text-gray-500` cannot compile. */
+@theme {
+  --color-*: initial;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --text-code: 0.8125rem;
+  --text-title: 1.375rem;
+  --text-display: clamp(1.875rem, 1.3rem + 2.4vw, 2.875rem);
+
+  /* The inspector becomes a second column from here up; below it, it is a sheet over the page. */
+  --breakpoint-wide: 68.75rem;
+
+  --shadow-sheet: 0 12px 40px rgb(0 0 0 / 0.5);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunk: var(--surface-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-mark: var(--mark);
+  --color-mark-edge: var(--mark-edge);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-focus: var(--focus);
+  --color-scrim: rgb(8 9 10 / 0.6);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply flex min-h-dvh flex-col bg-bg font-sans text-base leading-[1.55] text-ink;
+  }
+
+  /* One focus treatment for every control, so it is never forgotten on a new component. */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--mark);
+    color: var(--ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

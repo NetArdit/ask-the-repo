@@ -1,0 +1,7 @@
+# Evaluation artifacts are compared by hash. Never let line-ending conversion touch them.
+reports/** -text
+# The frozen dataset is checked against the hashes in its freeze lock, byte for byte. A checkout that rewrites line endings
+# (the default on Windows) would make an untouched clone fail that check.
+src/benchmark/dataset/** -text
+*.png binary
+*.wasm binary

@@ -1,0 +1,173 @@
+{
+  "sindresorhus/ky": {
+    "tarball": {
+      "restRequests": 0,
+      "httpRequests": 1,
+      "compressedBytes": 340800,
+      "uncompressedBytes": 1146880,
+      "filesDelivered": 90,
+      "ms": 658.5304,
+      "restCoreUsedDelta": 0,
+      "failure": null
+    },
+    "trees": {
+      "treeRequests": 1,
+      "treeBytes": 26144,
+      "treeMs": 327.55680000000007,
+      "treeEntries": 115,
+      "truncated": false,
+      "candidateBlobs": 90,
+      "candidateBytes": 830019,
+      "sample": {
+        "requests": 5,
+        "bytes": 18225,
+        "ms": 1279.689,
+        "files": 5,
+        "failures": 0
+      },
+      "restCoreUsedDelta": 6
+    }
+  },
+  "expressjs/express": {
+    "tarball": {
+      "restRequests": 0,
+      "httpRequests": 1,
+      "compressedBytes": 134608,
+      "uncompressedBytes": 931840,
+      "filesDelivered": 145,
+      "ms": 475.61609999999996,
+      "restCoreUsedDelta": 0,
+      "failure": null
+    },
+    "trees": {
+      "treeRequests": 1,
+      "treeBytes": 65081,
+      "treeMs": 359.31910000000005,
+      "treeEntries": 282,
+      "truncated": false,
+      "candidateBlobs": 145,
+      "candidateBytes": 688460,
+      "sample": {
+        "requests": 5,
+        "bytes": 132470,
+        "ms": 1395.4219,
+        "files": 5,
+        "failures": 0
+      },
+      "restCoreUsedDelta": 6
+    }
+  },
+  "vercel/commerce": {
+    "tarball": {
+      "restRequests": 0,
+      "httpRequests": 1,
+      "compressedBytes": 207923,
+      "uncompressedBytes": 573440,
+      "filesDelivered": 68,
+      "ms": 493.95900000000006,
+      "restCoreUsedDelta": 0,
+      "failure": null
+    },
+    "trees": {
+      "treeRequests": 1,
+      "treeBytes": 23309,
+      "treeMs": 368.1024,
+      "treeEntries": 102,
+      "truncated": false,
+      "candidateBlobs": 68,
+      "candidateBytes": 113835,
+      "sample": {
+        "requests": 5,
+        "bytes": 7220,
+        "ms": 1211.6763999999998,
+        "files": 5,
+        "failures": 0
+      },
+      "restCoreUsedDelta": 6
+    }
+  },
+  "vitejs/vite": {
+    "tarball": {
+      "restRequests": 0,
+      "httpRequests": 1,
+      "compressedBytes": 12974720,
+      "uncompressedBytes": 20520960,
+      "filesDelivered": 1664,
+      "ms": 2212.9280000000003,
+      "restCoreUsedDelta": 0,
+      "failure": null
+    },
+    "trees": {
+      "treeRequests": 1,
+      "treeBytes": 922390,
+      "treeMs": 639.4952000000001,
+      "treeEntries": 3754,
+      "truncated": false,
+      "candidateBlobs": 1667,
+      "candidateBytes": 4453379,
+      "sample": {
+        "requests": 5,
+        "bytes": 2871,
+        "ms": 1357.1226000000001,
+        "files": 5,
+        "failures": 0
+      },
+      "restCoreUsedDelta": 6
+    }
+  },
+  "facebook/react": {
+    "tarball": {
+      "restRequests": 0,
+      "httpRequests": 1,
+      "compressedBytes": 10275174,
+      "uncompressedBytes": 46561280,
+      "filesDelivered": 6457,
+      "ms": 2041.0567999999998,
+      "restCoreUsedDelta": 0,
+      "failure": null
+    },
+    "trees": {
+      "treeRequests": 2,
+      "treeBytes": 2289478,
+      "treeMs": 965.6693,
+      "treeEntries": 7893,
+      "truncated": false,
+      "candidateBlobs": 6466,
+      "candidateBytes": 26938364,
+      "sample": {
+        "requests": 0,
+        "bytes": 0,
+        "ms": 45.07109999999989,
+        "files": 0,
+        "failures": 0
+      },
+      "restCoreUsedDelta": 2
+    }
+  },
+  "DefinitelyTyped/DefinitelyTyped": {
+    "tarball": {
+      "httpRequests": 1,
+      "restCoreUsedDelta": null,
+      "compressedBytes": 0,
+      "ms": 0,
+      "failure": "see bench: acquisition aborted"
+    },
+    "trees": {
+      "treeRequests": 1,
+      "treeBytes": 18908746,
+      "treeMs": 2663.0998,
+      "treeEntries": 74225,
+      "truncated": false,
+      "candidateBlobs": 33466,
+      "candidateBytes": 170468929,
+      "sample": {
+        "requests": 0,
+        "bytes": 0,
+        "ms": 46.044900000000325,
+        "files": 0,
+        "failures": 0
+      },
+      "restCoreUsedDelta": 1
+    }
+  }
+}

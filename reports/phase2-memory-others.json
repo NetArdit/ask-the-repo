@@ -1,0 +1,102 @@
+[
+ {
+  "repo": "sindresorhus/ky",
+  "stage": "full",
+  "mode": "default",
+  "ms": 1364.6987,
+  "maxRssMb": 935.7,
+  "rssAtEndMb": 583.1,
+  "heapUsedAtEndMb": 23.2,
+  "files": 94
+ },
+ {
+  "repo": "sindresorhus/ky",
+  "stage": "full",
+  "mode": "liftoff-flag",
+  "ms": 2508.4287,
+  "maxRssMb": 108.1,
+  "rssAtEndMb": 104.5,
+  "heapUsedAtEndMb": 23.5,
+  "files": 94
+ },
+ {
+  "repo": "vitejs/vite",
+  "stage": "full",
+  "mode": "default",
+  "ms": 17708.372,
+  "maxRssMb": 1254.6,
+  "rssAtEndMb": 124.9,
+  "heapUsedAtEndMb": 56.7,
+  "files": 2023
+ },
+ {
+  "repo": "vitejs/vite",
+  "stage": "full",
+  "mode": "liftoff-flag",
+  "ms": 4868.955400000001,
+  "maxRssMb": 178.3,
+  "rssAtEndMb": 165.8,
+  "heapUsedAtEndMb": 41.4,
+  "files": 2023
+ },
+ {
+  "repo": "colinhacks/zod",
+  "stage": "full",
+  "mode": "default",
+  "ms": 9446.7612,
+  "maxRssMb": 1534,
+  "rssAtEndMb": 119,
+  "heapUsedAtEndMb": 37.8,
+  "files": 605
+ },
+ {
+  "repo": "colinhacks/zod",
+  "stage": "full",
+  "mode": "liftoff-flag",
+  "ms": 5954.425300000001,
+  "maxRssMb": 171.7,
+  "rssAtEndMb": 160.5,
+  "heapUsedAtEndMb": 38,
+  "files": 605
+ },
+ {
+  "repo": "excalidraw/excalidraw",
+  "stage": "full",
+  "mode": "default",
+  "ms": 25203.471299999997,
+  "maxRssMb": 1552,
+  "rssAtEndMb": 146.9,
+  "heapUsedAtEndMb": 50.7,
+  "files": 779
+ },
+ {
+  "repo": "excalidraw/excalidraw",
+  "stage": "full",
+  "mode": "liftoff-flag",
+  "ms": 8976.3593,
+  "maxRssMb": 250.1,
+  "rssAtEndMb": 234.8,
+  "heapUsedAtEndMb": 51.7,
+  "files": 779
+ },
+ {
+  "repo": "TanStack/query",
+  "stage": "full",
+  "mode": "default",
+  "ms": 23027.704800000003,
+  "maxRssMb": 1683.9,
+  "rssAtEndMb": 142.9,
+  "heapUsedAtEndMb": 60.1,
+  "files": 3152
+ },
+ {
+  "repo": "TanStack/query",
+  "stage": "full",
+  "mode": "liftoff-flag",
+  "ms": 11629.661900000001,
+  "maxRssMb": 257.6,
+  "rssAtEndMb": 242.6,
+  "heapUsedAtEndMb": 104.9,
+  "files": 3152
+ }
+]

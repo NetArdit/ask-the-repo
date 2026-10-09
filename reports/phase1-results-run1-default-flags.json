@@ -1,0 +1,6415 @@
+{
+  "sindresorhus/ky": {
+    "role": "small",
+    "sha": "0d59458a0a58e1c3d7c6db0ab17ed5c7cd671e47",
+    "repoSizeKb": 1891,
+    "build": {
+      "key": {
+        "owner": "sindresorhus",
+        "repo": "ky",
+        "sha": "0d59458a0a58e1c3d7c6db0ab17ed5c7cd671e47"
+      },
+      "metadata": {
+        "requests": 0,
+        "ms": 0.0026000000000294676,
+        "sizeKb": null,
+        "defaultBranch": null
+      },
+      "tarball": {
+        "requests": 1,
+        "headersMs": 326.02819999999997,
+        "restCoreUsedDelta": 1
+      },
+      "ingest": {
+        "compressedBytes": 340800,
+        "uncompressedBytes": 1146880,
+        "entries": 116,
+        "nonFileEntries": 12,
+        "skipped": {
+          "unsupported-extension": 12,
+          "binary-extension": 2
+        },
+        "rejectedPaths": {},
+        "delivered": 90,
+        "deliveredBytes": 830019
+      },
+      "totalIngestMs": 9601.3066,
+      "parseMs": 8234.051300000003,
+      "indexAddMs": 705.5670999999963,
+      "streamMs": 661.6882000000007,
+      "files": {
+        "indexed": 90,
+        "byLanguage": {
+          "markdown": 3,
+          "typescript": 87
+        },
+        "byStatus": {
+          "markdown": {
+            "text": 3
+          },
+          "typescript": {
+            "ast": 86,
+            "fallback": 1
+          }
+        },
+        "fallbackReasons": {
+          "parse-timeout": 1
+        }
+      },
+      "counts": {
+        "symbols": 326,
+        "imports": 268,
+        "exports": 153,
+        "chunks": 1001,
+        "terms": 2889,
+        "relativeImports": 164,
+        "resolvedRelativeImports": 164
+      },
+      "indexFinishMs": 42.81910000000062,
+      "serialize": {
+        "jsonBytes": 265582,
+        "artifactBytes": 71470,
+        "stringifyMs": 12.65309999999954,
+        "compressMs": 46.491799999999785,
+        "writeMs": 23.59649999999965
+      },
+      "peakRssMb": 375.7
+    },
+    "processAWallMs": 11443.1807,
+    "query": {
+      "repo": "sindresorhus/ky",
+      "sha": "0d59458a0a58e1c3d7c6db0ab17ed5c7cd671e47",
+      "load": {
+        "getMs": 6.138099999999895,
+        "decompressMs": 4.616399999999999,
+        "jsonParseMs": 3.5363000000000966,
+        "deriveMs": 4.371700000000033,
+        "totalMs": 19.06269999999995,
+        "artifactBytes": 71470,
+        "rssAfterLoadMb": 62.6
+      },
+      "peakRssMb": 86.9,
+      "rssNowMb": 81.8,
+      "queries": {
+        "count": 8,
+        "medianLatencyMs": 1.1096000000000004,
+        "maxLatencyMs": 2.979600000000005
+      },
+      "variants": {
+        "bm25": {
+          "aggregate": {
+            "questions": 7,
+            "hitAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0.14285714285714285,
+              "10": 0.2857142857142857
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0.14285714285714285,
+              "10": 0.21428571428571427
+            },
+            "precisionAt5": 0.05714285714285715,
+            "mrr": 0.05612244897959184
+          },
+          "scores": [
+            {
+              "id": "ky-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 4,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "ky-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-3",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 7,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0.5
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-7",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-8",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols": {
+          "aggregate": {
+            "questions": 7,
+            "hitAtK": {
+              "1": 0.42857142857142855,
+              "3": 0.5714285714285714,
+              "5": 0.5714285714285714,
+              "10": 0.7142857142857143
+            },
+            "itemRecallAtK": {
+              "1": 0.2857142857142857,
+              "3": 0.35714285714285715,
+              "5": 0.35714285714285715,
+              "10": 0.5
+            },
+            "precisionAt5": 0.1142857142857143,
+            "mrr": 0.5204081632653061
+          },
+          "scores": [
+            {
+              "id": "ky-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 7,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-3",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-7",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-8",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols+paths": {
+          "aggregate": {
+            "questions": 7,
+            "hitAtK": {
+              "1": 0.2857142857142857,
+              "3": 0.5714285714285714,
+              "5": 0.5714285714285714,
+              "10": 0.7142857142857143
+            },
+            "itemRecallAtK": {
+              "1": 0.21428571428571427,
+              "3": 0.35714285714285715,
+              "5": 0.35714285714285715,
+              "10": 0.42857142857142855
+            },
+            "precisionAt5": 0.1142857142857143,
+            "mrr": 0.4251700680272109
+          },
+          "scores": [
+            {
+              "id": "ky-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 7,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0.5
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-3",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-7",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-8",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "full (+import expansion)": {
+          "aggregate": {
+            "questions": 7,
+            "hitAtK": {
+              "1": 0.2857142857142857,
+              "3": 0.42857142857142855,
+              "5": 0.42857142857142855,
+              "10": 0.8571428571428571
+            },
+            "itemRecallAtK": {
+              "1": 0.21428571428571427,
+              "3": 0.2857142857142857,
+              "5": 0.2857142857142857,
+              "10": 0.4761904761904762
+            },
+            "precisionAt5": 0.08571428571428573,
+            "mrr": 0.4087301587301587
+          },
+          "scores": [
+            {
+              "id": "ky-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 8,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0.5
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-3",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ky-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 8,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0.3333333333333333
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-7",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 9,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0.5
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ky-8",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        }
+      },
+      "details": [
+        {
+          "id": "ky-1",
+          "question": "Where is the retry delay calculated?",
+          "queryTerms": [
+            "retry",
+            "delay",
+            "calculated"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "test/retry.ts:2213-2246 s=1.19",
+            "source/utils/delay.ts:1-29 s=1.10",
+            "source/types/retry.ts:20-70 s=1.04",
+            "source/core/Ky.ts:1090-1148 s=0.88",
+            "source/core/constants.ts:240-259 s=0.69"
+          ],
+          "score": {
+            "id": "ky-1",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 8,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0.5
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ky-2",
+          "question": "Where is HTTPError defined?",
+          "queryTerms": [
+            "httperror",
+            "http",
+            "error"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "source/errors/HTTPError.ts:1-34 s=1.92",
+            "source/errors/KyError.ts:1-14 s=1.91",
+            "test/http-error.ts:130-149 s=1.50",
+            "test/http-error.ts:228-243 s=1.49",
+            "test/http-error.ts:523-542 s=1.49"
+          ],
+          "score": {
+            "id": "ky-2",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "ky-3",
+          "question": "What is the entry point of the library and what does it export?",
+          "queryTerms": [
+            "entry",
+            "point",
+            "library"
+          ],
+          "unmatchedTerms": [
+            "library"
+          ],
+          "top": [
+            "test/main.ts:643-668 s=1.00",
+            "source/utils/types.ts:1-7 s=0.84",
+            "source/core/Ky.ts:359-374 s=0.62",
+            "source/types/standard-schema.ts:17-37 s=0.52",
+            "test/request-body-serialization.ts:87-102 s=0.44"
+          ],
+          "score": {
+            "id": "ky-3",
+            "category": "entry-point",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ky-4",
+          "question": "How does ky implement request timeouts?",
+          "queryTerms": [
+            "ky",
+            "request",
+            "timeout"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "source/utils/timeout.ts:1-36 s=1.72",
+            "source/core/Ky.ts:177-228 s=1.48",
+            "source/errors/TimeoutError.ts:1-15 s=1.45",
+            "source/utils/type-guards.ts:80-101 s=1.31",
+            "source/types/options.ts:195-244 s=1.29"
+          ],
+          "score": {
+            "id": "ky-4",
+            "category": "flow",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0.5,
+              "3": 0.5,
+              "5": 0.5,
+              "10": 0.5
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "ky-5",
+          "question": "Which files implement the beforeRequest and afterResponse hooks?",
+          "queryTerms": [
+            "beforerequest",
+            "request",
+            "afterresponse",
+            "response",
+            "hook"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "test-d/hooks.ts:1-15 s=1.54",
+            "source/types/hooks.ts:85-137 s=1.34",
+            "test/hooks.ts:159-194 s=1.20",
+            "test-d/request-clone.ts:1-19 s=1.13",
+            "test/hooks.ts:5296-5327 s=1.02"
+          ],
+          "score": {
+            "id": "ky-5",
+            "category": "files",
+            "negative": false,
+            "firstHitRank": 2,
+            "hitAtK": {
+              "1": false,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0.5,
+              "5": 0.5,
+              "10": 0.5
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "ky-6",
+          "question": "Which modules import HTTPError?",
+          "queryTerms": [
+            "httperror",
+            "http",
+            "error"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "source/errors/HTTPError.ts:1-34 s=1.92",
+            "source/errors/KyError.ts:1-14 s=1.91",
+            "test/http-error.ts:130-149 s=1.50",
+            "test/http-error.ts:228-243 s=1.49",
+            "test/http-error.ts:523-542 s=1.49"
+          ],
+          "score": {
+            "id": "ky-6",
+            "category": "imports",
+            "negative": false,
+            "firstHitRank": 8,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0.3333333333333333
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ky-7",
+          "question": "Where is `create` defined?",
+          "queryTerms": [
+            "create"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "test/helpers/create-large-file.ts:1-7 s=1.40",
+            "test/helpers/index.ts:1-4 s=1.33",
+            "test/stream.ts:1-23 s=1.33",
+            "test/main.ts:2514-2546 s=1.31",
+            "test/request-body-serialization.ts:1-22 s=1.27"
+          ],
+          "score": {
+            "id": "ky-7",
+            "category": "ambiguous",
+            "negative": false,
+            "firstHitRank": 9,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0.5
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ky-8",
+          "question": "How does ky manage PostgreSQL connection pooling?",
+          "queryTerms": [
+            "ky",
+            "manage",
+            "postgresql",
+            "postgre",
+            "sql",
+            "connection",
+            "pooling"
+          ],
+          "unmatchedTerms": [
+            "manage",
+            "postgresql",
+            "postgre",
+            "sql",
+            "pooling"
+          ],
+          "top": [
+            "source/core/Ky.ts:1241-1258 s=1.23",
+            "source/errors/NetworkError.ts:1-19 s=1.18",
+            "source/utils/is-network-error.ts:1-49 s=1.03",
+            "test/hooks.ts:2351-2380 s=1.00",
+            "test/retry.ts:3857-3898 s=0.91"
+          ],
+          "score": {
+            "id": "ky-8",
+            "category": "negative",
+            "negative": true,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        }
+      ],
+      "signals": [
+        {
+          "id": "ky-1",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.1890489181448631,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "ky-2",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.9173137069555848,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ky-3",
+          "negative": false,
+          "idfCoverage": 0.5836646837489103,
+          "topScore": 1,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "ky-4",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.71975912656077,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ky-5",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.5400401403150406,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ky-6",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.9173137069555848,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ky-7",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.3953935966128088,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "ky-8",
+          "negative": true,
+          "idfCoverage": 0.09440868632365848,
+          "topScore": 1.229445886517285,
+          "top1SymbolSignal": 0
+        }
+      ]
+    },
+    "processBWallMs": 842.5714000000007
+  },
+  "expressjs/express": {
+    "role": "medium-cjs",
+    "sha": "7ef98448f8b38099ab1ded55e458538ad47a51e7",
+    "repoSizeKb": 10001,
+    "build": {
+      "key": {
+        "owner": "expressjs",
+        "repo": "express",
+        "sha": "7ef98448f8b38099ab1ded55e458538ad47a51e7"
+      },
+      "metadata": {
+        "requests": 0,
+        "ms": 0.004300000000000637,
+        "sizeKb": null,
+        "defaultBranch": null
+      },
+      "tarball": {
+        "requests": 1,
+        "headersMs": 281.5811,
+        "restCoreUsedDelta": 0
+      },
+      "ingest": {
+        "compressedBytes": 134608,
+        "uncompressedBytes": 931840,
+        "entries": 283,
+        "nonFileEntries": 69,
+        "skipped": {
+          "unsupported-extension": 69
+        },
+        "rejectedPaths": {},
+        "delivered": 145,
+        "deliveredBytes": 688460
+      },
+      "totalIngestMs": 837.6931999999999,
+      "parseMs": 455.1161000000011,
+      "indexAddMs": 196.21869999999944,
+      "streamMs": 186.3583999999994,
+      "files": {
+        "indexed": 145,
+        "byLanguage": {
+          "markdown": 4,
+          "javascript": 141
+        },
+        "byStatus": {
+          "markdown": {
+            "text": 4
+          },
+          "javascript": {
+            "ast": 141
+          }
+        },
+        "fallbackReasons": {}
+      },
+      "counts": {
+        "symbols": 595,
+        "imports": 400,
+        "exports": 61,
+        "chunks": 693,
+        "terms": 2683,
+        "relativeImports": 159,
+        "resolvedRelativeImports": 159
+      },
+      "indexFinishMs": 8.771999999999935,
+      "serialize": {
+        "jsonBytes": 193245,
+        "artifactBytes": 54358,
+        "stringifyMs": 3.921299999999974,
+        "compressMs": 11.807099999999991,
+        "writeMs": 395.00660000000016
+      },
+      "peakRssMb": 646.1
+    },
+    "processAWallMs": 2368.4922000000006,
+    "query": {
+      "repo": "expressjs/express",
+      "sha": "7ef98448f8b38099ab1ded55e458538ad47a51e7",
+      "load": {
+        "getMs": 8.781900000000007,
+        "decompressMs": 1.7356000000000336,
+        "jsonParseMs": 2.050799999999981,
+        "deriveMs": 3.7567000000000235,
+        "totalMs": 16.59910000000002,
+        "artifactBytes": 54358,
+        "rssAfterLoadMb": 62.5
+      },
+      "peakRssMb": 78.8,
+      "rssNowMb": 73.1,
+      "queries": {
+        "count": 9,
+        "medianLatencyMs": 0.578200000000038,
+        "maxLatencyMs": 1.6327999999999747
+      },
+      "variants": {
+        "bm25": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.25,
+              "3": 0.375,
+              "5": 0.375,
+              "10": 0.375
+            },
+            "itemRecallAtK": {
+              "1": 0.15625,
+              "3": 0.28125,
+              "5": 0.28125,
+              "10": 0.28125
+            },
+            "precisionAt5": 0.125,
+            "mrr": 0.29166666666666663
+          },
+          "scores": [
+            {
+              "id": "ex-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-2",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.25,
+                "3": 0.25,
+                "5": 0.25,
+                "10": 0.25
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "ex-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.375,
+              "3": 0.625,
+              "5": 0.625,
+              "10": 0.625
+            },
+            "itemRecallAtK": {
+              "1": 0.28125,
+              "3": 0.5625,
+              "5": 0.5625,
+              "10": 0.5625
+            },
+            "precisionAt5": 0.25000000000000006,
+            "mrr": 0.5
+          },
+          "scores": [
+            {
+              "id": "ex-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-2",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.25,
+                "3": 0.5,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "ex-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "ex-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "ex-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols+paths": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.375,
+              "3": 0.5,
+              "5": 0.5,
+              "10": 0.625
+            },
+            "itemRecallAtK": {
+              "1": 0.28125,
+              "3": 0.40625,
+              "5": 0.40625,
+              "10": 0.5625
+            },
+            "precisionAt5": 0.17500000000000002,
+            "mrr": 0.45535714285714285
+          },
+          "scores": [
+            {
+              "id": "ex-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-2",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.25,
+                "3": 0.25,
+                "5": 0.25,
+                "10": 0.5
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "ex-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 7,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "ex-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "full (+import expansion)": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.375,
+              "3": 0.5,
+              "5": 0.5,
+              "10": 0.625
+            },
+            "itemRecallAtK": {
+              "1": 0.28125,
+              "3": 0.40625,
+              "5": 0.40625,
+              "10": 0.5625
+            },
+            "precisionAt5": 0.15,
+            "mrr": 0.45535714285714285
+          },
+          "scores": [
+            {
+              "id": "ex-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-2",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-4",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-5",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.25,
+                "3": 0.25,
+                "5": 0.25,
+                "10": 0.5
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "ex-6",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 7,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "ex-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "ex-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "ex-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        }
+      },
+      "details": [
+        {
+          "id": "ex-1",
+          "question": "Where is res.json implemented?",
+          "queryTerms": [
+            "res",
+            "json"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "lib/response.js:223-250 s=1.89",
+            "examples/content-negotiation/users.js:16-19 s=1.84",
+            "test/res.json.js:107-156 s=1.48",
+            "test/res.json.js:57-106 s=1.48",
+            "test/res.json.js:1-56 s=1.47"
+          ],
+          "score": {
+            "id": "ex-1",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "ex-2",
+          "question": "What is the entry point of express and where is the application created?",
+          "queryTerms": [
+            "entry",
+            "point",
+            "express",
+            "application",
+            "created"
+          ],
+          "unmatchedTerms": [
+            "entry"
+          ],
+          "top": [
+            "test/res.sendStatus.js:1-44 s=1.42",
+            "test/express.raw.js:1-59 s=1.32",
+            "test/app.use.js:1-57 s=1.31",
+            "test/express.json.js:1-59 s=1.30",
+            "test/express.static.js:766-802 s=1.20"
+          ],
+          "score": {
+            "id": "ex-2",
+            "category": "entry-point",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ex-3",
+          "question": "Where does the app start listening on a port?",
+          "queryTerms": [
+            "app",
+            "start",
+            "listening",
+            "port"
+          ],
+          "unmatchedTerms": [
+            "start",
+            "listening"
+          ],
+          "top": [
+            "test/app.listen.js:1-55 s=1.06",
+            "examples/hello-world/index.js:1-15 s=1.05",
+            "examples/multi-router/index.js:1-18 s=1.01",
+            "examples/static-files/index.js:31-43 s=1.00",
+            "examples/search/index.js:68-83 s=0.96"
+          ],
+          "score": {
+            "id": "ex-3",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ex-4",
+          "question": "What happens when a request arrives, how is it dispatched to the router?",
+          "queryTerms": [
+            "request",
+            "arrive",
+            "dispatched",
+            "router"
+          ],
+          "unmatchedTerms": [
+            "arrive",
+            "dispatched"
+          ],
+          "top": [
+            "test/acceptance/multi-router.js:1-44 s=1.53",
+            "test/req.baseUrl.js:1-55 s=1.50",
+            "test/app.router.js:1-60 s=1.49",
+            "test/Router.js:1-58 s=1.45",
+            "lib/express.js:16-34 s=1.43"
+          ],
+          "score": {
+            "id": "ex-4",
+            "category": "flow",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ex-5",
+          "question": "Which files implement view rendering and template engines?",
+          "queryTerms": [
+            "view",
+            "rendering",
+            "template",
+            "engine"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "lib/view.js:51-95 s=1.36",
+            "examples/view-constructor/index.js:25-42 s=1.28",
+            "lib/view.js:35-50 s=1.20",
+            "examples/view-constructor/github-view.js:16-34 s=1.13",
+            "lib/application.js:614-631 s=1.10"
+          ],
+          "score": {
+            "id": "ex-5",
+            "category": "files",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0.25,
+              "3": 0.25,
+              "5": 0.25,
+              "10": 0.5
+            },
+            "precisionAt5": 0.4
+          }
+        },
+        {
+          "id": "ex-6",
+          "question": "Which modules import the router package?",
+          "queryTerms": [
+            "router",
+            "package"
+          ],
+          "unmatchedTerms": [
+            "package"
+          ],
+          "top": [
+            "test/Router.js:1-58 s=1.87",
+            "test/Router.js:159-208 s=1.27",
+            "test/Router.js:409-458 s=1.26",
+            "test/app.router.js:961-1010 s=1.23",
+            "test/app.router.js:1011-1060 s=1.23"
+          ],
+          "score": {
+            "id": "ex-6",
+            "category": "imports",
+            "negative": false,
+            "firstHitRank": 7,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 1
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "ex-7",
+          "question": "How is user authentication demonstrated with passwords and sessions?",
+          "queryTerms": [
+            "user",
+            "authentication",
+            "demonstrated",
+            "password",
+            "session"
+          ],
+          "unmatchedTerms": [
+            "user",
+            "authentication",
+            "demonstrated"
+          ],
+          "top": [
+            "examples/auth/index.js:1-16 s=1.21",
+            "examples/session/redis.js:1-15 s=1.16",
+            "examples/session/index.js:1-15 s=1.15",
+            "examples/auth/index.js:40-55 s=1.14",
+            "test/acceptance/auth.js:1-57 s=1.04"
+          ],
+          "score": {
+            "id": "ex-7",
+            "category": "conceptual",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.4
+          }
+        },
+        {
+          "id": "ex-8",
+          "question": "Where is `send` defined?",
+          "queryTerms": [
+            "send"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "lib/response.js:31-48 s=1.79",
+            "lib/response.js:125-175 s=1.59",
+            "test/res.send.js:1-61 s=1.50",
+            "test/res.send.js:462-511 s=1.48",
+            "test/res.sendStatus.js:1-44 s=1.44"
+          ],
+          "score": {
+            "id": "ex-8",
+            "category": "ambiguous",
+            "negative": false,
+            "firstHitRank": 2,
+            "hitAtK": {
+              "1": false,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "ex-9",
+          "question": "Where is the Kubernetes autoscaler configured?",
+          "queryTerms": [
+            "kubernete",
+            "autoscaler",
+            "configured"
+          ],
+          "unmatchedTerms": [
+            "kubernete",
+            "autoscaler",
+            "configured"
+          ],
+          "top": [],
+          "score": {
+            "id": "ex-9",
+            "category": "negative",
+            "negative": true,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        }
+      ],
+      "signals": [
+        {
+          "id": "ex-1",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.8853019529113397,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "ex-2",
+          "negative": false,
+          "idfCoverage": 0.6234751720449433,
+          "topScore": 1.420799324152978,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ex-3",
+          "negative": false,
+          "idfCoverage": 0.25389734427215654,
+          "topScore": 1.0553112294157476,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "ex-4",
+          "negative": false,
+          "idfCoverage": 0.1703154832642898,
+          "topScore": 1.5294799658092915,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ex-5",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.3628577653196277,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ex-6",
+          "negative": false,
+          "idfCoverage": 0.36092950512241545,
+          "topScore": 1.8717286015115104,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ex-7",
+          "negative": false,
+          "idfCoverage": 0.3443601448306021,
+          "topScore": 1.2112447807020854,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "ex-8",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.7914919370582951,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "ex-9",
+          "negative": true,
+          "idfCoverage": 0,
+          "topScore": 0,
+          "top1SymbolSignal": 0
+        }
+      ]
+    },
+    "processBWallMs": 982.8446000000004
+  },
+  "vercel/commerce": {
+    "role": "medium-app-tsx",
+    "sha": "3761e52e60df9c6a316e067dbfd7032e494d3634",
+    "repoSizeKb": 11114,
+    "build": {
+      "key": {
+        "owner": "vercel",
+        "repo": "commerce",
+        "sha": "3761e52e60df9c6a316e067dbfd7032e494d3634"
+      },
+      "metadata": {
+        "requests": 0,
+        "ms": 0.0027000000000043656,
+        "sizeKb": null,
+        "defaultBranch": null
+      },
+      "tarball": {
+        "requests": 1,
+        "headersMs": 303.2442,
+        "restCoreUsedDelta": 0
+      },
+      "ingest": {
+        "compressedBytes": 207923,
+        "uncompressedBytes": 573440,
+        "entries": 103,
+        "nonFileEntries": 25,
+        "skipped": {
+          "unsupported-extension": 7,
+          "binary-extension": 2,
+          "lockfile": 1
+        },
+        "rejectedPaths": {},
+        "delivered": 68,
+        "deliveredBytes": 113835
+      },
+      "totalIngestMs": 549.7193,
+      "parseMs": 381.08489999999915,
+      "indexAddMs": 87.95049999999992,
+      "streamMs": 80.6839000000009,
+      "files": {
+        "indexed": 68,
+        "byLanguage": {
+          "markdown": 2,
+          "tsx": 45,
+          "typescript": 20,
+          "javascript": 1
+        },
+        "byStatus": {
+          "markdown": {
+            "text": 2
+          },
+          "tsx": {
+            "ast": 45
+          },
+          "typescript": {
+            "ast": 20
+          },
+          "javascript": {
+            "ast": 1
+          }
+        },
+        "fallbackReasons": {}
+      },
+      "counts": {
+        "symbols": 188,
+        "imports": 210,
+        "exports": 148,
+        "chunks": 143,
+        "terms": 1186,
+        "relativeImports": 39,
+        "resolvedRelativeImports": 38
+      },
+      "indexFinishMs": 36.78320000000008,
+      "serialize": {
+        "jsonBytes": 65264,
+        "artifactBytes": 18149,
+        "stringifyMs": 4.668899999999894,
+        "compressMs": 13.230299999999943,
+        "writeMs": 98.15480000000002
+      },
+      "peakRssMb": 866.8
+    },
+    "processAWallMs": 47632.6771,
+    "query": {
+      "repo": "vercel/commerce",
+      "sha": "3761e52e60df9c6a316e067dbfd7032e494d3634",
+      "load": {
+        "getMs": 18.35719999999992,
+        "decompressMs": 5.1539000000000215,
+        "jsonParseMs": 1.2842000000000553,
+        "deriveMs": 2.8921000000000276,
+        "totalMs": 28.054999999999836,
+        "artifactBytes": 18149,
+        "rssAfterLoadMb": 62.1
+      },
+      "peakRssMb": 64.9,
+      "rssNowMb": 62.4,
+      "queries": {
+        "count": 9,
+        "medianLatencyMs": 0.5195000000001073,
+        "maxLatencyMs": 0.9665999999999713
+      },
+      "variants": {
+        "bm25": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.375,
+              "3": 0.5,
+              "5": 0.625,
+              "10": 0.75
+            },
+            "itemRecallAtK": {
+              "1": 0.22916666666666666,
+              "3": 0.35416666666666663,
+              "5": 0.5833333333333333,
+              "10": 0.75
+            },
+            "precisionAt5": 0.22499999999999998,
+            "mrr": 0.46874999999999994
+          },
+          "scores": [
+            {
+              "id": "co-1",
+              "category": "endpoint",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0.5,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "co-3",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.3333333333333333,
+                "3": 0.3333333333333333,
+                "5": 0.6666666666666666,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-4",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "co-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-6",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 6,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "co-8",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 4,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.625,
+              "3": 0.75,
+              "5": 0.75,
+              "10": 1
+            },
+            "itemRecallAtK": {
+              "1": 0.41666666666666663,
+              "3": 0.5104166666666666,
+              "5": 0.5729166666666667,
+              "10": 0.90625
+            },
+            "precisionAt5": 0.2,
+            "mrr": 0.7261904761904763
+          },
+          "scores": [
+            {
+              "id": "co-1",
+              "category": "endpoint",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 0.5,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-3",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.3333333333333333,
+                "3": 0.3333333333333333,
+                "5": 0.3333333333333333,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-4",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0.25,
+                "5": 0.25,
+                "10": 0.25
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-6",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 7,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "co-8",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 6,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "co-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols+paths": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.75,
+              "3": 0.75,
+              "5": 1,
+              "10": 1
+            },
+            "itemRecallAtK": {
+              "1": 0.44791666666666663,
+              "3": 0.5520833333333333,
+              "5": 0.8020833333333333,
+              "10": 0.8645833333333333
+            },
+            "precisionAt5": 0.30000000000000004,
+            "mrr": 0.80625
+          },
+          "scores": [
+            {
+              "id": "co-1",
+              "category": "endpoint",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 0.5,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-3",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.3333333333333333,
+                "3": 0.6666666666666666,
+                "5": 0.6666666666666666,
+                "10": 0.6666666666666666
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "co-4",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.25,
+                "3": 0.25,
+                "5": 0.25,
+                "10": 0.25
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-6",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 5,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-8",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 4,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0.5,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "full (+import expansion)": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.875,
+              "3": 0.875,
+              "5": 1,
+              "10": 1
+            },
+            "itemRecallAtK": {
+              "1": 0.5729166666666666,
+              "3": 0.6770833333333333,
+              "5": 0.8020833333333333,
+              "10": 0.8020833333333333
+            },
+            "precisionAt5": 0.30000000000000004,
+            "mrr": 0.9
+          },
+          "scores": [
+            {
+              "id": "co-1",
+              "category": "endpoint",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 0.5,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-3",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.3333333333333333,
+                "3": 0.6666666666666666,
+                "5": 0.6666666666666666,
+                "10": 0.6666666666666666
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "co-4",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.25,
+                "3": 0.25,
+                "5": 0.25,
+                "10": 0.25
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-6",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0.5,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "co-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-8",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 5,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0.5,
+                "10": 0.5
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "co-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        }
+      },
+      "details": [
+        {
+          "id": "co-1",
+          "question": "Where is the revalidate API endpoint defined?",
+          "queryTerms": [
+            "revalidate",
+            "api",
+            "endpoint"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "lib/shopify/index.ts:504-543 s=1.42",
+            "lib/constants.ts:42-51 s=1.35",
+            "lib/shopify/index.ts:60-123 s=1.31",
+            "app/api/revalidate/route.ts:1-6 s=1.10",
+            "lib/shopify/index.ts:1-20 s=1.00"
+          ],
+          "score": {
+            "id": "co-1",
+            "category": "endpoint",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0.5,
+              "3": 0.5,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.4
+          }
+        },
+        {
+          "id": "co-2",
+          "question": "Where is shopifyFetch implemented?",
+          "queryTerms": [
+            "shopifyfetch",
+            "shopify",
+            "fetch"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "lib/shopify/index.ts:60-123 s=1.64",
+            "lib/shopify/index.ts:425-441 s=1.50",
+            "lib/shopify/index.ts:219-240 s=1.42",
+            "lib/shopify/types.ts:137-164 s=0.59",
+            "lib/shopify/fragments/cart.ts:1-51 s=0.50"
+          ],
+          "score": {
+            "id": "co-2",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "co-3",
+          "question": "What happens when a user adds an item to the cart?",
+          "queryTerms": [
+            "user",
+            "add",
+            "item",
+            "cart"
+          ],
+          "unmatchedTerms": [
+            "user"
+          ],
+          "top": [
+            "components/cart/actions.ts:1-29 s=1.71",
+            "components/cart/cart-context.tsx:192-238 s=1.39",
+            "components/cart/add-to-cart.tsx:59-94 s=1.29",
+            "components/cart/add-to-cart.tsx:1-58 s=1.20",
+            "lib/shopify/types.ts:1-20 s=1.06"
+          ],
+          "score": {
+            "id": "co-3",
+            "category": "flow",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0.3333333333333333,
+              "3": 0.6666666666666666,
+              "5": 0.6666666666666666,
+              "10": 0.6666666666666666
+            },
+            "precisionAt5": 0.6
+          }
+        },
+        {
+          "id": "co-4",
+          "question": "Which files implement the product page?",
+          "queryTerms": [
+            "product",
+            "page"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "app/product/[handle]/page.tsx:49-111 s=1.65",
+            "app/[page]/page.tsx:25-50 s=1.53",
+            "lib/shopify/types.ts:235-252 s=1.27",
+            "lib/shopify/index.ts:425-441 s=1.10",
+            "lib/shopify/types.ts:54-69 s=1.07"
+          ],
+          "score": {
+            "id": "co-4",
+            "category": "files",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0.25,
+              "3": 0.25,
+              "5": 0.25,
+              "10": 0.25
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "co-5",
+          "question": "Where does the redirect to checkout happen?",
+          "queryTerms": [
+            "redirect",
+            "checkout"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "components/cart/actions.ts:97-106 s=1.32",
+            "components/cart/modal.tsx:243-256 s=0.77",
+            "components/cart/modal.tsx:1-15 s=0.63",
+            "components/cart/modal.tsx:174-223 s=0.54",
+            "components/cart/cart-context.tsx:118-191 s=0.36"
+          ],
+          "score": {
+            "id": "co-5",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "co-6",
+          "question": "What is the entry point of the app, where is the home page and root layout?",
+          "queryTerms": [
+            "entry",
+            "point",
+            "app",
+            "home",
+            "page",
+            "root",
+            "layout"
+          ],
+          "unmatchedTerms": [
+            "entry",
+            "point",
+            "app"
+          ],
+          "top": [
+            "app/page.tsx:1-21 s=1.94",
+            "app/layout.tsx:24-47 s=1.54",
+            "app/[page]/layout.tsx:1-12 s=1.48",
+            "app/[page]/page.tsx:25-50 s=1.27",
+            "app/search/layout.tsx:1-31 s=1.03"
+          ],
+          "score": {
+            "id": "co-6",
+            "category": "entry-point",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0.5,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.4
+          }
+        },
+        {
+          "id": "co-7",
+          "question": "How is cart state managed on the client?",
+          "queryTerms": [
+            "cart",
+            "state",
+            "managed",
+            "client"
+          ],
+          "unmatchedTerms": [
+            "managed"
+          ],
+          "top": [
+            "components/cart/cart-context.tsx:1-15 s=1.63",
+            "components/cart/actions.ts:30-52 s=1.60",
+            "components/cart/modal.tsx:1-15 s=1.50",
+            "components/cart/delete-item-button.tsx:1-38 s=1.46",
+            "components/cart/edit-item-quantity-button.tsx:1-30 s=1.37"
+          ],
+          "score": {
+            "id": "co-7",
+            "category": "conceptual",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "co-8",
+          "question": "Which files import getCart from the shopify module?",
+          "queryTerms": [
+            "getcart",
+            "cart",
+            "shopify"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "lib/shopify/index.ts:269-292 s=1.90",
+            "lib/shopify/queries/cart.ts:1-10 s=1.42",
+            "lib/shopify/mutations/cart.ts:1-23 s=1.33",
+            "components/cart/actions.ts:97-106 s=1.18",
+            "components/cart/actions.ts:1-29 s=1.17"
+          ],
+          "score": {
+            "id": "co-8",
+            "category": "imports",
+            "negative": false,
+            "firstHitRank": 5,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0.5,
+              "10": 0.5
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "co-9",
+          "question": "Where are user authentication and login implemented?",
+          "queryTerms": [
+            "user",
+            "authentication",
+            "login"
+          ],
+          "unmatchedTerms": [
+            "authentication",
+            "login"
+          ],
+          "top": [
+            "app/robots.ts:1-13 s=1.00"
+          ],
+          "score": {
+            "id": "co-9",
+            "category": "negative",
+            "negative": true,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        }
+      ],
+      "signals": [
+        {
+          "id": "co-1",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.4163767292111404,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "co-2",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.6391815671976286,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "co-3",
+          "negative": false,
+          "idfCoverage": 0.4777787165391673,
+          "topScore": 1.7142332661128785,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "co-4",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.6498782731362973,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "co-5",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.3158680155424338,
+          "top1SymbolSignal": 0.5264466925707231
+        },
+        {
+          "id": "co-6",
+          "negative": false,
+          "idfCoverage": 0.49824147439522065,
+          "topScore": 1.939974425177391,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "co-7",
+          "negative": false,
+          "idfCoverage": 0.49864147010162296,
+          "topScore": 1.6270036565129262,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "co-8",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.9,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "co-9",
+          "negative": true,
+          "idfCoverage": 0.28724171679421256,
+          "topScore": 1,
+          "top1SymbolSignal": 0
+        }
+      ]
+    },
+    "processBWallMs": 1955.4310000000041
+  },
+  "vitejs/vite": {
+    "role": "monorepo",
+    "sha": "10033218d239c927cdc375970b5741cce408e81b",
+    "repoSizeKb": 74962,
+    "build": {
+      "key": {
+        "owner": "vitejs",
+        "repo": "vite",
+        "sha": "10033218d239c927cdc375970b5741cce408e81b"
+      },
+      "metadata": {
+        "requests": 0,
+        "ms": 0.016499999999950887,
+        "sizeKb": null,
+        "defaultBranch": null
+      },
+      "tarball": {
+        "requests": 1,
+        "headersMs": 468.7731,
+        "restCoreUsedDelta": 0
+      },
+      "ingest": {
+        "compressedBytes": 12974720,
+        "uncompressedBytes": 20520960,
+        "entries": 3755,
+        "nonFileEntries": 919,
+        "skipped": {
+          "unsupported-extension": 1051,
+          "binary-extension": 88,
+          "minified-name": 12,
+          "vendored": 19,
+          "minified-content": 1,
+          "lockfile": 1
+        },
+        "rejectedPaths": {},
+        "delivered": 1664,
+        "deliveredBytes": 4442737
+      },
+      "totalIngestMs": 35054.698000000004,
+      "parseMs": 12692.641499999996,
+      "indexAddMs": 16611.28350000004,
+      "streamMs": 5750.772999999965,
+      "files": {
+        "indexed": 1664,
+        "byLanguage": {
+          "markdown": 84,
+          "typescript": 583,
+          "javascript": 980,
+          "tsx": 17
+        },
+        "byStatus": {
+          "markdown": {
+            "text": 84
+          },
+          "typescript": {
+            "ast": 576,
+            "ast-with-errors": 7
+          },
+          "javascript": {
+            "ast": 979,
+            "ast-with-errors": 1
+          },
+          "tsx": {
+            "ast": 17
+          }
+        },
+        "fallbackReasons": {}
+      },
+      "counts": {
+        "symbols": 3682,
+        "imports": 3835,
+        "exports": 2452,
+        "chunks": 4610,
+        "terms": 18690,
+        "relativeImports": 2077,
+        "resolvedRelativeImports": 1809
+      },
+      "indexFinishMs": 102.51759999999922,
+      "serialize": {
+        "jsonBytes": 1881755,
+        "artifactBytes": 511571,
+        "stringifyMs": 45.22650000000431,
+        "compressMs": 166.20379999999568,
+        "writeMs": 143.21420000000217
+      },
+      "peakRssMb": 1055.7
+    },
+    "processAWallMs": 37773.46419999999,
+    "query": {
+      "repo": "vitejs/vite",
+      "sha": "10033218d239c927cdc375970b5741cce408e81b",
+      "load": {
+        "getMs": 13.116800000000012,
+        "decompressMs": 18.227700000000027,
+        "jsonParseMs": 41.880499999999984,
+        "deriveMs": 89.19629999999995,
+        "totalMs": 163.11379999999997,
+        "artifactBytes": 511571,
+        "rssAfterLoadMb": 84.6
+      },
+      "peakRssMb": 124.4,
+      "rssNowMb": 124.4,
+      "queries": {
+        "count": 10,
+        "medianLatencyMs": 8.827000000000226,
+        "maxLatencyMs": 24.916299999999865
+      },
+      "variants": {
+        "bm25": {
+          "aggregate": {
+            "questions": 9,
+            "hitAtK": {
+              "1": 0.2222222222222222,
+              "3": 0.4444444444444444,
+              "5": 0.4444444444444444,
+              "10": 0.5555555555555556
+            },
+            "itemRecallAtK": {
+              "1": 0.2222222222222222,
+              "3": 0.4444444444444444,
+              "5": 0.4444444444444444,
+              "10": 0.5555555555555556
+            },
+            "precisionAt5": 0.08888888888888889,
+            "mrr": 0.3101851851851852
+          },
+          "scores": [
+            {
+              "id": "vi-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-6",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-7",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 8,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-8",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-9",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-10",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols": {
+          "aggregate": {
+            "questions": 9,
+            "hitAtK": {
+              "1": 0.2222222222222222,
+              "3": 0.5555555555555556,
+              "5": 0.5555555555555556,
+              "10": 0.5555555555555556
+            },
+            "itemRecallAtK": {
+              "1": 0.2222222222222222,
+              "3": 0.5555555555555556,
+              "5": 0.5555555555555556,
+              "10": 0.5555555555555556
+            },
+            "precisionAt5": 0.15555555555555556,
+            "mrr": 0.35185185185185186
+          },
+          "scores": [
+            {
+              "id": "vi-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-6",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-7",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-8",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "vi-9",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-10",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols+paths": {
+          "aggregate": {
+            "questions": 9,
+            "hitAtK": {
+              "1": 0.3333333333333333,
+              "3": 0.6666666666666666,
+              "5": 0.6666666666666666,
+              "10": 0.6666666666666666
+            },
+            "itemRecallAtK": {
+              "1": 0.3333333333333333,
+              "3": 0.6666666666666666,
+              "5": 0.6666666666666666,
+              "10": 0.6666666666666666
+            },
+            "precisionAt5": 0.2222222222222222,
+            "mrr": 0.462962962962963
+          },
+          "scores": [
+            {
+              "id": "vi-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-6",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "vi-7",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-8",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 2,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "vi-9",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-10",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "full (+import expansion)": {
+          "aggregate": {
+            "questions": 9,
+            "hitAtK": {
+              "1": 0.3333333333333333,
+              "3": 0.6666666666666666,
+              "5": 0.6666666666666666,
+              "10": 0.6666666666666666
+            },
+            "itemRecallAtK": {
+              "1": 0.3333333333333333,
+              "3": 0.6666666666666666,
+              "5": 0.6666666666666666,
+              "10": 0.6666666666666666
+            },
+            "precisionAt5": 0.2,
+            "mrr": 0.4444444444444444
+          },
+          "scores": [
+            {
+              "id": "vi-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "vi-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-6",
+              "category": "files",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.4
+            },
+            {
+              "id": "vi-7",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-8",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.6
+            },
+            {
+              "id": "vi-9",
+              "category": "imports",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "vi-10",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        }
+      },
+      "details": [
+        {
+          "id": "vi-1",
+          "question": "Where is the dev server created?",
+          "queryTerms": [
+            "dev",
+            "server",
+            "created"
+          ],
+          "unmatchedTerms": [
+            "created"
+          ],
+          "top": [
+            "playground/hmr-full-bundle-mode/__tests__/build-hooks.spec.ts:1-15 s=1.19",
+            "playground/vitestSetup.ts:75-90 s=1.19",
+            "packages/vite/src/node/__tests__/optimizer/customExtensionBundleClose.spec.ts:1-16 s=1.18",
+            "packages/vite/src/node/__tests__/optimizer/discoverBeforeListen.spec.ts:1-15 s=1.17",
+            "playground/hmr-ssr/__tests__/hmr-ssr.spec.ts:21-35 s=1.13"
+          ],
+          "score": {
+            "id": "vi-1",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "vi-2",
+          "question": "Where is resolveConfig implemented?",
+          "queryTerms": [
+            "resolveconfig",
+            "resolve",
+            "config"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/vite/src/node/config.ts:1488-1538 s=1.43",
+            "packages/vite/src/node/build.ts:567-595 s=1.11",
+            "packages/vite/src/node/plugins/index.ts:36-91 s=1.08",
+            "packages/vite/src/node/__tests__/config.spec.ts:1328-1378 s=1.00",
+            "packages/vite/src/node/__tests__/config.spec.ts:1379-1428 s=0.99"
+          ],
+          "score": {
+            "id": "vi-2",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "vi-3",
+          "question": "Where is hot module replacement handled on the server?",
+          "queryTerms": [
+            "hot",
+            "replacement",
+            "server"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/vite/src/node/plugins/clientInjections.ts:72-145 s=1.20",
+            "docs/guide/api-hmr.md:251-260 s=1.00",
+            "packages/vite/src/node/utils.ts:1641-1677 s=0.93",
+            "playground/client-reload/__tests__/client-reload.spec.ts:1-45 s=0.85",
+            "packages/vite/src/node/__tests__/optimizer/customExtensionBundleClose.spec.ts:1-16 s=0.85"
+          ],
+          "score": {
+            "id": "vi-3",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "vi-4",
+          "question": "What is the command line entry point?",
+          "queryTerms": [
+            "command",
+            "line",
+            "entry",
+            "point"
+          ],
+          "unmatchedTerms": [
+            "command"
+          ],
+          "top": [
+            "scripts/mergeChangelog.ts:184-199 s=1.12",
+            "packages/vite/src/node/plugins/resolve.ts:962-1001 s=1.00",
+            "packages/vite/src/node/utils.ts:214-230 s=1.00",
+            "packages/vite/src/node/plugins/resolve.ts:911-961 s=1.00",
+            "packages/vite/src/node/optimizer/index.ts:176-195 s=0.96"
+          ],
+          "score": {
+            "id": "vi-4",
+            "category": "entry-point",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "vi-5",
+          "question": "Where is the production build function implemented?",
+          "queryTerms": [
+            "production",
+            "build"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/vite/src/node/build.ts:567-595 s=2.10",
+            "packages/vite/src/node/config.ts:2089-2138 s=1.40",
+            "packages/vite/src/node/__tests__/build.spec.ts:1408-1458 s=1.36",
+            "packages/vite/src/node/plugins/importAnalysisBuild.ts:1-19 s=1.31",
+            "packages/vite/src/node/plugins/index.ts:92-141 s=1.30"
+          ],
+          "score": {
+            "id": "vi-5",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "vi-6",
+          "question": "Which files implement CSS processing?",
+          "queryTerms": [
+            "css",
+            "processing"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/vite/src/node/plugins/css.ts:1583-1633 s=1.42",
+            "packages/vite/src/node/constants.ts:210-227 s=1.11",
+            "docs/guide/api-javascript.md:451-489 s=1.00",
+            "packages/vite/src/node/__tests__/plugins/css.spec.ts:70-146 s=0.94",
+            "packages/vite/src/node/plugins/css.ts:2181-2215 s=0.94"
+          ],
+          "score": {
+            "id": "vi-6",
+            "category": "files",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.4
+          }
+        },
+        {
+          "id": "vi-7",
+          "question": "Which package scaffolds a new project from templates?",
+          "queryTerms": [
+            "package",
+            "scaffold",
+            "project",
+            "template"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/create-vite/__tests__/cli.spec.ts:34-51 s=1.08",
+            "docs/guide/index.md:101-150 s=1.00",
+            "packages/create-vite/src/index.ts:404-430 s=0.98",
+            "packages/create-vite/README.md:51-92 s=0.97",
+            "packages/create-vite/__tests__/cli.spec.ts:174-194 s=0.96"
+          ],
+          "score": {
+            "id": "vi-7",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 3,
+            "hitAtK": {
+              "1": false,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "vi-8",
+          "question": "Where is the WebSocket server for HMR created?",
+          "queryTerms": [
+            "websocket",
+            "web",
+            "socket",
+            "server",
+            "hmr",
+            "created"
+          ],
+          "unmatchedTerms": [
+            "created"
+          ],
+          "top": [
+            "packages/vite/src/node/server/index.ts:118-168 s=1.50",
+            "packages/vite/src/client/client.ts:32-110 s=1.29",
+            "packages/vite/src/node/server/ws.ts:74-89 s=1.29",
+            "packages/vite/src/node/server/ws.ts:35-73 s=1.25",
+            "packages/vite/src/node/server/ws.ts:20-34 s=1.19"
+          ],
+          "score": {
+            "id": "vi-8",
+            "category": "flow",
+            "negative": false,
+            "firstHitRank": 3,
+            "hitAtK": {
+              "1": false,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.6
+          }
+        },
+        {
+          "id": "vi-9",
+          "question": "Which command in the CLI creates the dev server?",
+          "queryTerms": [
+            "command",
+            "cli",
+            "create",
+            "dev",
+            "server"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/vite/src/node/server/index.ts:512-562 s=1.21",
+            "packages/create-vite/__tests__/cli.spec.ts:1-15 s=1.17",
+            "packages/vite/src/node/cli.ts:200-251 s=1.14",
+            "packages/vite/src/node/__tests__/optimizer/discoverBeforeListen.spec.ts:1-15 s=1.11",
+            "packages/vite/src/node/ssr/__tests__/ssrLoadModule.spec.ts:1-23 s=1.10"
+          ],
+          "score": {
+            "id": "vi-9",
+            "category": "imports",
+            "negative": false,
+            "firstHitRank": 3,
+            "hitAtK": {
+              "1": false,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "vi-10",
+          "question": "Where is the Vue single-file component compiler implemented?",
+          "queryTerms": [
+            "vue",
+            "single",
+            "component",
+            "compiler"
+          ],
+          "unmatchedTerms": [
+            "single",
+            "compiler"
+          ],
+          "top": [
+            "playground/optimize-deps/vite.config.js:77-104 s=1.38",
+            "docs/.vitepress/theme/index.ts:1-33 s=1.00",
+            "playground/shims.d.ts:1-15 s=0.97",
+            "docs/guide/performance.md:51-100 s=0.90",
+            "docs/plugins/index.md:1-50 s=0.83"
+          ],
+          "score": {
+            "id": "vi-10",
+            "category": "negative",
+            "negative": true,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        }
+      ],
+      "signals": [
+        {
+          "id": "vi-1",
+          "negative": false,
+          "idfCoverage": 0.3925804230392408,
+          "topScore": 1.1948008942525785,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "vi-2",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.4309295982250037,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "vi-3",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.1997123145361102,
+          "top1SymbolSignal": 0.5132629052572494
+        },
+        {
+          "id": "vi-4",
+          "negative": false,
+          "idfCoverage": 0.7355382434988313,
+          "topScore": 1.1153826573324435,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "vi-5",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 2.1,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "vi-6",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.420392837251137,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "vi-7",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.080927997101862,
+          "top1SymbolSignal": 0.7551336312216147
+        },
+        {
+          "id": "vi-8",
+          "negative": false,
+          "idfCoverage": 0.7536289560804275,
+          "topScore": 1.497098374526523,
+          "top1SymbolSignal": 0.5224250323446162
+        },
+        {
+          "id": "vi-9",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.2098346740422177,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "vi-10",
+          "negative": true,
+          "idfCoverage": 0.47986124339368535,
+          "topScore": 1.380378843062752,
+          "top1SymbolSignal": 0.7376049152784512
+        }
+      ]
+    },
+    "processBWallMs": 2460.3782999999967
+  },
+  "facebook/react": {
+    "role": "large",
+    "sha": "7c6ac13e19fef500b7f669a16bbd01ecc95965ca",
+    "repoSizeKb": 1099578,
+    "build": {
+      "key": {
+        "owner": "facebook",
+        "repo": "react",
+        "sha": "7c6ac13e19fef500b7f669a16bbd01ecc95965ca"
+      },
+      "metadata": {
+        "requests": 0,
+        "ms": 0.005799999999908323,
+        "sizeKb": null,
+        "defaultBranch": null
+      },
+      "tarball": {
+        "requests": 1,
+        "headersMs": 423.60709999999995,
+        "restCoreUsedDelta": -17
+      },
+      "ingest": {
+        "compressedBytes": 10275174,
+        "uncompressedBytes": 46561280,
+        "entries": 7894,
+        "nonFileEntries": 642,
+        "skipped": {
+          "unsupported-extension": 607,
+          "lockfile": 48,
+          "minified-content": 8,
+          "binary-extension": 47,
+          "minified-name": 84,
+          "generated": 1
+        },
+        "rejectedPaths": {},
+        "delivered": 6457,
+        "deliveredBytes": 26833967
+      },
+      "totalIngestMs": 79570.935,
+      "parseMs": 18927.377699999903,
+      "indexAddMs": 11678.271600000062,
+      "streamMs": 48965.28570000004,
+      "files": {
+        "indexed": 6457,
+        "byLanguage": {
+          "markdown": 2013,
+          "javascript": 3901,
+          "typescript": 422,
+          "tsx": 121
+        },
+        "byStatus": {
+          "markdown": {
+            "text": 2013
+          },
+          "javascript": {
+            "ast": 2962,
+            "ast-with-errors": 939
+          },
+          "typescript": {
+            "ast": 422
+          },
+          "tsx": {
+            "ast": 119,
+            "fallback": 1,
+            "ast-with-errors": 1
+          }
+        },
+        "fallbackReasons": {
+          "parse-timeout": 1
+        }
+      },
+      "counts": {
+        "symbols": 16674,
+        "imports": 11068,
+        "exports": 7843,
+        "chunks": 26438,
+        "terms": 44691,
+        "relativeImports": 4359,
+        "resolvedRelativeImports": 3986
+      },
+      "indexFinishMs": 139.38009999999485,
+      "serialize": {
+        "jsonBytes": 9002238,
+        "artifactBytes": 2075612,
+        "stringifyMs": 118.0563000000111,
+        "compressMs": 510.736699999994,
+        "writeMs": 23.346900000004098
+      },
+      "peakRssMb": 1348.3
+    },
+    "processAWallMs": 83237.7037,
+    "query": {
+      "repo": "facebook/react",
+      "sha": "7c6ac13e19fef500b7f669a16bbd01ecc95965ca",
+      "load": {
+        "getMs": 10.195299999999975,
+        "decompressMs": 40.11699999999996,
+        "jsonParseMs": 100.57370000000003,
+        "deriveMs": 168.35000000000002,
+        "totalMs": 319.6231,
+        "artifactBytes": 2075612,
+        "rssAfterLoadMb": 163.7
+      },
+      "peakRssMb": 278.6,
+      "rssNowMb": 264.4,
+      "queries": {
+        "count": 9,
+        "medianLatencyMs": 11.983899999999949,
+        "maxLatencyMs": 41.621599999999944
+      },
+      "variants": {
+        "bm25": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0.125
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0.125
+            },
+            "precisionAt5": 0,
+            "mrr": 0.013888888888888888
+          },
+          "scores": [
+            {
+              "id": "re-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 9,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 1
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-6",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.125,
+              "3": 0.125,
+              "5": 0.125,
+              "10": 0.125
+            },
+            "itemRecallAtK": {
+              "1": 0.125,
+              "3": 0.125,
+              "5": 0.125,
+              "10": 0.125
+            },
+            "precisionAt5": 0.025,
+            "mrr": 0.125
+          },
+          "scores": [
+            {
+              "id": "re-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-6",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "re-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "bm25+symbols+paths": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.125,
+              "3": 0.25,
+              "5": 0.25,
+              "10": 0.25
+            },
+            "itemRecallAtK": {
+              "1": 0.125,
+              "3": 0.25,
+              "5": 0.25,
+              "10": 0.25
+            },
+            "precisionAt5": 0.05,
+            "mrr": 0.16666666666666666
+          },
+          "scores": [
+            {
+              "id": "re-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "re-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-6",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "re-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        },
+        "full (+import expansion)": {
+          "aggregate": {
+            "questions": 8,
+            "hitAtK": {
+              "1": 0.125,
+              "3": 0.25,
+              "5": 0.25,
+              "10": 0.25
+            },
+            "itemRecallAtK": {
+              "1": 0.125,
+              "3": 0.25,
+              "5": 0.25,
+              "10": 0.25
+            },
+            "precisionAt5": 0.05,
+            "mrr": 0.16666666666666666
+          },
+          "scores": [
+            {
+              "id": "re-1",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-2",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": 3,
+              "hitAtK": {
+                "1": false,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "re-3",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-4",
+              "category": "entry-point",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-5",
+              "category": "where",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-6",
+              "category": "flow",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-7",
+              "category": "conceptual",
+              "negative": false,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            },
+            {
+              "id": "re-8",
+              "category": "ambiguous",
+              "negative": false,
+              "firstHitRank": 1,
+              "hitAtK": {
+                "1": true,
+                "3": true,
+                "5": true,
+                "10": true
+              },
+              "itemRecallAtK": {
+                "1": 1,
+                "3": 1,
+                "5": 1,
+                "10": 1
+              },
+              "precisionAt5": 0.2
+            },
+            {
+              "id": "re-9",
+              "category": "negative",
+              "negative": true,
+              "firstHitRank": null,
+              "hitAtK": {
+                "1": false,
+                "3": false,
+                "5": false,
+                "10": false
+              },
+              "itemRecallAtK": {
+                "1": 0,
+                "3": 0,
+                "5": 0,
+                "10": 0
+              },
+              "precisionAt5": 0
+            }
+          ]
+        }
+      },
+      "details": [
+        {
+          "id": "re-1",
+          "question": "Where is useState implemented?",
+          "queryTerms": [
+            "usestate",
+            "state"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/globals-dont-resolve-local-useState.js:1-18 s=1.87",
+            "packages/react-reconciler/src/__tests__/ActivityErrorHandling-test.js:1-58 s=1.73",
+            "packages/react-reconciler/src/__tests__/ReactInterleavedUpdates-test.js:1-61 s=1.71",
+            "packages/react-dom/src/__tests__/ReactDOMActivity-test.js:16-74 s=1.70",
+            "packages/react/src/__tests__/ReactStartTransition-test.js:16-83 s=1.69"
+          ],
+          "score": {
+            "id": "re-1",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "re-2",
+          "question": "Where is beginWork implemented in the reconciler?",
+          "queryTerms": [
+            "beginwork",
+            "begin",
+            "reconciler"
+          ],
+          "unmatchedTerms": [
+            "reconciler"
+          ],
+          "top": [
+            "packages/react-reconciler/src/ReactFiberBeginWork.js:4506-4511 s=1.50",
+            "packages/react-reconciler/src/ReactFiberBeginWork.js:3425-3475 s=1.17",
+            "packages/react-reconciler/src/ReactFiberBeginWork.js:4208-4245 s=1.17",
+            "packages/react-test-renderer/src/__tests__/ReactTestRenderer-test.internal.js:16-30 s=1.03",
+            "packages/react-reconciler/src/ReactChildFiber.js:228-267 s=1.01"
+          ],
+          "score": {
+            "id": "re-2",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": 3,
+            "hitAtK": {
+              "1": false,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "re-3",
+          "question": "Where does the scheduler schedule a callback?",
+          "queryTerms": [
+            "scheduler",
+            "schedule",
+            "callback"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/react-reconciler/src/Scheduler.js:1-16 s=1.75",
+            "packages/react-reconciler/src/ReactFiberRootScheduler.js:640-696 s=1.63",
+            "packages/scheduler/src/__tests__/SchedulerMock-test.js:16-78 s=1.57",
+            "packages/scheduler/src/__tests__/Scheduler-test.js:16-30 s=1.40",
+            "packages/react-reconciler/src/ReactFiberRootScheduler.js:623-639 s=1.40"
+          ],
+          "score": {
+            "id": "re-3",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "re-4",
+          "question": "What is the entry point of the react package?",
+          "queryTerms": [
+            "entry",
+            "point",
+            "react",
+            "package"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "compiler/packages/react-forgive/scripts/client.mjs:1-15 s=1.06",
+            "compiler/packages/react-forgive/scripts/server.mjs:1-15 s=1.06",
+            "compiler/scripts/test-rust-port.ts:149-165 s=1.00",
+            "scripts/rollup/packaging.js:157-220 s=1.00",
+            "scripts/jest/config.build-devtools.js:1-34 s=1.00"
+          ],
+          "score": {
+            "id": "re-4",
+            "category": "entry-point",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "re-5",
+          "question": "Where is createRoot implemented in react-dom?",
+          "queryTerms": [
+            "createroot",
+            "create",
+            "root",
+            "react",
+            "dom"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/react-devtools-cdt-mcp/fixtures/app/index.js:1-12 s=1.51",
+            "packages/react-devtools-shell/src/e2e/app.js:1-16 s=1.43",
+            "packages/react-dom/src/__tests__/ReactLegacyRootWarnings-test.js:1-29 s=1.43",
+            "fixtures/owner-stacks/src/index.js:1-15 s=1.41",
+            "packages/shared/__tests__/ReactError-test.internal.js:1-75 s=1.32"
+          ],
+          "score": {
+            "id": "re-5",
+            "category": "where",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "re-6",
+          "question": "Where does the commit phase start after rendering?",
+          "queryTerms": [
+            "commit",
+            "phase",
+            "start",
+            "rendering"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/react-reconciler/src/__tests__/ReactSuspenseyCommitPhase-test.js:365-414 s=1.01",
+            "packages/react-reconciler/src/ReactFiberWorkLoop.js:4150-4180 s=1.00",
+            "packages/react-reconciler/src/ReactFiberCommitEffects.js:949-1042 s=1.00",
+            "compiler/packages/react-mcp-server/src/tools/runtimePerf.ts:251-285 s=0.99",
+            "packages/react-reconciler/src/ReactFiberWorkLoop.js:79-103 s=0.99"
+          ],
+          "score": {
+            "id": "re-6",
+            "category": "flow",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "re-7",
+          "question": "How are effects mounted for the useEffect hook?",
+          "queryTerms": [
+            "effect",
+            "mounted",
+            "useeffect",
+            "hook"
+          ],
+          "unmatchedTerms": [
+            "hook"
+          ],
+          "top": [
+            "packages/react-reconciler/src/__tests__/ReactSubtreeFlagsWarning-test.js:1-62 s=1.61",
+            "packages/react-reconciler/src/__tests__/ReactEffectOrdering-test.js:16-90 s=1.49",
+            "packages/react-reconciler/src/__tests__/Activity-test.js:1-15 s=1.43",
+            "packages/react-reconciler/src/__tests__/ReactUpdatePriority-test.js:1-62 s=1.43",
+            "packages/react-reconciler/src/__tests__/ReactHooksWithNoopRenderer-test.js:16-30 s=1.43"
+          ],
+          "score": {
+            "id": "re-7",
+            "category": "conceptual",
+            "negative": false,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        },
+        {
+          "id": "re-8",
+          "question": "Where is `createElement` defined?",
+          "queryTerms": [
+            "createelement",
+            "create",
+            "element"
+          ],
+          "unmatchedTerms": [],
+          "top": [
+            "packages/react/src/jsx/ReactJSXElement.js:605-659 s=1.65",
+            "packages/react/src/__tests__/ReactCreateElement-test.js:221-270 s=1.45",
+            "packages/react/src/__tests__/ReactCreateElement-test.js:16-70 s=1.44",
+            "packages/react/src/__tests__/ReactCreateElement-test.js:271-320 s=1.42",
+            "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/createElement-freeze.js:1-14 s=1.34"
+          ],
+          "score": {
+            "id": "re-8",
+            "category": "ambiguous",
+            "negative": false,
+            "firstHitRank": 1,
+            "hitAtK": {
+              "1": true,
+              "3": true,
+              "5": true,
+              "10": true
+            },
+            "itemRecallAtK": {
+              "1": 1,
+              "3": 1,
+              "5": 1,
+              "10": 1
+            },
+            "precisionAt5": 0.2
+          }
+        },
+        {
+          "id": "re-9",
+          "question": "Where is the Kubernetes pod autoscaler configured?",
+          "queryTerms": [
+            "kubernete",
+            "pod",
+            "autoscaler",
+            "configured"
+          ],
+          "unmatchedTerms": [
+            "kubernete",
+            "autoscaler"
+          ],
+          "top": [
+            "packages/react-server-dom-webpack/src/ReactFlightWebpackPlugin.js:228-246 s=1.00",
+            "fixtures/view-transition/src/components/SwipeRecognizer.js:1-16 s=0.98",
+            "packages/react-server/src/ReactSharedInternalsServer.js:18-27 s=0.82",
+            "packages/react-server-dom-webpack/src/ReactFlightWebpackPlugin.js:211-227 s=0.70",
+            "packages/react-server/src/ReactServerStreamConfigBrowser.js:129-152 s=0.68"
+          ],
+          "score": {
+            "id": "re-9",
+            "category": "negative",
+            "negative": true,
+            "firstHitRank": null,
+            "hitAtK": {
+              "1": false,
+              "3": false,
+              "5": false,
+              "10": false
+            },
+            "itemRecallAtK": {
+              "1": 0,
+              "3": 0,
+              "5": 0,
+              "10": 0
+            },
+            "precisionAt5": 0
+          }
+        }
+      ],
+      "signals": [
+        {
+          "id": "re-1",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.8679400704772626,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "re-2",
+          "negative": false,
+          "idfCoverage": 0.732925365813303,
+          "topScore": 1.5,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "re-3",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.7480239573691772,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "re-4",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.0552530462442127,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "re-5",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.5089655583417834,
+          "top1SymbolSignal": 1
+        },
+        {
+          "id": "re-6",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.0110413781939895,
+          "top1SymbolSignal": 0
+        },
+        {
+          "id": "re-7",
+          "negative": false,
+          "idfCoverage": 0.8146436095780285,
+          "topScore": 1.6062948353317175,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "re-8",
+          "negative": false,
+          "idfCoverage": 1,
+          "topScore": 1.651209992697623,
+          "top1SymbolSignal": 1.5
+        },
+        {
+          "id": "re-9",
+          "negative": true,
+          "idfCoverage": 0.43103578928212793,
+          "topScore": 1,
+          "top1SymbolSignal": 0
+        }
+      ]
+    },
+    "processBWallMs": 2223.2103999999817
+  },
+  "DefinitelyTyped/DefinitelyTyped": {
+    "role": "stress",
+    "sha": "bf4e872d68d46cf1e6d324808386e9146cd37743",
+    "repoSizeKb": 828420,
+    "build": {
+      "aborted": true,
+      "key": {
+        "owner": "DefinitelyTyped",
+        "repo": "DefinitelyTyped",
+        "sha": "bf4e872d68d46cf1e6d324808386e9146cd37743"
+      },
+      "reason": "terminated",
+      "limitKind": "acquisition-error",
+      "tarballRequests": 1,
+      "headersMs": 380.3504999999999,
+      "msBeforeAbort": 46199.0662,
+      "compressedBytesAtAbort": 15279362,
+      "peakRssMb": 1083.1
+    },
+    "processAWallMs": 47505.960300000006
+  }
+}

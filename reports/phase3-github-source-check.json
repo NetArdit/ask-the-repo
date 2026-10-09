@@ -1,0 +1,18 @@
+{
+ "repo": "sindresorhus/ky",
+ "sha": "0d59458a0a58e1c3d7c6db0ab17ed5c7cd671e47",
+ "rateLimitBefore": {
+  "limit": 60,
+  "remaining": 60,
+  "reset": 1790897949,
+  "used": 0
+ },
+ "questions": 3,
+ "githubRequests": 9,
+ "bytes": 132117,
+ "totalMs": 3114,
+ "msPerRequest": 346,
+ "evidenceVerified": 11,
+ "evidenceRejected": 0,
+ "rejectedReasons": {}
+}

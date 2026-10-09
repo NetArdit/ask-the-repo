@@ -1,0 +1,1 @@
+{ "index": { "includeConfig": true, "resolveWorkspaceAndAliases": true, "parseVariant": "flow-tsx-fallback" }, "search": { "classWeights": { "test": 0.3, "example": 0.3, "docs": 0.3 }, "entryBoost": true, "entryWeight": 1.2 } }

@@ -1,0 +1,47 @@
+{
+  "name": "ask-the-repo",
+  "version": "0.0.0",
+  "description": "Evidence-first Q&A for public GitHub repositories, with citations checked against a pinned commit.",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NetArdit/ask-the-repo.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/prepare-standalone.mjs",
+    "start": "node --liftoff-only .next/standalone/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "e2e": "node e2e/browser-check.mjs",
+    "bench": "tsx src/benchmark/exp-cli.ts"
+  },
+  "dependencies": {
+    "next": "^16.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tar-stream": "^3.2.1",
+    "tree-sitter-wasms": "^0.1.13",
+    "web-tree-sitter": "0.25.10"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/tar-stream": "^3.1.5",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.8",
+    "postcss": "^8.5.29",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.3"
+  }
+}

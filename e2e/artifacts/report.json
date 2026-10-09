@@ -1,0 +1,540 @@
+{
+ "base": "http://127.0.0.1:3100",
+ "browser": "msedge.exe",
+ "repo": "sindresorhus/slugify",
+ "checkedAt": "2026-10-09T13:32:41.029Z",
+ "passed": 106,
+ "failed": 0,
+ "results": [
+  {
+   "name": "CSP restricts sources to this origin and forbids framing",
+   "ok": true,
+   "detail": "default-src 'self'; script-src 'self' 'unsafe-inline'; style"
+  },
+  {
+   "name": "nosniff, frame and referrer headers are set; X-Powered-By is not",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "API responses carry the same headers",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "API responses tell caches not to keep them; the page itself does not carry that",
+   "ok": true,
+   "detail": "api: no-store"
+  },
+  {
+   "name": "landing renders its heading and the repository form",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "landing has one h1 and a labelled input",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast landing/dark: 7 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.64"
+  },
+  {
+   "name": "target size landing/dark: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "first Tab reaches a visible 'Skip to content' link",
+   "ok": true,
+   "detail": "Skip to content"
+  },
+  {
+   "name": "Tab order is header, then form: skip link, home, nav, nav, input, button",
+   "ok": true,
+   "detail": "Skip to content > ask/the/repo > How it works > Limits > repo-input > Index repository"
+  },
+  {
+   "name": "every focused control shows a focus outline",
+   "ok": true,
+   "detail": "solid/2 solid/2 solid/2 solid/2 solid/2 solid/2"
+  },
+  {
+   "name": "submitting nothing shows an error, marks the field invalid and keeps focus in it",
+   "ok": true,
+   "detail": "Enter a repository, for example sindresorhus/ky."
+  },
+  {
+   "name": "typing clears the error",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "a non-GitHub address is refused in the browser, before any request",
+   "ok": true,
+   "detail": "Only repositories on github.com are supported."
+  },
+  {
+   "name": "Cancel stops indexing: the form is usable again, the typed repository is kept, and no error is shown",
+   "ok": true,
+   "detail": "{\"path\":\"/\",\"disabled\":false,\"value\":\"sindresorhus/slugify\",\"alert\":false,\"focus\":\"repo-input\"}"
+  },
+  {
+   "name": "after a failed index, editing the field clears the stale error and brings the examples back",
+   "ok": true,
+   "detail": "{\"alert\":false,\"examples\":true,\"value\":\"sindresorhus/slugifyx\"}"
+  },
+  {
+   "name": "a pasted GitHub URL is previewed as owner/name before submitting",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "indexing shows a progress state with a cancel button and disables the form",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "indexing is announced once to assistive tech, and neither the seconds counter nor the Cancel button sits in a live region",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the progress box says what Cancel does and does not stop",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "after indexing the browser is at /r/owner/name/<40-char commit>",
+   "ok": true,
+   "detail": "3b17b2e84b97624a683aafaa38184bf2746fab22"
+  },
+  {
+   "name": "workspace shows the repository, the commit and real index facts",
+   "ok": true,
+   "detail": "7 files and 11 symbols indexedjavascript 3markdown 2typescript 1config 1"
+  },
+  {
+   "name": "a successful API response is not to be cached either",
+   "ok": true,
+   "detail": "HTTP 200, no-store"
+  },
+  {
+   "name": "the question field is described by a hint that states the 300-character limit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "an empty workspace explains what to ask and shows the inspector placeholder",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast workspace-empty/dark: 9 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.64"
+  },
+  {
+   "name": "target size workspace-empty/dark: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "REAL /api/answer on a server with no model: the UI says so and offers no fake answer",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "a failed question is announced to assistive tech with what the card says, not a generic sentence",
+   "ok": true,
+   "detail": "No language model is configured."
+  },
+  {
+   "name": "while waiting: a pending entry, a disabled Ask button, and a status message for assistive tech",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "an answer lists its claims, each with pressable evidence ids",
+   "ok": true,
+   "detail": "3 claims, 3 citations"
+  },
+  {
+   "name": "every citation is shown with the passage quoted from it",
+   "ok": true,
+   "detail": "3 of 3 entries carry a quote"
+  },
+  {
+   "name": "the answer states what was checked and what was not",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the question box is cleared for the next question",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "REAL /api/source: pressing a citation shows exactly the cited lines, marked, in the side pane",
+   "ok": true,
+   "detail": "50 lines from L1"
+  },
+  {
+   "name": "the pressed citation is marked as selected",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "pressing a citation is announced to assistive tech with the lines and file it shows",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "wide screen: pressing a citation moves focus to the inspector heading",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "citation, quote, source: the inspector points out the quoted lines inside the cited block, and they contain the quote",
+   "ok": true,
+   "detail": "1 quoted line(s) for \"export type Options = {\""
+  },
+  {
+   "name": "'Open on GitHub' is a permalink to this commit and these lines",
+   "ok": true,
+   "detail": "3aafaa38184bf2746fab22/index.d.ts#L1-L50"
+  },
+  {
+   "name": "'Back to answer' returns focus to the citation that opened the inspector",
+   "ok": true,
+   "detail": "E1"
+  },
+  {
+   "name": "activating the same citation again moves focus to the inspector heading again",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "'Show 20 lines below' adds context without changing which lines are marked as cited",
+   "ok": true,
+   "detail": "50 -> 70 lines"
+  },
+  {
+   "name": "contrast workspace-answer/dark: 15 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.33"
+  },
+  {
+   "name": "target size workspace-answer/dark: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "narrowing the window moves the open source into the sheet with its expanded context intact and no reload",
+   "ok": true,
+   "detail": "70 lines in the pane, 70 in the sheet"
+  },
+  {
+   "name": "widening it again moves the source back to the side pane, still with the same lines",
+   "ok": true,
+   "detail": "70 lines"
+  },
+  {
+   "name": "a follow-up question is added above the earlier ones, which stay on the page",
+   "ok": true,
+   "detail": "3 entries"
+  },
+  {
+   "name": "moving between citations keeps exactly one selected and swaps the source shown",
+   "ok": true,
+   "detail": "Evidence E2"
+  },
+  {
+   "name": "the full list of evidence given to the model can be opened, and cited rows are tagged",
+   "ok": true,
+   "detail": "16 rows"
+  },
+  {
+   "name": "any evidence row opens in the inspector, cited or not",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "opened from the evidence list, the inspector marks the block but claims no quote",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "what the application read from its index is shown apart from the model's claims and labelled as not from the model",
+   "ok": true,
+   "detail": "The index lists 1 file importing overridable-replacements.js: 1 source file (index.js).Read by t"
+  },
+  {
+   "name": "a quote the model gave at length is shown shortened, marked as shortened, and as found in the cited lines",
+   "ok": true,
+   "detail": "378 characters shown"
+  },
+  {
+   "name": "contrast workspace-index-facts/dark: 15 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.33"
+  },
+  {
+   "name": "target size workspace-index-facts/dark: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "a rate-limited model is reported as such, shows no claims, keeps the retrieved evidence and offers a retry",
+   "ok": true,
+   "detail": "8 evidence rows"
+  },
+  {
+   "name": "too little matching code: says the model was not asked, and shows no answer",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the model declining: shows what is missing and the evidence it was given",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "a reply that fails citation checks is withheld: titled so, with the reason, and its text hidden by default",
+   "ok": true,
+   "detail": "Claim 1: the quoted text is not in E1, the evidence it is at"
+  },
+  {
+   "name": "a withheld reply is announced as withheld, not as a ready result",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the withheld reply can be opened, and the failed check is flagged on the claim",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast workspace-all-states/dark: 16 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.33"
+  },
+  {
+   "name": "target size workspace-all-states/dark: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "reloading the page keeps this tab's questions and results",
+   "ok": true,
+   "detail": "9 entries"
+  },
+  {
+   "name": "narrow-desktop 1024px landing: no sideways scrolling",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast landing/narrow-desktop: 9 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.64"
+  },
+  {
+   "name": "target size landing/narrow-desktop: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "narrow-desktop 1024px workspace: no sideways scrolling, single column",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "narrow-desktop: a citation opened from the keyboard shows the source in a labelled modal sheet with focus inside",
+   "ok": true,
+   "detail": "736x720 in 1024x768"
+  },
+  {
+   "name": "narrow-desktop: the sheet keeps its own focus handling: its heading is not a focus target and it has no pane return control",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast sheet/narrow-desktop: 16 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.33"
+  },
+  {
+   "name": "target size sheet/narrow-desktop: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "narrow-desktop: Escape closes the sheet and focus returns to the citation that opened it",
+   "ok": true,
+   "detail": "E1"
+  },
+  {
+   "name": "tablet 820px landing: no sideways scrolling",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast landing/tablet: 9 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.64"
+  },
+  {
+   "name": "target size landing/tablet: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "tablet 820px workspace: no sideways scrolling, single column",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "tablet: a citation opened from the keyboard shows the source in a labelled modal sheet with focus inside",
+   "ok": true,
+   "detail": "736x1132 in 820x1180"
+  },
+  {
+   "name": "tablet: the sheet keeps its own focus handling: its heading is not a focus target and it has no pane return control",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast sheet/tablet: 16 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.33"
+  },
+  {
+   "name": "target size sheet/tablet: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "tablet: Escape closes the sheet and focus returns to the citation that opened it",
+   "ok": true,
+   "detail": "E1"
+  },
+  {
+   "name": "mobile 390px landing: no sideways scrolling",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast landing/mobile: 9 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.64"
+  },
+  {
+   "name": "target size landing/mobile: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "mobile 390px workspace: no sideways scrolling, single column",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "mobile: a citation opened from the keyboard shows the source in a labelled modal sheet with focus inside",
+   "ok": true,
+   "detail": "390x844 in 390x844"
+  },
+  {
+   "name": "mobile: the sheet keeps its own focus handling: its heading is not a focus target and it has no pane return control",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "mobile: the sheet takes the whole screen rather than a cramped column",
+   "ok": true,
+   "detail": "390x844"
+  },
+  {
+   "name": "contrast sheet/mobile: 16 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.33"
+  },
+  {
+   "name": "target size sheet/mobile: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "mobile: Escape closes the sheet and focus returns to the citation that opened it",
+   "ok": true,
+   "detail": "E1"
+  },
+  {
+   "name": "320 px wide (WCAG 1.4.10 reflow): neither page scrolls sideways",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast workspace/light: 16 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.19"
+  },
+  {
+   "name": "target size workspace/light: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "contrast landing/light: 9 distinct text/background pairs meet WCAG AA",
+   "ok": true,
+   "detail": "lowest margin x1.28"
+  },
+  {
+   "name": "target size landing/light: controls are at least 24x24 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "a malformed workspace address is a 404 page with a way back",
+   "ok": true,
+   "detail": "HTTP 404"
+  },
+  {
+   "name": "a commit that is not indexed says so and offers to index it, without indexing by itself",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "pressing 'Index this commit' moves focus to the status that replaces the button, not nowhere",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "'Try again' after a failed indexing indexes again instead of only re-checking, and keeps focus in the status",
+   "ok": true,
+   "detail": "1 ingest request(s)"
+  },
+  {
+   "name": "REAL failed indexing (a commit GitHub does not have): an error with a retry, not a broken page",
+   "ok": true,
+   "detail": "Repository or commit not found"
+  },
+  {
+   "name": "the landing page lists the repository opened on this device, linking back to its commit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Back returns from the workspace to the landing page",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "no console errors, uncaught exceptions or CSP violations during the whole run",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

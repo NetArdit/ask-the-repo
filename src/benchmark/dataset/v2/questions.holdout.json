@@ -1,0 +1,1038 @@
+[
+  {
+    "id": "fastify-1",
+    "repo": "fastify/fastify",
+    "category": "symbol",
+    "question": "Where is logServerAddress defined?",
+    "expected": [
+      {
+        "path": "lib/server.js",
+        "lines": [
+          375,
+          400
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fastify-2",
+    "repo": "fastify/fastify",
+    "category": "symbol",
+    "question": "Where is buildRouterOptions defined?",
+    "expected": [
+      {
+        "path": "lib/route.js",
+        "lines": [
+          668,
+          700
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fastify-3",
+    "repo": "fastify/fastify",
+    "category": "symbol",
+    "question": "Where is setSchemaErrorFormatter defined?",
+    "expected": [
+      {
+        "path": "fastify.js",
+        "lines": [
+          732,
+          745
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fastify-4",
+    "repo": "fastify/fastify",
+    "category": "symbol",
+    "question": "Where is the default plain text content type parser?",
+    "expected": [
+      {
+        "path": "lib/content-type-parser.js",
+        "lines": [
+          345,
+          360
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fastify-5",
+    "repo": "fastify/fastify",
+    "category": "imports",
+    "question": "Which modules import the decorate module?",
+    "expected": [
+      {
+        "path": "fastify.js"
+      },
+      {
+        "path": "lib/plugin-utils.js"
+      },
+      {
+        "path": "lib/reply.js"
+      },
+      {
+        "path": "lib/request.js"
+      }
+    ]
+  },
+  {
+    "id": "fastify-6",
+    "repo": "fastify/fastify",
+    "category": "entry-point",
+    "question": "What is the entry point of fastify and where is the main factory function?",
+    "expected": [
+      {
+        "path": "fastify.js",
+        "lines": [
+          89,
+          140
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fastify-7",
+    "repo": "fastify/fastify",
+    "category": "endpoint",
+    "question": "Where is a route registered and its handler wired up?",
+    "expected": [
+      {
+        "path": "lib/route.js",
+        "lines": [
+          203,
+          330
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fastify-8",
+    "repo": "fastify/fastify",
+    "category": "config",
+    "question": "Where are the server options validated against defaults?",
+    "expected": [
+      {
+        "path": "lib/initial-config-validation.js"
+      }
+    ]
+  },
+  {
+    "id": "fastify-9",
+    "repo": "fastify/fastify",
+    "category": "conceptual",
+    "question": "How are lifecycle hooks such as onRequest registered and run?",
+    "expected": [
+      {
+        "path": "lib/hooks.js"
+      },
+      {
+        "path": "fastify.js",
+        "lines": [
+          576,
+          620
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fastify-10",
+    "repo": "fastify/fastify",
+    "category": "cross-file",
+    "question": "How does a request travel from routing through validation to the reply?",
+    "expected": [
+      {
+        "path": "lib/route.js"
+      },
+      {
+        "path": "lib/handle-request.js"
+      },
+      {
+        "path": "lib/validation.js"
+      },
+      {
+        "path": "lib/reply.js"
+      }
+    ]
+  },
+  {
+    "id": "fastify-11",
+    "repo": "fastify/fastify",
+    "category": "negative",
+    "question": "Where is the Cassandra cluster topology configured?",
+    "expected": [],
+    "absentTerms": [
+      "cassandra"
+    ]
+  },
+  {
+    "id": "axios-1",
+    "repo": "axios/axios",
+    "category": "symbol",
+    "question": "Where is getFetch defined?",
+    "expected": [
+      {
+        "path": "lib/adapters/fetch.js",
+        "lines": [
+          718,
+          740
+        ]
+      }
+    ]
+  },
+  {
+    "id": "axios-2",
+    "repo": "axios/axios",
+    "category": "symbol",
+    "question": "Where is formatMessage defined in the validator?",
+    "expected": [
+      {
+        "path": "lib/helpers/validator.js",
+        "lines": [
+          27,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "id": "axios-3",
+    "repo": "axios/axios",
+    "category": "symbol",
+    "question": "Where is ZlibHeaderTransformStream defined?",
+    "expected": [
+      {
+        "path": "lib/helpers/ZlibHeaderTransformStream.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-4",
+    "repo": "axios/axios",
+    "category": "imports",
+    "question": "Which modules import the adapters module?",
+    "expected": [
+      {
+        "path": "lib/axios.js"
+      },
+      {
+        "path": "lib/core/dispatchRequest.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-5",
+    "repo": "axios/axios",
+    "category": "entry-point",
+    "question": "What is the entry point of axios?",
+    "expected": [
+      {
+        "path": "index.js"
+      },
+      {
+        "path": "lib/axios.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-6",
+    "repo": "axios/axios",
+    "category": "exact-location",
+    "question": "Where is the request dispatched to an adapter?",
+    "expected": [
+      {
+        "path": "lib/core/dispatchRequest.js"
+      },
+      {
+        "path": "lib/adapters/adapters.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-7",
+    "repo": "axios/axios",
+    "category": "conceptual",
+    "question": "How do request and response interceptors work?",
+    "expected": [
+      {
+        "path": "lib/core/InterceptorManager.js"
+      },
+      {
+        "path": "lib/core/Axios.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-8",
+    "repo": "axios/axios",
+    "category": "config",
+    "question": "Where are the default request config values defined?",
+    "expected": [
+      {
+        "path": "lib/defaults/index.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-9",
+    "repo": "axios/axios",
+    "category": "cross-file",
+    "question": "How does a canceled request get aborted?",
+    "expected": [
+      {
+        "path": "lib/cancel/CancelToken.js"
+      },
+      {
+        "path": "lib/cancel/CanceledError.js"
+      },
+      {
+        "path": "lib/helpers/composeSignals.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-10",
+    "repo": "axios/axios",
+    "category": "exact-location",
+    "question": "Where are response headers parsed?",
+    "expected": [
+      {
+        "path": "lib/helpers/parseHeaders.js"
+      },
+      {
+        "path": "lib/core/AxiosHeaders.js"
+      }
+    ]
+  },
+  {
+    "id": "axios-11",
+    "repo": "axios/axios",
+    "category": "negative",
+    "question": "Where is the Kubernetes autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  },
+  {
+    "id": "zod-1",
+    "repo": "colinhacks/zod",
+    "category": "symbol",
+    "question": "Where is getValidEnumValues defined?",
+    "expected": [
+      {
+        "path": "packages/zod/src/v3/helpers/util.ts",
+        "lines": [
+          24,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zod-2",
+    "repo": "colinhacks/zod",
+    "category": "symbol",
+    "question": "Where is getSizableOrigin defined?",
+    "expected": [
+      {
+        "path": "packages/zod/src/v4/core/util.ts",
+        "lines": [
+          981,
+          1000
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zod-3",
+    "repo": "colinhacks/zod",
+    "category": "symbol",
+    "question": "Where is the _decode function defined?",
+    "expected": [
+      {
+        "path": "packages/zod/src/v4/core/parse.ts",
+        "lines": [
+          216,
+          240
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zod-4",
+    "repo": "colinhacks/zod",
+    "category": "imports",
+    "question": "Which modules import the doc module in the v4 core?",
+    "expected": [
+      {
+        "path": "packages/zod/src/v4/core/compile.ts"
+      },
+      {
+        "path": "packages/zod/src/v4/core/index.ts"
+      },
+      {
+        "path": "packages/zod/src/v4/core/schemas.ts"
+      }
+    ]
+  },
+  {
+    "id": "zod-5",
+    "repo": "colinhacks/zod",
+    "category": "entry-point",
+    "question": "What is the entry point of the zod package?",
+    "expected": [
+      {
+        "path": "packages/zod/src/index.ts"
+      }
+    ]
+  },
+  {
+    "id": "zod-6",
+    "repo": "colinhacks/zod",
+    "category": "conceptual",
+    "question": "How are validation issues turned into a readable error message?",
+    "expected": [
+      {
+        "path": "packages/zod/src/v4/core/errors.ts"
+      },
+      {
+        "path": "packages/zod/src/v4/classic/errors.ts"
+      }
+    ]
+  },
+  {
+    "id": "zod-7",
+    "repo": "colinhacks/zod",
+    "category": "exact-location",
+    "question": "Where are string format regular expressions such as email defined?",
+    "expected": [
+      {
+        "path": "packages/zod/src/v4/core/regexes.ts"
+      }
+    ]
+  },
+  {
+    "id": "zod-8",
+    "repo": "colinhacks/zod",
+    "category": "config",
+    "question": "Where are the package exports and build outputs declared?",
+    "expected": [
+      {
+        "path": "packages/zod/package.json"
+      }
+    ]
+  },
+  {
+    "id": "zod-9",
+    "repo": "colinhacks/zod",
+    "category": "cross-file",
+    "question": "How does parsing a schema produce a result or an error?",
+    "expected": [
+      {
+        "path": "packages/zod/src/v4/core/parse.ts"
+      },
+      {
+        "path": "packages/zod/src/v4/core/schemas.ts"
+      }
+    ]
+  },
+  {
+    "id": "zod-10",
+    "repo": "colinhacks/zod",
+    "category": "negative",
+    "question": "Where is the Kubernetes autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  },
+  {
+    "id": "json-server-1",
+    "repo": "typicode/json-server",
+    "category": "symbol",
+    "question": "Where is randomId defined?",
+    "expected": [
+      {
+        "path": "src/random-id.ts"
+      }
+    ]
+  },
+  {
+    "id": "json-server-2",
+    "repo": "typicode/json-server",
+    "category": "symbol",
+    "question": "Where is splitKey defined?",
+    "expected": [
+      {
+        "path": "src/parse-where.ts",
+        "lines": [
+          6,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "id": "json-server-3",
+    "repo": "typicode/json-server",
+    "category": "symbol",
+    "question": "Where is parseListParams defined?",
+    "expected": [
+      {
+        "path": "src/app.ts",
+        "lines": [
+          30,
+          70
+        ]
+      }
+    ]
+  },
+  {
+    "id": "json-server-4",
+    "repo": "typicode/json-server",
+    "category": "imports",
+    "question": "Which modules import the service module?",
+    "expected": [
+      {
+        "path": "src/adapters/normalized-adapter.ts"
+      },
+      {
+        "path": "src/app.ts"
+      },
+      {
+        "path": "src/bin.ts"
+      }
+    ]
+  },
+  {
+    "id": "json-server-5",
+    "repo": "typicode/json-server",
+    "category": "entry-point",
+    "question": "What is the command line entry point of json-server?",
+    "expected": [
+      {
+        "path": "src/bin.ts"
+      }
+    ]
+  },
+  {
+    "id": "json-server-6",
+    "repo": "typicode/json-server",
+    "category": "endpoint",
+    "question": "Where are the REST routes for resources defined?",
+    "expected": [
+      {
+        "path": "src/app.ts"
+      }
+    ]
+  },
+  {
+    "id": "json-server-7",
+    "repo": "typicode/json-server",
+    "category": "conceptual",
+    "question": "How is pagination implemented?",
+    "expected": [
+      {
+        "path": "src/paginate.ts"
+      }
+    ]
+  },
+  {
+    "id": "json-server-8",
+    "repo": "typicode/json-server",
+    "category": "conceptual",
+    "question": "How are query filters and comparison operators evaluated?",
+    "expected": [
+      {
+        "path": "src/matches-where.ts"
+      },
+      {
+        "path": "src/where-operators.ts"
+      },
+      {
+        "path": "src/parse-where.ts"
+      }
+    ]
+  },
+  {
+    "id": "json-server-9",
+    "repo": "typicode/json-server",
+    "category": "config",
+    "question": "Where is the bin command declared?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "json-server-10",
+    "repo": "typicode/json-server",
+    "category": "cross-file",
+    "question": "How does the server read and persist data to the JSON file?",
+    "expected": [
+      {
+        "path": "src/adapters/normalized-adapter.ts"
+      },
+      {
+        "path": "src/bin.ts"
+      }
+    ]
+  },
+  {
+    "id": "json-server-11",
+    "repo": "typicode/json-server",
+    "category": "negative",
+    "question": "Where is the PostgreSQL connection pool configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  },
+  {
+    "id": "excalidraw-1",
+    "repo": "excalidraw/excalidraw",
+    "category": "symbol",
+    "question": "Where is replaceAllElementsInFrame defined?",
+    "expected": [
+      {
+        "path": "packages/element/src/frame.ts",
+        "lines": [
+          684,
+          710
+        ]
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-2",
+    "repo": "excalidraw/excalidraw",
+    "category": "symbol",
+    "question": "Where is overwriteConfirmStateAtom defined?",
+    "expected": [
+      {
+        "path": "packages/excalidraw/components/OverwriteConfirm/OverwriteConfirmState.ts"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-3",
+    "repo": "excalidraw/excalidraw",
+    "category": "symbol",
+    "question": "Where is getCollaborationLinkData defined?",
+    "expected": [
+      {
+        "path": "excalidraw-app/data/index.ts",
+        "lines": [
+          138,
+          170
+        ]
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-4",
+    "repo": "excalidraw/excalidraw",
+    "category": "imports",
+    "question": "Which modules import newElement in the element package?",
+    "expected": [
+      {
+        "path": "packages/element/src/arrowEndpointText.ts"
+      },
+      {
+        "path": "packages/element/src/embeddable.ts"
+      },
+      {
+        "path": "packages/element/src/flowchart.ts"
+      },
+      {
+        "path": "packages/element/src/index.ts"
+      },
+      {
+        "path": "packages/element/src/listMarker.ts"
+      },
+      {
+        "path": "packages/element/src/transform.ts"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-5",
+    "repo": "excalidraw/excalidraw",
+    "category": "entry-point",
+    "question": "What is the entry point of the Excalidraw web app?",
+    "expected": [
+      {
+        "path": "excalidraw-app/index.tsx"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-6",
+    "repo": "excalidraw/excalidraw",
+    "category": "conceptual",
+    "question": "How are drawings exported to PNG or SVG?",
+    "expected": [
+      {
+        "path": "packages/excalidraw/scene/export.ts"
+      },
+      {
+        "path": "packages/utils/src/export.ts"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-7",
+    "repo": "excalidraw/excalidraw",
+    "category": "exact-location",
+    "question": "Where is the realtime collaboration logic implemented?",
+    "expected": [
+      {
+        "path": "excalidraw-app/collab/Collab.tsx"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-8",
+    "repo": "excalidraw/excalidraw",
+    "category": "config",
+    "question": "Where is the Vite configuration for the web app?",
+    "expected": [
+      {
+        "path": "excalidraw-app/vite.config.mts"
+      },
+      {
+        "path": "vitest.config.mts"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-9",
+    "repo": "excalidraw/excalidraw",
+    "category": "cross-file",
+    "question": "How is undo and redo history implemented?",
+    "expected": [
+      {
+        "path": "packages/excalidraw/history.ts"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-10",
+    "repo": "excalidraw/excalidraw",
+    "category": "exact-location",
+    "question": "Where is the shape library loaded and saved?",
+    "expected": [
+      {
+        "path": "packages/excalidraw/data/library.ts"
+      }
+    ]
+  },
+  {
+    "id": "excalidraw-11",
+    "repo": "excalidraw/excalidraw",
+    "category": "negative",
+    "question": "Where is the PostgreSQL connection pool configured?",
+    "expected": [],
+    "absentTerms": [
+      "postgres"
+    ]
+  },
+  {
+    "id": "query-1",
+    "repo": "TanStack/query",
+    "category": "symbol",
+    "question": "Where is canFetch defined?",
+    "expected": [
+      {
+        "path": "packages/query-core/src/retryer.ts",
+        "lines": [
+          57,
+          70
+        ]
+      }
+    ]
+  },
+  {
+    "id": "query-2",
+    "repo": "TanStack/query",
+    "category": "symbol",
+    "question": "Where is addToEnd defined?",
+    "expected": [
+      {
+        "path": "packages/query-core/src/utils.ts",
+        "lines": [
+          505,
+          520
+        ]
+      }
+    ]
+  },
+  {
+    "id": "query-3",
+    "repo": "TanStack/query",
+    "category": "symbol",
+    "question": "Where is provideTanStackQuery defined?",
+    "expected": [
+      {
+        "path": "packages/angular-query-experimental/src/providers.ts",
+        "lines": [
+          102,
+          130
+        ]
+      }
+    ]
+  },
+  {
+    "id": "query-4",
+    "repo": "TanStack/query",
+    "category": "imports",
+    "question": "Which modules import the removable module in query-core?",
+    "expected": [
+      {
+        "path": "packages/query-core/src/mutation.ts"
+      },
+      {
+        "path": "packages/query-core/src/query.ts"
+      }
+    ]
+  },
+  {
+    "id": "query-5",
+    "repo": "TanStack/query",
+    "category": "entry-point",
+    "question": "What is the entry point of query-core?",
+    "expected": [
+      {
+        "path": "packages/query-core/src/index.ts"
+      }
+    ]
+  },
+  {
+    "id": "query-6",
+    "repo": "TanStack/query",
+    "category": "conceptual",
+    "question": "How does query caching and garbage collection work?",
+    "expected": [
+      {
+        "path": "packages/query-core/src/queryCache.ts"
+      },
+      {
+        "path": "packages/query-core/src/removable.ts"
+      },
+      {
+        "path": "packages/query-core/src/query.ts"
+      }
+    ]
+  },
+  {
+    "id": "query-7",
+    "repo": "TanStack/query",
+    "category": "exact-location",
+    "question": "Where is the retry logic implemented?",
+    "expected": [
+      {
+        "path": "packages/query-core/src/retryer.ts"
+      }
+    ]
+  },
+  {
+    "id": "query-8",
+    "repo": "TanStack/query",
+    "category": "exact-location",
+    "question": "Where is the React useQuery hook defined?",
+    "expected": [
+      {
+        "path": "packages/react-query/src/useQuery.ts"
+      }
+    ]
+  },
+  {
+    "id": "query-9",
+    "repo": "TanStack/query",
+    "category": "cross-file",
+    "question": "How does a query observer notify subscribers of changes?",
+    "expected": [
+      {
+        "path": "packages/query-core/src/queryObserver.ts"
+      },
+      {
+        "path": "packages/query-core/src/subscribable.ts"
+      },
+      {
+        "path": "packages/query-core/src/notifyManager.ts"
+      }
+    ]
+  },
+  {
+    "id": "query-10",
+    "repo": "TanStack/query",
+    "category": "config",
+    "question": "Where is the monorepo workspace and build tooling configured?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "query-11",
+    "repo": "TanStack/query",
+    "category": "negative",
+    "question": "Where is the Kubernetes autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  },
+  {
+    "id": "create-react-app-1",
+    "repo": "facebook/create-react-app",
+    "category": "symbol",
+    "question": "Where is isSafeToCreateProjectIn defined?",
+    "expected": [
+      {
+        "path": "packages/create-react-app/createReactApp.js",
+        "lines": [
+          938,
+          970
+        ]
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-2",
+    "repo": "facebook/create-react-app",
+    "category": "symbol",
+    "question": "Where is launchEditor defined?",
+    "expected": [
+      {
+        "path": "packages/react-dev-utils/launchEditor.js",
+        "lines": [
+          288,
+          330
+        ]
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-3",
+    "repo": "facebook/create-react-app",
+    "category": "symbol",
+    "question": "Where is base64SourceMap defined?",
+    "expected": [
+      {
+        "path": "packages/react-dev-utils/evalSourceMapMiddleware.js",
+        "lines": [
+          9,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-4",
+    "repo": "facebook/create-react-app",
+    "category": "imports",
+    "question": "Which modules import the babel preset create module?",
+    "expected": [
+      {
+        "path": "packages/babel-preset-react-app/dev.js"
+      },
+      {
+        "path": "packages/babel-preset-react-app/index.js"
+      },
+      {
+        "path": "packages/babel-preset-react-app/prod.js"
+      },
+      {
+        "path": "packages/babel-preset-react-app/test.js"
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-5",
+    "repo": "facebook/create-react-app",
+    "category": "entry-point",
+    "question": "What is the command line entry point of create-react-app?",
+    "expected": [
+      {
+        "path": "packages/create-react-app/index.js"
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-6",
+    "repo": "facebook/create-react-app",
+    "category": "config",
+    "question": "Where is the webpack configuration defined?",
+    "expected": [
+      {
+        "path": "packages/react-scripts/config/webpack.config.js"
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-7",
+    "repo": "facebook/create-react-app",
+    "category": "exact-location",
+    "question": "Where is the development server started?",
+    "expected": [
+      {
+        "path": "packages/react-scripts/scripts/start.js"
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-8",
+    "repo": "facebook/create-react-app",
+    "category": "conceptual",
+    "question": "How does the error overlay display runtime errors?",
+    "expected": [
+      {
+        "path": "packages/react-error-overlay/src/index.js"
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-9",
+    "repo": "facebook/create-react-app",
+    "category": "exact-location",
+    "question": "Where is the production build script?",
+    "expected": [
+      {
+        "path": "packages/react-scripts/scripts/build.js"
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-10",
+    "repo": "facebook/create-react-app",
+    "category": "cross-file",
+    "question": "How are REACT_APP environment variables loaded into the app?",
+    "expected": [
+      {
+        "path": "packages/react-scripts/config/env.js"
+      }
+    ]
+  },
+  {
+    "id": "create-react-app-11",
+    "repo": "facebook/create-react-app",
+    "category": "negative",
+    "question": "Where is the Kubernetes autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  }
+]

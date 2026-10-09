@@ -1,0 +1,94 @@
+{
+  "repo": "facebook/react",
+  "jsFiles": 3907,
+  "withErrors": 939,
+  "withFlowPragma": 1162,
+  "errorsWithPragma": 867,
+  "byFileClass": {
+    "source": {
+      "files": 1261,
+      "withErrors": 780
+    },
+    "test": {
+      "files": 2459,
+      "withErrors": 151
+    },
+    "example": {
+      "files": 187,
+      "withErrors": 8
+    }
+  },
+  "firstErrorClass": {
+    "other": 432,
+    "type annotation": 174,
+    "generic call/params <T>": 9,
+    "import/export type": 252,
+    "opaque/declare/type alias": 38,
+    "maybe type (?T)": 4,
+    "interface/declare": 14,
+    "type cast ((x: T))": 4,
+    "class field type": 1
+  },
+  "allErrorClass": {
+    "other": 32264,
+    "type annotation": 28791,
+    "import/export type": 2154,
+    "generic call/params <T>": 722,
+    "class field type": 2099,
+    "maybe type (?T)": 2729,
+    "opaque/declare/type alias": 700,
+    "type cast ((x: T))": 263,
+    "interface/declare": 648,
+    "exact object type {| |}": 132
+  },
+  "samples": {
+    "other": [
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/allow-ref-initialization-undefined.js:4: component C() {",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/allow-ref-initialization.js:4: component C() {",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/allow-ref-type-cast-in-render.js:8: return [callback] as const;"
+    ],
+    "type annotation": [
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/component-declaration-basic.flow.js:2: export default component Foo(bar: number) {",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/component-in-object-method-body.flow.js:6: render(): React.MixedElement {",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/destructuring-with-typecast-as-default-value.flow.js:3: const [x = ([]: Array<number>)] = props.y;"
+    ],
+    "generic call/params <T>": [
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.invalid-uncalled-function-capturing-mutable-values-memoizes-with-captures-values.js:18: hook useMemoMap<TInput: interface {}, TOutput>(",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.todo-round2_identifier_diff.js:6: export default function withRemountOnChange<OuterProps extends {}>(",
+      "packages/react-dom-bindings/src/shared/sanitizeURL.js:22: function sanitizeURL<T>(url: T): T | string {"
+    ],
+    "import/export type": [
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.todo-hir_fn_type_mismatch_1.js:8: import type QueryVersion from 'QueryVersion';",
+      "packages/react-client/flight.js:10: import typeof * as FlightClientAPI from './src/ReactFlightClient';",
+      "packages/react-client/src/ReactFlightClientStreamConfigWeb.js:10: export type StringDecoder = TextDecoder;"
+    ],
+    "opaque/declare/type alias": [
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/gating/gating-with-hoisted-type-reference.flow.js:4: type Props = React.ElementConfig<typeof Component>;",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/type-alias-used-as-annotation_.flow.js:2: type Bar = string;",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/type-alias-used-as-variable-annotation_.flow.js:2: type Bar = string;"
+    ],
+    "maybe type (?T)": [
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/match-expr-captured-var.flow.js:6: export default component MatchExprCapturedVar(x: ?{v: string}, y: number) {",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/match-expr-multi-gen-bindings.flow.js:8: x: ?{v: string},",
+      "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/match-expr-outlined-jsx.flow.js:9: item: ?{status: string},"
+    ],
+    "interface/declare": [
+      "flow-typed/npm/minimist_v1.x.x.js:4: declare module 'minimist' {",
+      "packages/react-client/src/ReactFlightClientDevToolsHook.js:10: declare const __REACT_DEVTOOLS_GLOBAL_HOOK__: Object | void;",
+      "packages/react-client/src/forks/ReactFlightClientConfig.custom.js:26: declare const $$$config: any;"
+    ],
+    "type cast ((x: T))": [
+      "packages/dom-event-testing-library/domEnvironment.js:52: set(name: 'mac' | 'windows') {",
+      "packages/react-devtools-shell/src/e2e-regression/app-legacy.js:13: function mountApp(App: () => React$Node) {",
+      "packages/react-devtools-shell/src/e2e-regression/app.js:9: function mountApp(App: () => React$Node) {"
+    ],
+    "class field type": [
+      "packages/react-devtools-shell/src/app/InspectableElements/SimpleValues.js:16: anonymousFunction: () => void = () => {};"
+    ]
+  },
+  "tsxFallback": {
+    "cleaner": 234,
+    "clean": 661,
+    "notBetter": 44
+  }
+}

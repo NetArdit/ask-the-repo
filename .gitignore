@@ -1,0 +1,13 @@
+node_modules
+.next
+.cache
+*.tsbuildinfo
+next-env.d.ts
+# Environment files hold keys. Only the empty template is tracked.
+.env
+.env.*
+!.env.example
+.index-store/
+e2e/.fixtures/
+# Raw model replies, quotes and reviewer packages: they can contain third-party source text.
+reports/private/

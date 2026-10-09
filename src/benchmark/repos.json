@@ -1,0 +1,50 @@
+[
+  {
+    "repo": "sindresorhus/ky",
+    "role": "small",
+    "sha": "0d59458a0a58e1c3d7c6db0ab17ed5c7cd671e47",
+    "defaultBranch": "main",
+    "sizeKb": 1891,
+    "language": "TypeScript"
+  },
+  {
+    "repo": "expressjs/express",
+    "role": "medium-cjs",
+    "sha": "7ef98448f8b38099ab1ded55e458538ad47a51e7",
+    "defaultBranch": "master",
+    "sizeKb": 10001,
+    "language": "JavaScript"
+  },
+  {
+    "repo": "vercel/commerce",
+    "role": "medium-app-tsx",
+    "sha": "3761e52e60df9c6a316e067dbfd7032e494d3634",
+    "defaultBranch": "main",
+    "sizeKb": 11114,
+    "language": "TypeScript"
+  },
+  {
+    "repo": "vitejs/vite",
+    "role": "monorepo",
+    "sha": "10033218d239c927cdc375970b5741cce408e81b",
+    "defaultBranch": "main",
+    "sizeKb": 74962,
+    "language": "TypeScript"
+  },
+  {
+    "repo": "facebook/react",
+    "role": "large",
+    "sha": "7c6ac13e19fef500b7f669a16bbd01ecc95965ca",
+    "defaultBranch": "main",
+    "sizeKb": 1099578,
+    "language": "JavaScript"
+  },
+  {
+    "repo": "DefinitelyTyped/DefinitelyTyped",
+    "role": "stress",
+    "sha": "bf4e872d68d46cf1e6d324808386e9146cd37743",
+    "defaultBranch": "master",
+    "sizeKb": 828420,
+    "language": "TypeScript"
+  }
+]

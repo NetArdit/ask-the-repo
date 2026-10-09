@@ -1,0 +1,1188 @@
+[
+  {
+    "id": "ky-1",
+    "repo": "sindresorhus/ky",
+    "category": "exact-location",
+    "question": "Where is the retry delay calculated?",
+    "expected": [
+      {
+        "path": "source/core/Ky.ts",
+        "lines": [
+          550,
+          640
+        ]
+      },
+      {
+        "path": "source/core/retry-timing.ts"
+      }
+    ]
+  },
+  {
+    "id": "ky-2",
+    "repo": "sindresorhus/ky",
+    "category": "exact-location",
+    "question": "Where is HTTPError defined?",
+    "expected": [
+      {
+        "path": "source/errors/HTTPError.ts"
+      }
+    ]
+  },
+  {
+    "id": "ky-3",
+    "repo": "sindresorhus/ky",
+    "category": "entry-point",
+    "question": "What is the entry point of the library and what does it export?",
+    "expected": [
+      {
+        "path": "source/index.ts"
+      }
+    ]
+  },
+  {
+    "id": "ky-4",
+    "repo": "sindresorhus/ky",
+    "category": "conceptual",
+    "question": "How does ky implement request timeouts?",
+    "expected": [
+      {
+        "path": "source/utils/timeout.ts"
+      },
+      {
+        "path": "source/core/Ky.ts",
+        "lines": [
+          752,
+          766
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ky-5",
+    "repo": "sindresorhus/ky",
+    "category": "cross-file",
+    "question": "Which files implement the beforeRequest and afterResponse hooks?",
+    "expected": [
+      {
+        "path": "source/core/Ky.ts",
+        "lines": [
+          1003,
+          1060
+        ]
+      },
+      {
+        "path": "source/types/hooks.ts"
+      }
+    ]
+  },
+  {
+    "id": "ky-6",
+    "repo": "sindresorhus/ky",
+    "category": "imports",
+    "question": "Which modules import HTTPError?",
+    "expected": [
+      {
+        "path": "source/core/Ky.ts",
+        "lines": [
+          1,
+          1
+        ]
+      },
+      {
+        "path": "source/utils/type-guards.ts",
+        "lines": [
+          1,
+          5
+        ]
+      },
+      {
+        "path": "source/index.ts",
+        "lines": [
+          73,
+          73
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ky-7",
+    "repo": "sindresorhus/ky",
+    "category": "symbol",
+    "question": "Where is `create` defined?",
+    "expected": [
+      {
+        "path": "source/core/Ky.ts",
+        "lines": [
+          179,
+          186
+        ]
+      },
+      {
+        "path": "source/index.ts"
+      }
+    ]
+  },
+  {
+    "id": "ky-8",
+    "repo": "sindresorhus/ky",
+    "category": "negative",
+    "question": "How does ky manage PostgreSQL connection pooling?",
+    "expected": [],
+    "absentTerms": [
+      "postgres"
+    ]
+  },
+  {
+    "id": "ky-9",
+    "repo": "sindresorhus/ky",
+    "category": "config",
+    "question": "Where are the package exports and entry files declared?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "ky-10",
+    "repo": "sindresorhus/ky",
+    "category": "cross-file",
+    "question": "How does a failed response become an HTTPError and trigger a retry?",
+    "expected": [
+      {
+        "path": "source/core/Ky.ts",
+        "lines": [
+          660,
+          700
+        ]
+      },
+      {
+        "path": "source/core/Ky.ts",
+        "lines": [
+          1091,
+          1130
+        ]
+      },
+      {
+        "path": "source/errors/HTTPError.ts"
+      }
+    ]
+  },
+  {
+    "id": "express-1",
+    "repo": "expressjs/express",
+    "category": "symbol",
+    "question": "Where is res.json implemented?",
+    "expected": [
+      {
+        "path": "lib/response.js",
+        "lines": [
+          236,
+          262
+        ]
+      }
+    ]
+  },
+  {
+    "id": "express-2",
+    "repo": "expressjs/express",
+    "category": "entry-point",
+    "question": "What is the entry point of express and where is the application created?",
+    "expected": [
+      {
+        "path": "index.js"
+      },
+      {
+        "path": "lib/express.js",
+        "lines": [
+          36,
+          81
+        ]
+      }
+    ]
+  },
+  {
+    "id": "express-3",
+    "repo": "expressjs/express",
+    "category": "exact-location",
+    "question": "Where does the app start listening on a port?",
+    "expected": [
+      {
+        "path": "lib/application.js",
+        "lines": [
+          598,
+          610
+        ]
+      }
+    ]
+  },
+  {
+    "id": "express-4",
+    "repo": "expressjs/express",
+    "category": "cross-file",
+    "question": "What happens when a request arrives, how is it dispatched to the router?",
+    "expected": [
+      {
+        "path": "lib/application.js",
+        "lines": [
+          152,
+          188
+        ]
+      }
+    ]
+  },
+  {
+    "id": "express-5",
+    "repo": "expressjs/express",
+    "category": "cross-file",
+    "question": "Which files implement view rendering and template engines?",
+    "expected": [
+      {
+        "path": "lib/view.js"
+      },
+      {
+        "path": "lib/application.js",
+        "lines": [
+          294,
+          320
+        ]
+      },
+      {
+        "path": "lib/application.js",
+        "lines": [
+          522,
+          560
+        ]
+      },
+      {
+        "path": "lib/response.js",
+        "lines": [
+          896,
+          930
+        ]
+      }
+    ]
+  },
+  {
+    "id": "express-6",
+    "repo": "expressjs/express",
+    "category": "imports",
+    "question": "Which modules import the router package?",
+    "expected": [
+      {
+        "path": "lib/application.js",
+        "lines": [
+          26,
+          26
+        ]
+      },
+      {
+        "path": "lib/express.js",
+        "lines": [
+          19,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "id": "express-7",
+    "repo": "expressjs/express",
+    "category": "conceptual",
+    "question": "How is user authentication demonstrated with passwords and sessions?",
+    "expected": [
+      {
+        "path": "examples/auth/index.js"
+      }
+    ]
+  },
+  {
+    "id": "express-8",
+    "repo": "expressjs/express",
+    "category": "symbol",
+    "question": "Where is `send` defined?",
+    "expected": [
+      {
+        "path": "lib/response.js",
+        "lines": [
+          126,
+          235
+        ]
+      }
+    ]
+  },
+  {
+    "id": "express-9",
+    "repo": "expressjs/express",
+    "category": "negative",
+    "question": "Where is the Kubernetes autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  },
+  {
+    "id": "express-10",
+    "repo": "expressjs/express",
+    "category": "config",
+    "question": "Where are the package entry file and dependencies declared?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "commerce-1",
+    "repo": "vercel/commerce",
+    "category": "endpoint",
+    "question": "Where is the revalidate API endpoint defined?",
+    "expected": [
+      {
+        "path": "app/api/revalidate/route.ts"
+      },
+      {
+        "path": "lib/shopify/index.ts",
+        "lines": [
+          506,
+          543
+        ]
+      }
+    ]
+  },
+  {
+    "id": "commerce-2",
+    "repo": "vercel/commerce",
+    "category": "symbol",
+    "question": "Where is shopifyFetch implemented?",
+    "expected": [
+      {
+        "path": "lib/shopify/index.ts",
+        "lines": [
+          71,
+          120
+        ]
+      }
+    ]
+  },
+  {
+    "id": "commerce-3",
+    "repo": "vercel/commerce",
+    "category": "cross-file",
+    "question": "What happens when a user adds an item to the cart?",
+    "expected": [
+      {
+        "path": "components/cart/add-to-cart.tsx"
+      },
+      {
+        "path": "components/cart/actions.ts",
+        "lines": [
+          15,
+          30
+        ]
+      },
+      {
+        "path": "lib/shopify/index.ts",
+        "lines": [
+          228,
+          241
+        ]
+      }
+    ]
+  },
+  {
+    "id": "commerce-4",
+    "repo": "vercel/commerce",
+    "category": "cross-file",
+    "question": "Which files implement the product page?",
+    "expected": [
+      {
+        "path": "app/product/[handle]/page.tsx"
+      },
+      {
+        "path": "components/product/gallery.tsx"
+      },
+      {
+        "path": "components/product/product-description.tsx"
+      },
+      {
+        "path": "components/product/variant-selector.tsx"
+      }
+    ]
+  },
+  {
+    "id": "commerce-5",
+    "repo": "vercel/commerce",
+    "category": "exact-location",
+    "question": "Where does the redirect to checkout happen?",
+    "expected": [
+      {
+        "path": "components/cart/actions.ts",
+        "lines": [
+          98,
+          102
+        ]
+      }
+    ]
+  },
+  {
+    "id": "commerce-6",
+    "repo": "vercel/commerce",
+    "category": "entry-point",
+    "question": "What is the entry point of the app, where is the home page and root layout?",
+    "expected": [
+      {
+        "path": "app/page.tsx"
+      },
+      {
+        "path": "app/layout.tsx"
+      }
+    ]
+  },
+  {
+    "id": "commerce-7",
+    "repo": "vercel/commerce",
+    "category": "conceptual",
+    "question": "How is cart state managed on the client?",
+    "expected": [
+      {
+        "path": "components/cart/cart-context.tsx"
+      }
+    ]
+  },
+  {
+    "id": "commerce-8",
+    "repo": "vercel/commerce",
+    "category": "imports",
+    "question": "Which files import getCart from the shopify module?",
+    "expected": [
+      {
+        "path": "components/cart/actions.ts",
+        "lines": [
+          1,
+          12
+        ]
+      },
+      {
+        "path": "app/layout.tsx",
+        "lines": [
+          5,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "id": "commerce-9",
+    "repo": "vercel/commerce",
+    "category": "negative",
+    "question": "Where are user authentication and login implemented?",
+    "expected": [],
+    "absentTerms": [
+      "login",
+      "authenticat",
+      "password"
+    ]
+  },
+  {
+    "id": "commerce-10",
+    "repo": "vercel/commerce",
+    "category": "config",
+    "question": "Where is the Next.js configuration, for example allowed image hosts?",
+    "expected": [
+      {
+        "path": "next.config.ts"
+      }
+    ]
+  },
+  {
+    "id": "vite-1",
+    "repo": "vitejs/vite",
+    "category": "exact-location",
+    "question": "Where is the dev server created?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/server/index.ts",
+        "lines": [
+          513,
+          600
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vite-2",
+    "repo": "vitejs/vite",
+    "category": "symbol",
+    "question": "Where is resolveConfig implemented?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/config.ts",
+        "lines": [
+          1489,
+          1540
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vite-3",
+    "repo": "vitejs/vite",
+    "category": "conceptual",
+    "question": "Where is hot module replacement handled on the server?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/server/hmr.ts",
+        "lines": [
+          411,
+          520
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vite-4",
+    "repo": "vitejs/vite",
+    "category": "entry-point",
+    "question": "What is the command line entry point?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/cli.ts"
+      }
+    ]
+  },
+  {
+    "id": "vite-5",
+    "repo": "vitejs/vite",
+    "category": "exact-location",
+    "question": "Where is the production build function implemented?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/build.ts",
+        "lines": [
+          572,
+          640
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vite-6",
+    "repo": "vitejs/vite",
+    "category": "cross-file",
+    "question": "Which files implement CSS processing?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/plugins/css.ts"
+      }
+    ]
+  },
+  {
+    "id": "vite-7",
+    "repo": "vitejs/vite",
+    "category": "exact-location",
+    "question": "Which package scaffolds a new project from templates?",
+    "expected": [
+      {
+        "path": "packages/create-vite/src/index.ts"
+      }
+    ]
+  },
+  {
+    "id": "vite-8",
+    "repo": "vitejs/vite",
+    "category": "conceptual",
+    "question": "Where is the WebSocket server for HMR created?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/server/ws.ts"
+      }
+    ]
+  },
+  {
+    "id": "vite-9",
+    "repo": "vitejs/vite",
+    "category": "imports",
+    "question": "Which command in the CLI creates the dev server?",
+    "expected": [
+      {
+        "path": "packages/vite/src/node/cli.ts",
+        "lines": [
+          220,
+          245
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vite-10",
+    "repo": "vitejs/vite",
+    "category": "negative",
+    "question": "Where is the Vue single-file component compiler implemented?",
+    "expected": [],
+    "absentTerms": []
+  },
+  {
+    "id": "vite-11",
+    "repo": "vitejs/vite",
+    "category": "config",
+    "question": "Where are the vite package exports and bin entries declared?",
+    "expected": [
+      {
+        "path": "packages/vite/package.json"
+      }
+    ]
+  },
+  {
+    "id": "react-1",
+    "repo": "facebook/react",
+    "category": "symbol",
+    "question": "Where is useState implemented?",
+    "expected": [
+      {
+        "path": "packages/react/src/ReactHooks.js",
+        "lines": [
+          66,
+          80
+        ]
+      }
+    ]
+  },
+  {
+    "id": "react-2",
+    "repo": "facebook/react",
+    "category": "symbol",
+    "question": "Where is beginWork implemented in the reconciler?",
+    "expected": [
+      {
+        "path": "packages/react-reconciler/src/ReactFiberBeginWork.js",
+        "lines": [
+          4223,
+          4300
+        ]
+      }
+    ]
+  },
+  {
+    "id": "react-3",
+    "repo": "facebook/react",
+    "category": "exact-location",
+    "question": "Where does the scheduler schedule a callback?",
+    "expected": [
+      {
+        "path": "packages/scheduler/src/forks/Scheduler.js",
+        "lines": [
+          335,
+          420
+        ]
+      }
+    ]
+  },
+  {
+    "id": "react-4",
+    "repo": "facebook/react",
+    "category": "entry-point",
+    "question": "What is the entry point of the react package?",
+    "expected": [
+      {
+        "path": "packages/react/index.js"
+      }
+    ]
+  },
+  {
+    "id": "react-5",
+    "repo": "facebook/react",
+    "category": "symbol",
+    "question": "Where is createRoot implemented in react-dom?",
+    "expected": [
+      {
+        "path": "packages/react-dom/src/client/ReactDOMRoot.js",
+        "lines": [
+          171,
+          220
+        ]
+      }
+    ]
+  },
+  {
+    "id": "react-6",
+    "repo": "facebook/react",
+    "category": "cross-file",
+    "question": "Where does the commit phase start after rendering?",
+    "expected": [
+      {
+        "path": "packages/react-reconciler/src/ReactFiberWorkLoop.js",
+        "lines": [
+          3725,
+          3800
+        ]
+      }
+    ]
+  },
+  {
+    "id": "react-7",
+    "repo": "facebook/react",
+    "category": "conceptual",
+    "question": "How are effects mounted for the useEffect hook?",
+    "expected": [
+      {
+        "path": "packages/react-reconciler/src/ReactFiberHooks.js",
+        "lines": [
+          2697,
+          2740
+        ]
+      }
+    ]
+  },
+  {
+    "id": "react-8",
+    "repo": "facebook/react",
+    "category": "symbol",
+    "question": "Where is `createElement` defined?",
+    "expected": [
+      {
+        "path": "packages/react/src/jsx/ReactJSXElement.js",
+        "lines": [
+          610,
+          700
+        ]
+      }
+    ]
+  },
+  {
+    "id": "react-9",
+    "repo": "facebook/react",
+    "category": "negative",
+    "question": "Where is the Kubernetes pod autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  },
+  {
+    "id": "react-10",
+    "repo": "facebook/react",
+    "category": "config",
+    "question": "Where is the monorepo workspace configuration declared?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "zustand-1",
+    "repo": "pmndrs/zustand",
+    "category": "symbol",
+    "question": "Where is createJSONStorage defined?",
+    "expected": [
+      {
+        "path": "src/middleware/persist.ts",
+        "lines": [
+          31,
+          60
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zustand-2",
+    "repo": "pmndrs/zustand",
+    "category": "symbol",
+    "question": "Where is the shallow comparison function implemented?",
+    "expected": [
+      {
+        "path": "src/vanilla/shallow.ts",
+        "lines": [
+          48,
+          90
+        ]
+      },
+      {
+        "path": "src/react/shallow.ts"
+      }
+    ]
+  },
+  {
+    "id": "zustand-3",
+    "repo": "pmndrs/zustand",
+    "category": "symbol",
+    "question": "Where is the devtools middleware implemented?",
+    "expected": [
+      {
+        "path": "src/middleware/devtools.ts",
+        "lines": [
+          424,
+          470
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zustand-4",
+    "repo": "pmndrs/zustand",
+    "category": "imports",
+    "question": "Which modules import the vanilla shallow module?",
+    "expected": [
+      {
+        "path": "src/react/shallow.ts"
+      },
+      {
+        "path": "src/shallow.ts"
+      }
+    ]
+  },
+  {
+    "id": "zustand-5",
+    "repo": "pmndrs/zustand",
+    "category": "entry-point",
+    "question": "What is the entry point of the zustand package?",
+    "expected": [
+      {
+        "path": "src/index.ts"
+      }
+    ]
+  },
+  {
+    "id": "zustand-6",
+    "repo": "pmndrs/zustand",
+    "category": "conceptual",
+    "question": "How is a vanilla store created and how do subscribers get notified?",
+    "expected": [
+      {
+        "path": "src/vanilla.ts"
+      }
+    ]
+  },
+  {
+    "id": "zustand-7",
+    "repo": "pmndrs/zustand",
+    "category": "exact-location",
+    "question": "Where is the React hook that binds a store to components?",
+    "expected": [
+      {
+        "path": "src/react.ts"
+      }
+    ]
+  },
+  {
+    "id": "zustand-8",
+    "repo": "pmndrs/zustand",
+    "category": "config",
+    "question": "Where are the package exports for each entry declared?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "zustand-9",
+    "repo": "pmndrs/zustand",
+    "category": "cross-file",
+    "question": "How does the persist middleware save and rehydrate state?",
+    "expected": [
+      {
+        "path": "src/middleware/persist.ts",
+        "lines": [
+          1,
+          400
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zustand-10",
+    "repo": "pmndrs/zustand",
+    "category": "negative",
+    "question": "Where is the Kubernetes autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  },
+  {
+    "id": "koa-1",
+    "repo": "koajs/koa",
+    "category": "symbol",
+    "question": "Where is isHttpErrorLike defined?",
+    "expected": [
+      {
+        "path": "lib/application.js",
+        "lines": [
+          25,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "id": "koa-2",
+    "repo": "koajs/koa",
+    "category": "symbol",
+    "question": "Where is splitCommaSeparatedValues defined?",
+    "expected": [
+      {
+        "path": "lib/request.js",
+        "lines": [
+          748,
+          770
+        ]
+      }
+    ]
+  },
+  {
+    "id": "koa-3",
+    "repo": "koajs/koa",
+    "category": "imports",
+    "question": "Which modules import the only helper?",
+    "expected": [
+      {
+        "path": "lib/application.js"
+      },
+      {
+        "path": "lib/request.js"
+      },
+      {
+        "path": "lib/response.js"
+      }
+    ]
+  },
+  {
+    "id": "koa-4",
+    "repo": "koajs/koa",
+    "category": "entry-point",
+    "question": "What is the entry point of koa and where is the Application class?",
+    "expected": [
+      {
+        "path": "lib/application.js"
+      }
+    ]
+  },
+  {
+    "id": "koa-5",
+    "repo": "koajs/koa",
+    "category": "cross-file",
+    "question": "How is the middleware stack composed and run for each request?",
+    "expected": [
+      {
+        "path": "lib/application.js",
+        "lines": [
+          1,
+          400
+        ]
+      }
+    ]
+  },
+  {
+    "id": "koa-6",
+    "repo": "koajs/koa",
+    "category": "conceptual",
+    "question": "How does error handling convert thrown errors into HTTP responses?",
+    "expected": [
+      {
+        "path": "lib/context.js"
+      },
+      {
+        "path": "lib/application.js"
+      }
+    ]
+  },
+  {
+    "id": "koa-7",
+    "repo": "koajs/koa",
+    "category": "exact-location",
+    "question": "Where is the response body set and its content type inferred?",
+    "expected": [
+      {
+        "path": "lib/response.js"
+      }
+    ]
+  },
+  {
+    "id": "koa-8",
+    "repo": "koajs/koa",
+    "category": "config",
+    "question": "Where are the package exports declared?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "koa-9",
+    "repo": "koajs/koa",
+    "category": "cross-file",
+    "question": "How is the ctx object created by combining request and response?",
+    "expected": [
+      {
+        "path": "lib/application.js"
+      },
+      {
+        "path": "lib/context.js"
+      }
+    ]
+  },
+  {
+    "id": "koa-10",
+    "repo": "koajs/koa",
+    "category": "negative",
+    "question": "Where is the PostgreSQL connection pool configured?",
+    "expected": [],
+    "absentTerms": [
+      "postgres"
+    ]
+  },
+  {
+    "id": "hono-1",
+    "repo": "honojs/hono",
+    "category": "symbol",
+    "question": "Where is the JSXNode class defined?",
+    "expected": [
+      {
+        "path": "src/jsx/base.ts",
+        "lines": [
+          202,
+          260
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hono-2",
+    "repo": "honojs/hono",
+    "category": "symbol",
+    "question": "Where is testClient implemented?",
+    "expected": [
+      {
+        "path": "src/helper/testing/index.ts",
+        "lines": [
+          16,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hono-3",
+    "repo": "honojs/hono",
+    "category": "symbol",
+    "question": "Where is the validator middleware defined?",
+    "expected": [
+      {
+        "path": "src/validator/validator.ts",
+        "lines": [
+          46,
+          120
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hono-4",
+    "repo": "honojs/hono",
+    "category": "imports",
+    "question": "Which modules import the body parsing utility?",
+    "expected": [
+      {
+        "path": "src/middleware/method-override/index.ts"
+      },
+      {
+        "path": "src/request.ts"
+      },
+      {
+        "path": "src/validator/validator.ts"
+      }
+    ]
+  },
+  {
+    "id": "hono-5",
+    "repo": "honojs/hono",
+    "category": "entry-point",
+    "question": "What is the entry point of hono and where is the Hono class exported?",
+    "expected": [
+      {
+        "path": "src/index.ts"
+      },
+      {
+        "path": "src/hono.ts"
+      }
+    ]
+  },
+  {
+    "id": "hono-6",
+    "repo": "honojs/hono",
+    "category": "endpoint",
+    "question": "Where are routes registered and matched by the router?",
+    "expected": [
+      {
+        "path": "src/hono-base.ts"
+      },
+      {
+        "path": "src/router.ts"
+      }
+    ]
+  },
+  {
+    "id": "hono-7",
+    "repo": "honojs/hono",
+    "category": "conceptual",
+    "question": "How is middleware composed and executed in order?",
+    "expected": [
+      {
+        "path": "src/compose.ts"
+      }
+    ]
+  },
+  {
+    "id": "hono-8",
+    "repo": "honojs/hono",
+    "category": "exact-location",
+    "question": "Where is the context object with json and text helpers defined?",
+    "expected": [
+      {
+        "path": "src/context.ts"
+      }
+    ]
+  },
+  {
+    "id": "hono-9",
+    "repo": "honojs/hono",
+    "category": "cross-file",
+    "question": "How does an incoming request become a response through the fetch handler?",
+    "expected": [
+      {
+        "path": "src/hono-base.ts"
+      },
+      {
+        "path": "src/compose.ts"
+      }
+    ]
+  },
+  {
+    "id": "hono-10",
+    "repo": "honojs/hono",
+    "category": "config",
+    "question": "Where are the package exports for each entry declared?",
+    "expected": [
+      {
+        "path": "package.json"
+      }
+    ]
+  },
+  {
+    "id": "hono-11",
+    "repo": "honojs/hono",
+    "category": "negative",
+    "question": "Where is the Kubernetes autoscaler configured?",
+    "expected": [],
+    "absentTerms": [
+      "kubernetes",
+      "autoscal"
+    ]
+  }
+]
