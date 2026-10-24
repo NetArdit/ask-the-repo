@@ -2,7 +2,7 @@ import { Transform, type Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { createGunzip } from "node:zlib";
 import tar from "tar-stream";
-import { classifyContent, classifyPath, languageOf, type Language, type SkipReason } from "./filter";
+import { BROAD_MAX_FILES, BROAD_MAX_FILE_BYTES, broadLanguageOf, classifyContent, classifyPath, isStructuredLanguage, languageOf, type Language, type SkipReason } from "./filter";
 import { normalizeArchivePath, stripArchiveRoot, type PathRejection } from "./paths";
 
 export interface IngestLimits {
@@ -72,6 +72,8 @@ function byteCounter(onBytes: (total: number) => void): Transform {
  */
 export interface IngestOptions {
   includeConfig?: boolean;
+  /** Read every text file, not only JavaScript, TypeScript and Markdown (see filter.ts). Off by default, which keeps recorded runs reproducible. */
+  broad?: boolean;
   /** Called for every file skipped by path or content rules, so callers can tell "excluded" from "missing". */
   onSkipped?: (path: string, reason: SkipReason) => void;
 }
@@ -93,6 +95,7 @@ export async function ingestTarGz(
     deliveredBytes: 0,
   };
   const abort = new AbortController();
+  let extraFiles = 0;
   let failure: Error | null = null;
   const fail = (err: Error): void => {
     failure ??= err;
@@ -150,15 +153,25 @@ export async function ingestTarGz(
         entry.resume();
         continue;
       }
+      // In broad mode the other languages are bounded harder than the code the index understands: one big data file or a
+      // repository of thousands of small ones must not crowd out the rest.
+      const pathLanguage = options.broad ? broadLanguageOf(normalized.path) : languageOf(normalized.path);
+      const isExtra = options.broad === true && !isStructuredLanguage(pathLanguage) && pathLanguage !== "markdown" && pathLanguage !== "config";
+      if (isExtra && ((size ?? 0) > BROAD_MAX_FILE_BYTES || extraFiles >= BROAD_MAX_FILES)) {
+        skip("too-large", normalized.path);
+        entry.resume();
+        continue;
+      }
       const chunks: Buffer[] = [];
       for await (const chunk of entry) chunks.push(chunk as Buffer);
       const content = Buffer.concat(chunks);
-      const language = languageOf(normalized.path);
+      const language = pathLanguage;
       const contentSkip = classifyContent(content, language);
       if (contentSkip) {
         skip(contentSkip, normalized.path);
         continue;
       }
+      if (isExtra) extraFiles += 1;
       stats.delivered += 1;
       stats.deliveredBytes += content.length;
       await onFile({ path: normalized.path, content, language });

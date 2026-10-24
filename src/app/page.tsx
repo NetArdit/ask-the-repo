@@ -22,7 +22,7 @@ const LIMITS: { term: string; detail: string }[] = [
     term: "Judge its own answers",
     detail: "A citation is checked to point at real lines, and quoted text is checked to appear in them. Whether those lines truly support the claim is not checked. Read them.",
   },
-  { term: "Read every file", detail: "Only JavaScript, TypeScript and Markdown are indexed. Vendored, generated, minified and binary files are skipped, and so are very large repositories." },
+  { term: "Parse every language deeply", detail: "Any text file in any folder is read: HTML, CSS, Python, Java, Go, Rust, PHP and more. Only JavaScript and TypeScript are parsed into symbols and imports; the other languages are searched by their words alone. Vendored, generated, minified and binary files are skipped, and so are very large files and repositories." },
   { term: "Private repositories", detail: "Public GitHub repositories only. There are no accounts and nothing to sign in to." },
   { term: "Remember a conversation", detail: "Each question is answered on its own from the code. Earlier questions are not sent along with it." },
   {

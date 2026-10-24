@@ -57,6 +57,11 @@ export interface LoadTimings {
   deriveMs: number;
 }
 
+/** Forgets the loaded copy of an index that has just been replaced in the store, so the next request reads the new one. */
+export function evictCachedIndex(key: IndexKey): void {
+  cache.delete(formatKey(key));
+}
+
 export async function loadCachedIndex(key: IndexKey): Promise<{ index: LoadedIndex; timings: LoadTimings } | null> {
   const id = formatKey(key);
   const hit = cache.get(id);

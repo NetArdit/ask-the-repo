@@ -8,21 +8,22 @@ import { CACHE_ROOT } from "./cache";
 import { V3_EVIDENCE, evidenceVersionFromArgs, runAnswers, tuningRunNames, variantFromArgs, type EvidenceVersion, type PolicyVariant } from "./answer-eval";
 
 describe("prompt variant selection (no model is called)", () => {
-  it("defaults to A and accepts exactly A, B, C, D or E", () => {
+  it("defaults to A and accepts exactly A, B, C, D, E or F", () => {
     expect(parsePromptVariant(undefined)).toBe("A");
     expect(parsePromptVariant("B")).toBe("B");
     expect(parsePromptVariant("C")).toBe("C");
     expect(parsePromptVariant("D")).toBe("D");
     expect(variantFromArgs(["tuning", "--variant=D"])).toBe("D");
     expect(parsePromptVariant("E")).toBe("E");
+    expect(parsePromptVariant("F")).toBe("F");
     expect(variantFromArgs([])).toBe("A");
     expect(variantFromArgs(["tuning", "0.3", "0.5"])).toBe("A");
     expect(variantFromArgs(["tuning", "--variant=B"])).toBe("B");
     expect(variantFromArgs(["--variant=C", "tuning"])).toBe("C");
   });
 
-  it.each(["", "a", "d", "e", "F", "AB", " B", "B ", "A;B", "gsk_not_a_real_secret_but_secret_shaped"])("fails closed on %j without echoing the value", (raw) => {
-    expect(() => parsePromptVariant(raw)).toThrow(/expected exactly A, B, C, D or E/);
+  it.each(["", "a", "d", "e", "f", "G", "AB", " B", "B ", "A;B", "gsk_not_a_real_secret_but_secret_shaped"])("fails closed on %j without echoing the value", (raw) => {
+    expect(() => parsePromptVariant(raw)).toThrow(/expected exactly A, B, C, D, E or F/);
     try {
       parsePromptVariant(raw);
     } catch (e) {

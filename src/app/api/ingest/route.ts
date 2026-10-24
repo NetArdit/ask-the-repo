@@ -5,12 +5,12 @@ import type { RepoRef } from "../../../github/repo-ref";
 import { buildIndexFromTarball } from "../../../index/from-tarball";
 import { formatKey } from "../../../index/store";
 import { DEFAULT_LIMITS } from "../../../ingest/tarball";
-import { DEFAULT_INDEX_CONFIG } from "../../../retrieve/defaults";
+import { APP_INDEX_CONFIG } from "../../../retrieve/defaults";
 import { ingestErrorResponse } from "../../../server/errors";
 import { MAX_BODY_BYTES, checkRate, requireJson, enter, isRefusal, refundRate, refusalResponse } from "../../../server/guards";
 import { readJsonBody } from "../../../server/limits";
 import { withEventLog } from "../../../server/log-event";
-import { diagnostics, getStore, latestCommits, loadCachedIndex } from "../../../server/runtime";
+import { diagnostics, evictCachedIndex, getStore, latestCommits, loadCachedIndex } from "../../../server/runtime";
 import { parseIngestBody } from "../../../server/validate";
 
 export const runtime = "nodejs";
@@ -25,9 +25,10 @@ async function buildAndStore(ref: RepoRef, sha: string, started: number): Promis
   const res = await githubFetch(tarballUrl(ref, sha), { accept: "application/x-gzip", signal: AbortSignal.timeout(DEFAULT_LIMITS.maxTotalMs) });
   if (!res.body) throw new Error("empty response body");
   const source = Readable.fromWeb(res.body as import("node:stream/web").ReadableStream<Uint8Array>);
-  const built = await buildIndexFromTarball(source, { ...ref, sha }, DEFAULT_INDEX_CONFIG);
+  const built = await buildIndexFromTarball(source, { ...ref, sha }, APP_INDEX_CONFIG);
   const t0 = performance.now();
   await getStore().put({ ...ref, sha }, built.bytes);
+  evictCachedIndex({ ...ref, sha });
   return {
     sha,
     files: built.files,
@@ -56,7 +57,8 @@ async function handle(request: NextRequest): Promise<Response> {
 
     // A commit never changes, so an index that already exists is the answer: no download, no parse.
     const existing = await loadCachedIndex(key);
-    if (existing) return Response.json({ sha, files: existing.index.fileCount, chunks: existing.index.chunkCount, cached: true, ...diagnostics() });
+    // An index made before every text file was read holds only JavaScript, TypeScript and Markdown: build it again.
+    if (existing && existing.index.artifact.config.broadFiles === true) return Response.json({ sha, files: existing.index.fileCount, chunks: existing.index.chunkCount, cached: true, ...diagnostics() });
 
     const id = formatKey(key);
     let build = building.get(id);

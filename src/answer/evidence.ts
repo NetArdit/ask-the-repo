@@ -15,7 +15,12 @@ export function permalink(item: Pick<EvidenceItem, "repo" | "path" | "startLine"
 }
 
 const INSTRUCTION_LIKE =
-  /ignore (all |any )?(the )?(previous|prior|above) (instructions|prompts?)|disregard (the )?(system|previous)|reveal (the |your )?(system )?prompt|system override|you are now|as an? (ai|assistant)[, ]/i;
+  /ignore (all |any )?(the )?(previous|prior|above) (instructions|prompts?)|disregard (the )?(system|previous)|reveal (the |your )?(system )?prompt|system override|you are now (?:an? (?:unrestricted|jailbroken|evil|different|new|ai|assistant|language model|chatbot|dan)\b|acting as\b|playing the role\b|in (?:developer|debug|admin|dan) mode\b|dan\b|unrestricted\b|free of\b)|as an? (ai|assistant)[, ]/i;
+
+/** Text that reads like an instruction to a model. A heuristic that flags and never removes: ordinary messages such as "You are now logged in" are not flagged. */
+export function looksLikeInstruction(text: string): boolean {
+  return INSTRUCTION_LIKE.test(text);
+}
 
 const PREFETCH_CONCURRENCY = 4;
 

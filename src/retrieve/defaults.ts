@@ -12,6 +12,12 @@ export const DEFAULT_INDEX_CONFIG: IndexConfig = {
   resolveWorkspaceAndAliases: true,
 };
 
+/**
+ * What the web application builds: the benchmark's configuration, plus every text file in any language (see IndexConfig.broadFiles).
+ * Kept apart from DEFAULT_INDEX_CONFIG, which the benchmark's accepted.json must keep matching, so recorded runs stay reproducible.
+ */
+export const APP_INDEX_CONFIG: IndexConfig = { ...DEFAULT_INDEX_CONFIG, broadFiles: true };
+
 export const DEFAULT_SEARCH_OPTIONS: SearchOptions = {
   classWeights: { test: 0.3, example: 0.3, docs: 0.3 },
   entryBoost: true,

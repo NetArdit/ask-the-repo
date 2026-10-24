@@ -160,7 +160,7 @@ export function Workspace({ owner, repo, sha }: { owner: string; repo: string; s
 
         {status.phase === "ready" && status.summary.files === 0 && (
           <Notice tone="warn" title="Nothing here can be searched" data-empty-index className="max-w-[44rem]">
-            <p>No JavaScript, TypeScript or Markdown files were found at this commit, so there is nothing to ask about. Other languages are not indexed yet.</p>
+            <p>No readable text files were found at this commit (everything in it was binary, generated, minified or inside a vendored folder), so there is nothing to ask about.</p>
           </Notice>
         )}
       </div>

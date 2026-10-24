@@ -18,3 +18,10 @@ export const V3_EVIDENCE = { importerEvidence: { maxBlocks: 4 }, entryEvidence: 
  * by the evaluation method: the holdout has not been run. To go back to what the application ran before, make this `{}`.
  */
 export const APP_ANSWER_SETTINGS = { ...V3_EVIDENCE, promptVariant: "E", evidenceContract: 3 } as const;
+
+/**
+ * What the web application runs now that it reads every text file: the settings above, with prompt F (answers in the question's
+ * language, any file type, feature walk-throughs), the overview path for questions about the whole repository, and room for a
+ * longer reply. None of this was evaluated on the benchmark, which is unchanged and still runs APP_ANSWER_SETTINGS' E.
+ */
+export const BROAD_APP_ANSWER_SETTINGS = { ...V3_EVIDENCE, promptVariant: "F", evidenceContract: 3, overview: { maxBlocks: 6 }, maxOutputTokens: 1500, resilient: true, queryExpansion: true } as const;

@@ -1,6 +1,6 @@
 export type FileClass = "source" | "test" | "example" | "docs" | "config";
 
-const TEST_DIRS = new Set(["test", "tests", "__tests__", "__mocks__", "__fixtures__", "spec", "specs", "e2e", "fixtures", "fixture", "test-d", "test-helpers", "__snapshots__"]);
+const TEST_DIRS = new Set(["test", "tests", "__tests__", "__mocks__", "__fixtures__", "spec", "specs", "e2e", "fixtures", "fixture", "test-d", "test-helpers", "__snapshots__", "testdata"]);
 const EXAMPLE_DIRS = new Set(["examples", "example", "demo", "demos", "playground", "playgrounds", "samples", "sample", "benchmarks", "benchmark", "bench", "scripts"]);
 const DOCS_DIRS = new Set(["docs", "doc", "dev-docs", "documentation"]);
 
@@ -10,7 +10,7 @@ export function classifyFile(filePath: string, isConfig: boolean): FileClass {
   const segments = filePath.split("/");
   const base = segments[segments.length - 1] ?? "";
   const dirs = segments.slice(0, -1);
-  if (dirs.some((d) => TEST_DIRS.has(d)) || /\.(test|spec)\.[a-z]+$/i.test(base) || /^test[-_.]/i.test(base)) return "test";
+  if (dirs.some((d) => TEST_DIRS.has(d)) || /\.(test|spec)\.[a-z]+$/i.test(base) || /^test[-_.]/i.test(base) || /_(test|spec)\.(?!ya?ml$|json$|toml$|mdx?$|txt$|rst$)[a-z0-9]+$/i.test(base) || /Tests?\.(java|kt|cs|swift)$/.test(base)) return "test";
   if (dirs.some((d) => EXAMPLE_DIRS.has(d) || d.startsWith("template-"))) return "example";
   if (dirs.some((d) => DOCS_DIRS.has(d)) || /\.mdx?$/i.test(base)) return "docs";
   return "source";

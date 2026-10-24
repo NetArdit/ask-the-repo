@@ -1,5 +1,5 @@
 import type { Node } from "web-tree-sitter";
-import type { Language } from "../ingest/filter";
+import { isStructuredLanguage, type Language } from "../ingest/filter";
 import { MAX_CHUNK_LINES, countLines, lineWindows, mergeUnits, splitOversized, type Unit } from "./chunk";
 import type { ParseVariant } from "../index/types";
 import { GrammarLoadError, getParser, grammarFor, type GrammarName } from "./languages";
@@ -332,7 +332,7 @@ export async function parseSource(
 ): Promise<ParsedFile> {
   const lineCount = countLines(text);
   const base = emptyResult(path, language, lineCount);
-  if (language === "markdown" || language === "other") {
+  if (!isStructuredLanguage(language)) {
     return { ...base, status: "text", chunks: lineWindows(lineCount) };
   }
   const fallback = (reason: string, parseMs: number): ParsedFile => ({

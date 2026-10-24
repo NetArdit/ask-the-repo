@@ -53,7 +53,7 @@ export async function buildIndexFromTarball(
       perLanguage[parsed.status] = (perLanguage[parsed.status] ?? 0) + 1;
       if (parsed.failureReason) parseFallbackReasons[parsed.failureReason] = (parseFallbackReasons[parsed.failureReason] ?? 0) + 1;
     },
-    { includeConfig: config.includeConfig, onSkipped: (p) => builder.noteSkipped(p) },
+    { includeConfig: config.includeConfig, broad: config.broadFiles === true, onSkipped: (p) => builder.noteSkipped(p) },
   );
   const t1 = performance.now();
   const artifact = builder.finish();

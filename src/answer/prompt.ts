@@ -25,13 +25,13 @@ export interface BuiltPrompt {
   evidenceIds: string[];
 }
 
-export type PromptVariant = "A" | "B" | "C" | "D" | "E";
+export type PromptVariant = "A" | "B" | "C" | "D" | "E" | "F";
 
-/** Fails closed: nothing but an exact "A", "B", "C", "D" or "E" selects a variant. Absent means the control, A. */
+/** Fails closed: nothing but an exact "A", "B", "C", "D", "E" or "F" selects a variant. Absent means the control, A. */
 export function parsePromptVariant(raw: string | undefined): PromptVariant {
   if (raw === undefined) return "A";
-  if (raw === "A" || raw === "B" || raw === "C" || raw === "D" || raw === "E") return raw;
-  throw new Error("unknown prompt variant; expected exactly A, B, C, D or E");
+  if (raw === "A" || raw === "B" || raw === "C" || raw === "D" || raw === "E" || raw === "F") return raw;
+  throw new Error("unknown prompt variant; expected exactly A, B, C, D, E or F");
 }
 
 const RULE_REPLY = "6. Reply with a single JSON object and nothing else:";
@@ -54,6 +54,21 @@ const D_RULES = `6. A claim must say only what its quoted lines show. If the lin
 7. If part of the question asks about something the evidence does not show, do not guess: list it in an optional "unsupported" array of short strings (at most 5).
 `;
 
+/** Rules 8 and 9 of variant E, shared word for word with F. */
+const E_RULES = `8. Copy every quote exactly as it stands in the evidence block. Never shorten a quote with "..." or "(...)", and never tidy its spacing. If the passage you need is long, quote one line of it.
+9. A line marked INDEX is a fact the application read from the repository's index. It is not evidence: do not cite it and do not restate it as a claim of your own. When it says which evidence blocks show something, base your claims on those blocks, and list every one of them that answers the question.
+`;
+
+/**
+ * F is the prompt of the web application's broad mode. It is E plus three rules, none of which changes what counts as a supported
+ * claim: write in the language of the question, treat every language and file type as code, and explain how a feature works as
+ * a chain of cited steps. It has not been evaluated on the benchmark (which reads JavaScript, TypeScript and Markdown only).
+ */
+const F_RULES = `10. Write the text of each claim, and the "missing" and "unsupported" texts, in the language the question is written in (for example Albanian, German or Spanish). If the question mixes languages, for example Albanian sentences around English technical terms, file names or identifiers, write in the language of the sentence itself and keep the technical terms as they are; read the question as one request, whichever language each word is in. If you cannot tell, write in English. Quotes stay exactly as they are in the evidence, in whatever language that is.
+11. The repository may be written in any language and may mix HTML, CSS, configuration and code. Read all of it as code. When the question asks how a feature, button, page or integration works, or where its code is, follow it through the evidence in order: where the user triggers it, what that calls, what the called code does and what comes back. Give one claim per step, each with its own quote, and list in "unsupported" any step the evidence does not show. Do not fill a gap with what such code usually does.
+12. When the question asks what the project is or does, answer from the README, manifest and entry-point evidence: its purpose, its main parts and how they connect, each claim with its own quote.
+`;
+
 export const SYSTEM_PROMPTS: Record<PromptVariant, string> = (() => {
   const at = SYSTEM_PROMPT.indexOf(RULE_REPLY);
   const head = SYSTEM_PROMPT.slice(0, at);
@@ -65,9 +80,8 @@ ${tail.replace("6. Reply", "7. Reply")}`,
     C: `${head}6. A claim must be fully entailed by the evidence it cites. If the evidence shows only part of what you would like to say, state only the part it shows or leave the claim out. Never combine two excerpts into a claim neither supports alone. If no claim survives, return insufficient_evidence.
 ${tail.replace("6. Reply", "7. Reply")}`,
     D: `${head}${D_RULES}${tail.replace("6. Reply", "8. Reply")}`,
-    E: `${head}${D_RULES}8. Copy every quote exactly as it stands in the evidence block. Never shorten a quote with "..." or "(...)", and never tidy its spacing. If the passage you need is long, quote one line of it.
-9. A line marked INDEX is a fact the application read from the repository's index. It is not evidence: do not cite it and do not restate it as a claim of your own. When it says which evidence blocks show something, base your claims on those blocks, and list every one of them that answers the question.
-${tail.replace("6. Reply", "10. Reply")}`,
+    E: `${head}${D_RULES}${E_RULES}${tail.replace("6. Reply", "10. Reply")}`,
+    F: `${head}${D_RULES}${E_RULES}${F_RULES}${tail.replace("6. Reply", "13. Reply")}`,
   };
 })();
 

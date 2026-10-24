@@ -1,5 +1,5 @@
 import { answerQuestion, type AnswerResult } from "../answer/answer";
-import { APP_ANSWER_SETTINGS, DEFAULT_POLICY } from "../answer/defaults";
+import { BROAD_APP_ANSWER_SETTINGS, DEFAULT_POLICY } from "../answer/defaults";
 import { GroqProvider, ProviderError, type ModelProvider } from "../answer/provider";
 import type { SourceProvider } from "../answer/source";
 import { GitHubHttpError } from "../github/client";
@@ -93,7 +93,7 @@ export async function handleAnswer(deps: AnswerHandlerDeps, rawBody: unknown): P
   const watched = watchProvider(deps.provider);
   try {
     const result: AnswerResult = await answerQuestion(
-      { index, repo: parsed.key, source: deps.makeSource(), provider: watched.provider, searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...APP_ANSWER_SETTINGS },
+      { index, repo: parsed.key, source: deps.makeSource(), provider: watched.provider, searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...BROAD_APP_ANSWER_SETTINGS },
       parsed.question,
     );
     if (result.status !== "provider_error") return { status: 200, body: result };

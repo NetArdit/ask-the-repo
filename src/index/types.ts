@@ -8,7 +8,11 @@ export interface IndexKey {
   sha: string;
 }
 
-export const LANGUAGE_CODES = ["javascript", "typescript", "tsx", "markdown", "config"] as const;
+// New codes are only ever appended: a stored index stores the position of its language.
+export const LANGUAGE_CODES = [
+  "javascript", "typescript", "tsx", "markdown", "config",
+  "html", "css", "json", "yaml", "python", "java", "go", "rust", "c", "cpp", "csharp", "php", "ruby", "kotlin", "swift", "shell", "sql", "vue", "svelte", "other",
+] as const;
 export const STATUS_CODES = ["ast", "ast-with-errors", "fallback", "text"] as const;
 export const SYMBOL_KIND_CODES = ["function", "class", "method", "interface", "type", "enum", "variable"] as const;
 export const IMPORT_KIND_CODES = ["esm", "require", "dynamic", "reexport"] as const;
@@ -29,6 +33,11 @@ export interface IndexConfig {
   parseVariant: ParseVariant;
   /** Resolve bare specifiers that name a workspace package, and tsconfig `paths` / `baseUrl` aliases. Needs includeConfig. */
   resolveWorkspaceAndAliases: boolean;
+  /**
+   * Read every text file, not only JavaScript, TypeScript and Markdown. The other languages are indexed as plain text windows (no
+   * symbols, no import graph). Absent means false, so every index and benchmark run made before this option reads as it did.
+   */
+  broadFiles?: boolean;
 }
 
 export const BASELINE_CONFIG: IndexConfig = {

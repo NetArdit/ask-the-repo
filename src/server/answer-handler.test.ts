@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { answerQuestion } from "../answer/answer";
-import { APP_ANSWER_SETTINGS, DEFAULT_POLICY } from "../answer/defaults";
+import { BROAD_APP_ANSWER_SETTINGS, DEFAULT_POLICY } from "../answer/defaults";
 import { SYSTEM_PROMPTS, parsePromptEvidence } from "../answer/prompt";
 import { ExtractiveBaselineProvider, GroqProvider, ProviderError } from "../answer/provider";
 import { DEFAULT_SEARCH_OPTIONS } from "../retrieve/defaults";
@@ -75,7 +75,7 @@ describe("handleAnswer and the model's raw reply", () => {
     expect(JSON.stringify(huge.body)).not.toContain("LONG-QUOTE-MARKER");
   });
 
-  it("runs the application's settings: prompt E, importers stated from the index, and a long verbatim quote accepted and trimmed", async () => {
+  it("runs the application's settings: prompt F, importers stated from the index, and a long verbatim quote accepted and trimmed", async () => {
     const big = Array.from({ length: 40 }, (_, i) => `export const setting${i} = "value number ${i} with some padding";`).join("\n");
     const files = { ...FILES, "src/config/settings.ts": big };
     const { index, source } = await buildFixture(files);
@@ -84,7 +84,7 @@ describe("handleAnswer and the model's raw reply", () => {
       return block ? JSON.stringify({ status: "answered", claims: [{ text: "The settings are constants.", evidence: [{ citation: block.id, quote: block.lines.join("\n") }] }] }) : '{"status":"insufficient_evidence","missing":"x"}';
     });
     const long = await handleAnswer({ provider, loadIndex: async () => index, makeSource: () => source }, { ...body, question: "what are setting0 and setting1 in settings" });
-    expect(provider.requests[0]!.system).toBe(SYSTEM_PROMPTS.E);
+    expect(provider.requests[0]!.system).toBe(SYSTEM_PROMPTS.F);
     expect(long.body).toMatchObject({ status: "answered" });
     const c = (long.body as { claims: { citations: { quote: string; quoteVerbatim: boolean; quoteTrimmed?: boolean }[] }[] }).claims[0]!.citations[0]!;
     expect(big.length).toBeGreaterThan(400);
@@ -179,7 +179,7 @@ describe("handleAnswer", () => {
     expect(viaHandler[0]).toHaveLength(2);
     expect(viaHandler[0]![1]).toBeInstanceOf(AbortSignal);
     // The same question through the pipeline without the handler: the request differs only in its per-call nonce.
-    await answerQuestion({ index: (await d.loadIndex(parseAnswerBody(body).key))!, repo: parseAnswerBody(body).key, source: d.makeSource(), provider: recorder(direct), searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...APP_ANSWER_SETTINGS }, body.question);
+    await answerQuestion({ index: (await d.loadIndex(parseAnswerBody(body).key))!, repo: parseAnswerBody(body).key, source: d.makeSource(), provider: recorder(direct), searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...BROAD_APP_ANSWER_SETTINGS }, body.question);
     const strip = (args: unknown[]) => {
       const { nonce, onUsage, ...rest } = args[0] as { nonce: string; onUsage: unknown; system: string; user: string };
       void onUsage;

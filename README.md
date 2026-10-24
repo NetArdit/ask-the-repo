@@ -11,7 +11,7 @@ AskTheRepo indexes one commit of a repository, retrieves the code relevant to a 
 ```
 repository URL
   → download one commit as a tarball (size, time and path limits enforced while streaming)
-  → parse JavaScript / TypeScript with Tree-sitter into symbols, imports and chunks
+  → parse JavaScript / TypeScript with Tree-sitter into symbols, imports and chunks; read every other text file (HTML, Python, Java, Go, ...) as plain text windows
   → build a compact BM25 index (terms and locations only; no source text is stored)
 question
   → lexical retrieval over the index, expanded one hop along imports
@@ -50,6 +50,19 @@ src/benchmark    evaluation harness (not part of the running app)
 e2e              browser check and its fixtures generator
 reports          evaluation results
 ```
+
+## Reading every language
+
+The web application builds its indexes with `APP_INDEX_CONFIG` (`src/retrieve/defaults.ts`): the benchmark's configuration plus `broadFiles: true`. In that mode every text file in any folder is indexed, not only JavaScript, TypeScript and Markdown. HTML, CSS, JSON, YAML, Python, Java, Go, Rust, C and C++, C#, PHP, Ruby, Kotlin, Swift, shell, SQL, Vue and Svelte are named; any other text file is read as `other`. Vendored and build folders (including `target`, `venv`, `.venv`, `obj`), lockfiles, minified files, licence text, data files (csv, svg, ...) and binary files are still skipped. Outside JavaScript, TypeScript and Markdown a file may be at most 300,000 bytes and at most 3,000 such files are read per repository (`BROAD_MAX_FILE_BYTES`, `BROAD_MAX_FILES` in `src/ingest/filter.ts`).
+
+Only JavaScript and TypeScript are parsed into symbols and imports. The other languages are chunked in 50-line windows and found by their words, so the import-aware expansion, the "who imports X" facts and the entry-point facts exist for JavaScript and TypeScript only. An index built before this mode existed is built again the next time the repository is indexed.
+
+Two things were added for questions that are not about one place in the code:
+
+- **Questions about the whole repository** ("what does this project do?", "explain the architecture", also in Albanian, German, Spanish, French and Italian) are recognised by `isOverviewQuestion` (`src/answer/overview.ts`). They are not refused for low word coverage; the README, the manifest and the entry points are offered as evidence first, and the model is given a one-line map of the top-level folders as an INDEX line (orientation, not evidence).
+- **Prompt F** is prompt E plus three rules: write the claims in the language of the question; read every file type as code; explain how a feature, button or integration works as a chain of cited steps, listing in "unsupported" any step the evidence does not show.
+
+None of this was evaluated on the benchmark. `DEFAULT_INDEX_CONFIG`, `accepted.json`, the frozen dataset and the contract-2/3 result files are unchanged, and prompt F is selected only by the web application (`BROAD_APP_ANSWER_SETTINGS` in `src/answer/defaults.ts`). It has been tried with the real model on three questions of one Flask repository (`miguelgrinberg/microblog`), which is a smoke test and not a result. The structural check still applies: an answer with one quote that is not word for word in its cited lines is withheld.
 
 ## Setup
 
@@ -120,7 +133,7 @@ A `Dockerfile` and a Render blueprint (`render.yaml`) are included for a free de
 
 ## Status
 
-A working application with an evaluation harness, not a finished product. Known limits: only JavaScript, TypeScript and Markdown are indexed; there is no authentication; request limits are per process; the model's resistance to adversarial repositories has been tried only once, on eight synthetic cases (`reports/phase4b-release-validation.md`). See [SECURITY.md](SECURITY.md).
+A working application with an evaluation harness, not a finished product. Known limits: only JavaScript and TypeScript are parsed into symbols and imports (every other text file is searched by its words; see "Reading every language"); there is no authentication; request limits are per process; the model's resistance to adversarial repositories has been tried only once, on eight synthetic cases (`reports/phase4b-release-validation.md`). See [SECURITY.md](SECURITY.md).
 
 Evaluation so far (see `reports/README.md`): three prompt variants were each run with a real model on the 32 tuning questions under the final evidence rule (one citation, one verbatim quote of at most 400 characters). All three runs are complete; no variant is established as better. Variant A's figures come from preserved model output re-validated after a classification correction, not from a fresh run. The reference labels are owner-supplied, not independent ground truth. The human review of the model's claims (Gate 5) has started and has not passed: the owner read part of variant A's claims and found partial and unsupported ones, without yet recording a verdict per claim. An assistant reading of all 65 claims traces 27 of them to missing evidence (`reports/gate5-evidence-gap-audit.md`). Two further single runs followed on the same tuning questions. A stricter prompt (variant D) was not better than C overall (`reports/phase4b-tuning-D.md`). Then "version 3 evidence", in which the application reads who imports something and a package's entry points from the index, states them itself and shows the model the declaring lines: that run answered 17 of the 24 answerable questions and refused all 8 unanswerable ones, the first run to do both, with every importer question answered completely, and with two answers lost to quotes over the length limit (`reports/phase4b-tuning-E-v3.md`). It is one run on questions the change was designed against, so it is a reason to continue, not a result to rely on. Separately, the rule on quote length was changed (evidence contract 3): a quote over 400 characters is now checked in full and shown shortened, where before it made the whole reply malformed; the five stored runs were validated again under it with no model call (`reports/phase4b-contract3-revalidation.md`).
 

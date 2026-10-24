@@ -1,3 +1,5 @@
+import type { LexicalSupport } from "./support-guard";
+
 export interface RepoIdentity {
   owner: string;
   repo: string;
@@ -76,6 +78,8 @@ export interface ClaimVerdict {
   /** true when every quote is verbatim in the block its own entry names; null when the claim gave no evidence */
   quoteVerbatim: boolean | null;
   status: ClaimStatus;
+  /** Present only when ValidationOptions.lexicalGuard is on and the claim cites something. An annotation: it never changes `status`. Lexical overlap cannot see negation or paraphrase. */
+  lexicalSupport?: LexicalSupport;
 }
 
 export type RejectionCode = "malformed-output" | "uncited-claim" | "invalid-citation" | "quote-not-in-citation" | "quote-too-long" | "provider-error";

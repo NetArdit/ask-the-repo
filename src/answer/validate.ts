@@ -1,3 +1,4 @@
+import { lexicalSupport } from "./support-guard";
 import type { CitationLocator, CitationVerdict, ClaimVerdict, EvidenceItem, ModelClaim, ModelEvidence, ModelOutput, Rejection, ValidatedAnswer } from "./types";
 
 /**
@@ -171,6 +172,8 @@ export interface ValidationOptions {
   requireCitations?: boolean;
   /** Reject an answer in which a quote is not verbatim in the evidence its entry names. Default true. */
   requireVerbatimQuotes?: boolean;
+  /** Annotate each cited claim with a lexical overlap check against its quotes (support-guard.ts). Default off. Annotation only: status, reasons and rejections are unchanged. */
+  lexicalGuard?: boolean;
 }
 
 /**
@@ -182,6 +185,7 @@ export function validateAnswer(output: ModelOutput, registry: EvidenceRegistry, 
   if (output.status === "insufficient_evidence") return { status: "insufficient_evidence", claims: [], reasons: [], rejections: [], missing: output.missing, unsupported: output.unsupported };
   const requireCitations = options.requireCitations ?? true;
   const requireQuotes = options.requireVerbatimQuotes ?? true;
+  const lexicalGuard = options.lexicalGuard ?? false;
   const claims: ClaimVerdict[] = [];
   const reasons: string[] = [];
   const rejections: Rejection[] = [];
@@ -202,7 +206,13 @@ export function validateAnswer(output: ModelOutput, registry: EvidenceRegistry, 
     if (citations.length === 0) status = "uncited";
     else if (invalid.length > 0) status = "invalid-citation";
     else if (misquoted.length > 0) status = "quote-mismatch";
-    claims.push({ text: claim.text, citations, quoteVerbatim: citations.length === 0 ? null : citations.every((c) => c.quoteVerbatim), status });
+    claims.push({
+      text: claim.text,
+      citations,
+      quoteVerbatim: citations.length === 0 ? null : citations.every((c) => c.quoteVerbatim),
+      status,
+      ...(lexicalGuard && citations.length > 0 ? { lexicalSupport: lexicalSupport(claim.text, citations.map((c) => c.quote).join("\n")) } : {}),
+    });
 
     if (status === "invalid-citation") {
       reasons.push(`claim ${n} has invalid citations (${invalid.map((c) => `${c.id}:${(c.verdict as { reason: string }).reason}`).join(", ")})`);
