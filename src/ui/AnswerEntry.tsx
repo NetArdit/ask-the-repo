@@ -177,6 +177,26 @@ export function AnswerEntry({ entry, selectedEvidenceId, onInspect, onRetry, bus
         </div>
       )}
 
+      {view.leads.length > 0 && (
+        // Where the search looked. Plain text only: no link, no excerpt, nothing that reads as a source for an answer.
+        <div data-leads className="grid max-w-[44rem] gap-2 rounded-sm border border-line bg-sunk px-4 py-3 text-sm">
+          <p className="font-semibold">Closest files (not enough to conclude)</p>
+          <p className="text-ink-soft">These files matched your words best. They are not evidence for an answer: the question could not be answered with evidence.</p>
+          <ul aria-label="Closest files" className="grid gap-1">
+            {view.leads.map((l) => (
+              <li key={`${l.rank}-${l.path}`} data-lead className="grid grid-cols-[auto_minmax(0,1fr)] items-baseline gap-x-3">
+                <span className="font-mono text-xs whitespace-nowrap text-muted">Rank {l.rank}</span>
+                <span className="min-w-0">
+                  <span className="font-mono wrap-anywhere">{l.path}</span>
+                  <span className="ml-2 font-mono text-xs whitespace-nowrap text-muted">lines {l.startLine} to {l.endLine}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-xs text-muted">Try naming a function, file or option that appears in the code.</p>
+        </div>
+      )}
+
       {view.warnings.length > 0 && (
         <Notice tone="warn" title="Read the evidence before relying on this">
           <ul className="grid list-disc gap-1 pl-5">

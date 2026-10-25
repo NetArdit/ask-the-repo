@@ -5,7 +5,7 @@ import { definitionCandidates, type DefinitionEvidenceOptions } from "./definiti
 import { declaringLine, entryCandidates, entryNote, findEntries, type EntryEvidenceOptions, type EntryFact } from "./entries";
 import { assembleEvidence, permalink, type RejectedCandidate } from "./evidence";
 import { findImporters, importerCandidates, importerNote, type ImporterEvidenceOptions, type ImporterFact } from "./importers";
-import { isOverviewQuestion, overviewCandidates, structureNote, type OverviewEvidenceOptions } from "./overview";
+import { isOverviewQuestion, isWideOverviewQuestion, overviewCandidates, structureNote, type OverviewEvidenceOptions } from "./overview";
 import { ProviderError, type ModelProvider } from "./provider";
 import { englishKeywords, looksNonEnglish, repairInstruction, repairQuotes } from "./resilience";
 import { decideSufficiency, type PolicyConfig, type SufficiencyDecision } from "./policy";
@@ -47,6 +47,11 @@ export interface AnswerDeps {
    */
   overview?: OverviewEvidenceOptions;
   /**
+   * Also send whole-repository and operational questions that do not say "this project" ("What is Express?", "How do I run the
+   * tests?") to the overview path. Only read together with `overview`. Absent or false means OFF: routing is isOverviewQuestion alone.
+   */
+  overviewWide?: boolean;
+  /**
    * The web application's forgiveness for a model that slips. A quote that is not word for word in its block is cut to the part
    * that is; a reply that fails a check gets one second try with the failed checks named; and if claims still fail, the claims that
    * passed every check are shown with a note, instead of the whole answer being withheld. Every quote that reaches the reader is
@@ -60,6 +65,37 @@ export interface AnswerDeps {
    * is never part of the result, so nothing a caller returns to a client can contain it by accident.
    */
   onModelOutput?: (raw: string) => void;
+  /**
+   * When the system refuses before calling the model (policy "insufficient"), also return up to five closest files as `leads`
+   * and `refusalReason`. Absent or false means OFF: the result is exactly what it was without this option, with no new keys.
+   */
+  leadsOnRefusal?: boolean;
+}
+
+/** A file that matched the question best, named when the question could not be answered. A pointer only: no claim, no citation, no excerpt. */
+export type AnswerLead = { path: string; startLine: number; endLine: number; rank: number };
+
+const MAX_LEADS = 5;
+const MAX_LEAD_PATH = 200;
+
+/** Removes control characters U+0000-U+001F and U+007F, then cuts to 200 characters without leaving half of a surrogate pair. */
+function cleanLeadPath(p: string): string {
+  let s = p.replace(/[\u0000-\u001f\u007f]/g, "").slice(0, MAX_LEAD_PATH);
+  const last = s.charCodeAt(s.length - 1);
+  if (last >= 0xd800 && last <= 0xdbff) s = s.slice(0, -1);
+  return s;
+}
+
+/** The best-ranked block of each of the first five distinct files; rank is the 1-based position in the retrieved list. */
+function leadsFrom(retrieved: readonly { path: string; startLine: number; endLine: number }[]): AnswerLead[] {
+  const seen = new Set<string>();
+  const leads: AnswerLead[] = [];
+  retrieved.forEach((e, i) => {
+    if (leads.length >= MAX_LEADS || seen.has(e.path)) return;
+    seen.add(e.path);
+    leads.push({ path: cleanLeadPath(e.path), startLine: e.startLine, endLine: e.endLine, rank: i + 1 });
+  });
+  return leads;
 }
 
 export interface CitedEvidence {
@@ -94,6 +130,13 @@ export interface AnswerResult {
   warnings: string[];
   missing?: string;
   unsupported?: string[];
+  /**
+   * Only with `leadsOnRefusal` and only when the system refused before the model was called: the closest files by rank. Not evidence;
+   * never cited, never validated. Absent when retrieval found nothing.
+   */
+  leads?: AnswerLead[];
+  /** Only with `leadsOnRefusal`, on a refusal before the model was called. */
+  refusalReason?: "pre-model-coverage";
   /** Every evidence item offered to the model, with application-built permalinks. */
   evidence: CitedEvidence[];
   rejectedEvidence: RejectedCandidate[];
@@ -163,12 +206,16 @@ export async function answerQuestion(deps: AnswerDeps, question: string): Promis
     outputTokens: null as number | null,
   };
 
-  const overview = deps.overview !== undefined && isOverviewQuestion(question);
+  const overview = deps.overview !== undefined && (isOverviewQuestion(question) || (deps.overviewWide === true && isWideOverviewQuestion(question, deps.repo.repo)));
   const overviewBlocks = overview ? overviewCandidates(deps.index, deps.overview!) : [];
   const policy: SufficiencyDecision = overview && overviewBlocks.length > 0
     ? { action: "answer", reason: "question about the whole repository" }
     : decideSufficiency(result.features, result.evidence.length, deps.policy);
-  if (policy.action === "insufficient") return { ...base, status: "insufficient_evidence", policy, stats };
+  if (policy.action === "insufficient") {
+    if (deps.leadsOnRefusal !== true) return { ...base, status: "insufficient_evidence", policy, stats };
+    const leads = leadsFrom(result.evidence);
+    return { ...base, status: "insufficient_evidence", policy, stats, ...(leads.length > 0 ? { leads } : {}), refusalReason: "pre-model-coverage" };
+  }
 
   const t1 = performance.now();
   const budgetChars = deps.evidenceBudgetChars ?? DEFAULT_BUDGET_CHARS;

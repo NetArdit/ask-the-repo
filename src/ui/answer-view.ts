@@ -26,6 +26,14 @@ export interface ViewClaim {
   passed: boolean;
 }
 
+/** A closest file shown after a refusal. A pointer to a place to look, never evidence. */
+export interface ViewLead {
+  path: string;
+  startLine: number;
+  endLine: number;
+  rank: number;
+}
+
 export interface AnswerView {
   tone: AnswerTone;
   title: string;
@@ -45,6 +53,30 @@ export interface AnswerView {
    * here was cited or checked against a quote, and the index can miss things (an import it could not resolve, for one).
    */
   facts: string[];
+  /** Closest files after a refusal before the model was asked; empty when there are none. Not evidence. */
+  leads: ViewLead[];
+}
+
+const MAX_VIEW_LEADS = 5;
+const MAX_VIEW_LEAD_PATH = 200;
+
+/** Leads from a result kept in the browser or sent by a server: nothing is trusted. Control characters removed, path cut, at most five. */
+export function describeLeads(raw: unknown): ViewLead[] {
+  if (!Array.isArray(raw)) return [];
+  const out: ViewLead[] = [];
+  for (const l of raw) {
+    if (out.length >= MAX_VIEW_LEADS) break;
+    if (typeof l !== "object" || l === null) continue;
+    const { path, startLine, endLine, rank } = l as Record<string, unknown>;
+    if (typeof path !== "string" || typeof startLine !== "number" || typeof endLine !== "number" || typeof rank !== "number") continue;
+    if (!Number.isFinite(startLine) || !Number.isFinite(endLine) || !Number.isFinite(rank)) continue;
+    let p = path.replace(/[\u0000-\u001f\u007f]/g, "").slice(0, MAX_VIEW_LEAD_PATH);
+    const last = p.charCodeAt(p.length - 1);
+    if (last >= 0xd800 && last <= 0xdbff) p = p.slice(0, -1);
+    if (p === "") continue;
+    out.push({ path: p, startLine, endLine, rank });
+  }
+  return out;
 }
 
 const MAX_LISTED = 6;
@@ -125,7 +157,7 @@ export function describeAnswer(result: AnswerResult, retryAt?: number): AnswerVi
   const citedIds = [...new Set(result.claims.flatMap((c) => c.citations.filter((x) => x.verdict.valid).map((x) => x.id)))];
   // Results kept in the browser from before the application stated facts have none.
   const facts = Array.isArray(result.indexFacts) ? result.indexFacts.map(describeFact) : [];
-  const base = { claims, missing: result.missing ?? null, reasons: [] as string[], warnings: result.warnings, evidence: result.evidence, citedIds, canRetry: false, facts };
+  const base = { claims, missing: result.missing ?? null, reasons: [] as string[], warnings: result.warnings, evidence: result.evidence, citedIds, canRetry: false, facts, leads: describeLeads(result.leads) };
 
   switch (result.status) {
     case "answered":

@@ -93,7 +93,7 @@ export async function handleAnswer(deps: AnswerHandlerDeps, rawBody: unknown): P
   const watched = watchProvider(deps.provider);
   try {
     const result: AnswerResult = await answerQuestion(
-      { index, repo: parsed.key, source: deps.makeSource(), provider: watched.provider, searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...BROAD_APP_ANSWER_SETTINGS },
+      { index, repo: parsed.key, source: deps.makeSource(), provider: watched.provider, searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...BROAD_APP_ANSWER_SETTINGS, ...(process.env.QUALITY_OVERVIEW_WIDE === "1" ? { overviewWide: true } : {}), ...(process.env.QUALITY_LEADS_ON_REFUSAL === "1" ? { leadsOnRefusal: true } : {}) },
       parsed.question,
     );
     if (result.status !== "provider_error") return { status: 200, body: result };

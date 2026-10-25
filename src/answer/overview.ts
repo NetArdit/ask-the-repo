@@ -34,7 +34,46 @@ export function isOverviewQuestion(question: string): boolean {
   return OVERVIEW_PATTERNS.some((re) => re.test(q));
 }
 
-const README_RE = /^readme(\.(md|markdown|mdx|rst|txt))?$/i;
+const WIDE_MAX_LENGTH = 200;
+const WIDE_WHAT_RE = /^what(?:'s| is) (.+)$/;
+const WIDE_HOW_RE = /^how (?:do|can|should) (?:i|we) (install|run|build|test|start|set up|configure|use|deploy|get started)(?: (.+))?$/;
+const WIDE_HOW_REST_RE = /^(?:it|this|(?:this|the) (?:project|repo|library|package|app)|the app|the tests|the test suite|the unit tests)$/;
+const WIDE_COMMAND_RE = /^what (?:command|script) (?:runs|starts|builds|tests) (?:the )?(?:(?:unit )?tests|project)$/;
+const WIDE_FIXED_RE = /^(?:getting started|quick ?start(?: guide)?|installation|how is it (?:organi[sz]ed|structured))$/;
+// A symbol, an option or a call: backtick, parenthesis, dotted identifier, camelCase or snake_case.
+const CODE_LIKE_RE = /[`()]|[A-Za-z0-9_]\.[A-Za-z_]|[a-z][A-Z]|[A-Za-z0-9]_[A-Za-z0-9]/;
+
+const squash = (s: string): string => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+
+/**
+ * Flag overviewWide: whole-repository and operational questions that lack "this project" ("What is Express?", "How do I run the
+ * tests?", "Getting started"). A question about one symbol, option or behaviour never matches. Every pattern is anchored and has no
+ * nested quantifier, and input over WIDE_MAX_LENGTH characters is not a wide question, so matching is linear in the input.
+ */
+export function isWideOverviewQuestion(question: string, repoName: string): boolean {
+  if (question.length > WIDE_MAX_LENGTH * 4) return false; // before any scan: surrounding whitespace alone cannot make a long text match
+  const q = question.trim();
+  if (q.length === 0 || q.length > WIDE_MAX_LENGTH || CODE_LIKE_RE.test(q)) return false;
+  let t = q.toLowerCase().replace(/[’‘]/g, "'").replace(/\s+/g, " ");
+  let end = t.length;
+  while (end > 0 && (t[end - 1] === "?" || t[end - 1] === "!" || t[end - 1] === "." || t[end - 1] === " ")) end--;
+  t = t.slice(0, end);
+  if (t.length === 0) return false;
+  const repo = squash(repoName);
+  const what = WIDE_WHAT_RE.exec(t);
+  if (what) {
+    const x = what[1]!;
+    return x === "it" || x === "this" || (repo.length > 0 && squash(x) === repo);
+  }
+  const how = WIDE_HOW_RE.exec(t);
+  if (how) {
+    const rest = how[2];
+    return rest === undefined || WIDE_HOW_REST_RE.test(rest) || (repo.length > 0 && squash(rest) === repo);
+  }
+  return WIDE_COMMAND_RE.test(t) || WIDE_FIXED_RE.test(t);
+}
+
+const README_RE =/^readme(\.(md|markdown|mdx|rst|txt))?$/i;
 const MANIFESTS = [
   "package.json", "pyproject.toml", "setup.py", "requirements.txt", "Cargo.toml", "go.mod", "pom.xml", "build.gradle", "build.gradle.kts",
   "composer.json", "Gemfile", "pubspec.yaml", "Package.swift", "mix.exs", "CMakeLists.txt", "Makefile", "Dockerfile",
