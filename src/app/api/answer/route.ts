@@ -1,7 +1,7 @@
 import { type NextRequest } from "next/server";
 import { handleAnswer, selectProvider } from "../../../server/answer-handler";
 import { BODY_TOO_LARGE } from "../../../server/errors";
-import { MAX_BODY_BYTES, checkRate, requireJson, enter, isRefusal, refundDailyAnswer, refundRate, refusalResponse, startModelCooldown } from "../../../server/guards";
+import { MAX_BODY_BYTES, checkRate, requireJson, enter, isRefusal, nextStepsEnabled, refundDailyAnswer, refundRate, refusalResponse, startModelCooldown } from "../../../server/guards";
 import { BodyTooLargeError, readJsonBody } from "../../../server/limits";
 import { withEventLog } from "../../../server/log-event";
 import { getSharedSource, loadCachedIndex } from "../../../server/runtime";
@@ -40,12 +40,19 @@ async function handle(request: NextRequest): Promise<Response> {
       );
       // A call the model turned away served no answer, so it does not count; and when the model said how long to wait, nothing
       // is sent to it until then.
-      modelCalled = (out.body as { stats?: { modelCalled?: boolean } } | null)?.stats?.modelCalled === true && !out.modelRefused;
+      const stats = (out.body as { stats?: { modelCalled?: boolean; expansionCalled?: boolean } } | null)?.stats;
+      // The keyword-translation call of a non-English question is a model call too (W-13): with the flag ON it is counted even when
+      // the question is then refused before the main call. The key exists only with the flag ON.
+      const expanded = nextStepsEnabled() && stats?.expansionCalled === true;
+      modelCalled = (stats?.modelCalled === true && !out.modelRefused) || expanded;
       if (out.modelRefused) startModelCooldown(out.modelRefused.retryAfterMs);
       // A request that could not have reached the model (malformed, commit not indexed here, no model configured) gives back
       // its place in the per-minute allowance too, so finding that out does not lock a visitor out of asking.
       const code = (out.body as { code?: unknown } | null)?.code;
       if (out.status === 400 || (out.status === 404 && code === "not_indexed") || (out.status === 503 && code === "no_provider")) refundRate("answer", request);
+      // W-13: a refusal that cost no model call gives the per-minute allowance back as well, so a beginner who rephrases is not told to wait.
+      const served = out.body as { status?: unknown; stats?: { modelCalled?: boolean } } | null;
+      if (nextStepsEnabled() && out.status === 200 && (served?.status === "insufficient_evidence" || served?.status === "no_evidence") && served.stats?.modelCalled === false && !expanded) refundRate("answer", request);
       return Response.json(out.body, { status: out.status, headers: out.headers });
     } finally {
       release();

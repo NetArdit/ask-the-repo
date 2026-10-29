@@ -1,5 +1,7 @@
 import type { AnswerResult, CitedEvidence } from "../answer/answer";
 import type { ClaimVerdict, Rejection } from "../answer/types";
+import { MAX_SUGGESTIONS, MAX_TEXT, NEXT_STEP_COPY, cleanText } from "../answer/next-steps";
+import { validatePrevious, type Previous } from "../answer/followup";
 import type { ApiFailure } from "./api";
 
 /** How an answer is framed for the reader. "withheld" and "unavailable" are never shown as answers. */
@@ -34,7 +36,21 @@ export interface ViewLead {
   rank: number;
 }
 
+/** One suggested question: `label` is the visible button text, `question` is what the button asks. Plain text only. */
+export interface ViewSuggestion {
+  label: string;
+  question: string;
+}
+
+/** W-13 next steps after a refusal. Absent from the view when the server sent none. */
+export interface ViewNextSteps {
+  heading: string;
+  suggestions: ViewSuggestion[];
+}
+
 export interface AnswerView {
+  /** Only when the server sent at least one usable suggestion. */
+  nextSteps?: ViewNextSteps;
   tone: AnswerTone;
   title: string;
   /** One or two plain sentences on what happened. */
@@ -78,6 +94,68 @@ export function describeLeads(raw: unknown): ViewLead[] {
   }
   return out;
 }
+
+/** Next steps from a result kept in the browser or sent by a server: nothing is trusted. Text cleaned and cut to 120 characters, at most three, none when nothing usable is left. */
+export function describeNextSteps(raw: unknown): ViewNextSteps | null {
+  if (typeof raw !== "object" || raw === null) return null;
+  const list = (raw as { suggestions?: unknown }).suggestions;
+  if (!Array.isArray(list)) return null;
+  const suggestions: ViewSuggestion[] = [];
+  for (const s of list) {
+    if (suggestions.length >= MAX_SUGGESTIONS) break;
+    if (typeof s !== "object" || s === null) continue;
+    const { label, question } = s as Record<string, unknown>;
+    if (typeof label !== "string" || typeof question !== "string") continue;
+    const l = cleanText(label, MAX_TEXT);
+    const q = cleanText(question, MAX_TEXT);
+    if (l !== "" && q !== "") suggestions.push({ label: l, question: q });
+  }
+  return suggestions.length === 0 ? null : { heading: NEXT_STEP_COPY.refusal, suggestions };
+}
+
+/** Section 5.3, state 3: the clarifying question. Built here for the card that will show it; no current result triggers it. */
+export function clarifyText(phrase: string): string {
+  return NEXT_STEP_COPY.clarify(phrase);
+}
+
+/** Section 5.3, state 2: the note above "ask again" and "ask something new". No current result triggers it. */
+export function followUpNote(previousQuestion: string): string {
+  return NEXT_STEP_COPY.followUp(previousQuestion);
+}
+
+/**
+ * W-11: the previous turn as the server accepts it, taken from the newest entry of this repository's thread (callers pass the entries that
+ * come before the question being asked, newest first). Only a finished result counts: a pending, failed, withheld or unavailable turn gives
+ * nothing. An answer contributes the files its valid citations point to, up to five; a refusal contributes the question only.
+ */
+export function previousTurn(thread: readonly { question: string; outcome: { kind: string; result?: AnswerResult } }[]): Previous | null {
+  const last = thread[0];
+  if (last === undefined || last.outcome.kind !== "result" || last.outcome.result === undefined) return null;
+  const result = last.outcome.result;
+  if (result.status === "insufficient_evidence" || result.status === "no_evidence") return validatePrevious({ question: last.question, outcome: "refused", files: [] });
+  if (result.status !== "answered" || !Array.isArray(result.claims) || !Array.isArray(result.evidence)) return null;
+  const byId = new Map(result.evidence.map((e) => [e.id, e]));
+  const files: { path: string; startLine: number; endLine: number }[] = [];
+  for (const c of result.claims) {
+    for (const x of Array.isArray(c.citations) ? c.citations : []) {
+      const e = x.verdict?.valid ? byId.get(x.id) : undefined;
+      if (e !== undefined && !files.some((f) => f.path === e.path && f.startLine === e.startLine && f.endLine === e.endLine)) files.push({ path: e.path, startLine: e.startLine, endLine: e.endLine });
+    }
+  }
+  return validatePrevious({ question: last.question, outcome: "answered", files });
+}
+
+/** W-11: the one line above an answer that used the previous turn. Absent when the server said nothing about a follow-up, or did not inherit. */
+export function describeFollowup(result: { followup?: unknown }): { note: string } | null {
+  const f = result.followup;
+  if (typeof f !== "object" || f === null) return null;
+  const { inherited, from } = f as { inherited?: unknown; from?: unknown };
+  if (inherited !== true || typeof from !== "string" || cleanText(from, MAX_TEXT) === "") return null;
+  return { note: NEXT_STEP_COPY.followUp(from) };
+}
+
+/** Section 5.3, state 5: the first-time out-of-scope notice, without the pause warning (that is W-15). */
+export const SCOPE_NOTICE: string = NEXT_STEP_COPY.scopeNotice;
 
 const MAX_LISTED = 6;
 function listed(items: string[]): string {
@@ -146,7 +224,7 @@ function providerProblem(reasons: string[], retryAt?: number): { title: string; 
   return { title: "The model could not be reached", detail: "The language model returned an error, so this question was not answered. The evidence below was still retrieved." };
 }
 
-export function describeAnswer(result: AnswerResult, retryAt?: number): AnswerView {
+export function describeAnswer(result: AnswerResult, retryAt?: number, question?: string): AnswerView {
   const byId = new Map(result.evidence.map((e) => [e.id, e]));
   const claims: ViewClaim[] = result.claims.map((c) => ({
     text: c.text,
@@ -157,7 +235,12 @@ export function describeAnswer(result: AnswerResult, retryAt?: number): AnswerVi
   const citedIds = [...new Set(result.claims.flatMap((c) => c.citations.filter((x) => x.verdict.valid).map((x) => x.id)))];
   // Results kept in the browser from before the application stated facts have none.
   const facts = Array.isArray(result.indexFacts) ? result.indexFacts.map(describeFact) : [];
-  const base = { claims, missing: result.missing ?? null, reasons: [] as string[], warnings: result.warnings, evidence: result.evidence, citedIds, canRetry: false, facts, leads: describeLeads(result.leads) };
+  // Results kept in the browser from before next steps existed have none.
+  const found = describeNextSteps(result.nextSteps);
+  // W-11: a clarifying question (section 5.3 state 3) names the words the reader typed. Only when the caller gave the question.
+  const clarify = found !== null && result.nextSteps?.kind === "clarify" && question !== undefined && cleanText(question, MAX_TEXT) !== "" ? NEXT_STEP_COPY.clarify(question) : null;
+  const steps = found !== null && clarify !== null ? { ...found, heading: clarify } : found;
+  const base = { claims, missing: result.missing ?? null, reasons: [] as string[], warnings: result.warnings, evidence: result.evidence, citedIds, canRetry: false, facts, leads: describeLeads(result.leads), ...(steps === null ? {} : { nextSteps: steps }) };
 
   switch (result.status) {
     case "answered":
@@ -168,8 +251,8 @@ export function describeAnswer(result: AnswerResult, retryAt?: number): AnswerVi
         : {
             ...base,
             tone: "insufficient",
-            title: "Not enough evidence to answer",
-            detail: "The search matched too little of this repository to support an answer, so the model was not asked. Try naming a function, file or option that appears in the code.",
+            title: clarify === null ? "Not enough evidence to answer" : "Which topic do you mean?",
+            detail: steps === null ? "The search matched too little of this repository to support an answer, so the model was not asked. Try naming a function, file or option that appears in the code." : clarify ?? NEXT_STEP_COPY.refusal,
           };
     case "no_evidence":
       return { ...base, tone: "insufficient", title: "No evidence could be verified", detail: "Matching files were found, but none could be confirmed against the repository at this commit." };
@@ -203,6 +286,10 @@ function wait(seconds: number | null): string {
 
 /** Turns a failed request into words. Server text is passed through only where the server wrote it for a person to read. */
 export function describeFailure(f: ApiFailure, context: FailureContext): FailureView {
+  // W-13: when the server named what to do, the plain copy of section 5.3 (states 7, 9, 10) is shown. Without a marker nothing changes.
+  if (f.guidance === "wait") return { title: "Please wait", detail: NEXT_STEP_COPY.wait(f.retryAfterSeconds ?? 1), canRetry: true };
+  if (f.guidance === "busy") return { title: "The server is busy", detail: NEXT_STEP_COPY.busy(f.retryAfterSeconds ?? 1), canRetry: true };
+  if (f.guidance === "error") return { title: "Something went wrong", detail: NEXT_STEP_COPY.error, canRetry: true };
   switch (f.kind) {
     case "invalid":
       return { title: "That request was not accepted", detail: f.serverMessage ?? "Check what you entered and try again.", canRetry: false };

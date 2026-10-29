@@ -1,5 +1,6 @@
 import { answerQuestion, type AnswerResult } from "../answer/answer";
 import { BROAD_APP_ANSWER_SETTINGS, DEFAULT_POLICY } from "../answer/defaults";
+import { validatePrevious } from "../answer/followup";
 import { GroqProvider, ProviderError, type ModelProvider } from "../answer/provider";
 import type { SourceProvider } from "../answer/source";
 import { GitHubHttpError } from "../github/client";
@@ -7,6 +8,7 @@ import type { IndexKey } from "../index/types";
 import { DEFAULT_SEARCH_OPTIONS } from "../retrieve/defaults";
 import type { LoadedIndex } from "../retrieve/loaded-index";
 import { INTERNAL_ERROR, logServerError } from "./errors";
+import { nextStepsEnabled } from "./guards";
 import { BadRequestError, MAX_QUESTION_LENGTH } from "./validate";
 import { assertCommitSha, parseRepoRef } from "../github/repo-ref";
 
@@ -73,6 +75,11 @@ function watchProvider(provider: ModelProvider): { provider: ModelProvider; fail
   };
 }
 
+/** The 500 body of the answer route; with W-13 ON it also says what to do (`guidance: "error"`), otherwise it is byte for byte what it was. */
+function internalError(): HandlerResponse {
+  return { status: INTERNAL_ERROR.status, body: nextStepsEnabled() ? { ...INTERNAL_ERROR.body, guidance: "error" } : INTERNAL_ERROR.body };
+}
+
 export async function handleAnswer(deps: AnswerHandlerDeps, rawBody: unknown): Promise<HandlerResponse> {
   let parsed: ReturnType<typeof parseAnswerBody>;
   try {
@@ -87,13 +94,13 @@ export async function handleAnswer(deps: AnswerHandlerDeps, rawBody: unknown): P
     index = await deps.loadIndex(parsed.key);
   } catch (err) {
     logServerError("answer", err);
-    return { status: INTERNAL_ERROR.status, body: INTERNAL_ERROR.body };
+    return internalError();
   }
   if (!index) return { status: 404, body: { error: "index not found for this commit", code: "not_indexed" } };
   const watched = watchProvider(deps.provider);
   try {
     const result: AnswerResult = await answerQuestion(
-      { index, repo: parsed.key, source: deps.makeSource(), provider: watched.provider, searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...BROAD_APP_ANSWER_SETTINGS, ...(process.env.QUALITY_OVERVIEW_WIDE === "1" ? { overviewWide: true } : {}), ...(process.env.QUALITY_LEADS_ON_REFUSAL === "1" ? { leadsOnRefusal: true } : {}) },
+      { index, repo: parsed.key, source: deps.makeSource(), provider: watched.provider, searchOptions: DEFAULT_SEARCH_OPTIONS, policy: DEFAULT_POLICY, ...BROAD_APP_ANSWER_SETTINGS, ...(process.env.QUALITY_OVERVIEW_WIDE === "1" ? { overviewWide: true } : {}), ...(process.env.QUALITY_LEADS_ON_REFUSAL === "1" ? { leadsOnRefusal: true } : {}), ...(nextStepsEnabled() ? { nextSteps: true } : {}), ...(process.env.QUALITY_FOLLOWUP_CONTEXT === "1" ? { followUp: { previous: validatePrevious((rawBody as { previous?: unknown }).previous) } } : {}) },
       parsed.question,
     );
     if (result.status !== "provider_error") return { status: 200, body: result };
@@ -111,6 +118,6 @@ export async function handleAnswer(deps: AnswerHandlerDeps, rawBody: unknown): P
       return { status: 503, body: { error: "source rate limited; retry later", code: "source_rate_limited" } };
     }
     logServerError("answer", err);
-    return { status: INTERNAL_ERROR.status, body: INTERNAL_ERROR.body };
+    return internalError();
   }
 }

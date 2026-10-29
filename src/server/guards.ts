@@ -5,8 +5,16 @@ export type GuardedRoute = "answer" | "ingest" | "read";
 
 export interface Refusal {
   status: 429 | 503;
-  body: { error: string; code: "rate_limited" | "daily_limit" | "client_daily_limit" | "busy" | "model_cooldown"; retryAfterSeconds: number };
+  body: { error: string; code: "rate_limited" | "daily_limit" | "client_daily_limit" | "busy" | "model_cooldown"; retryAfterSeconds: number; guidance?: Guidance };
   headers: { "Retry-After": string };
+}
+
+/** What the reader should do about a failure: wait for their own allowance, try again because the server is busy, or retry after an error. */
+export type Guidance = "wait" | "busy" | "error";
+
+/** W-13: failure bodies carry `guidance` and a refusal that cost no model call gives back the per-minute allowance. ON only when exactly "1"; read per request. */
+export function nextStepsEnabled(): boolean {
+  return process.env.QUALITY_NEXT_STEPS === "1";
 }
 
 const MINUTE = 60_000;
@@ -87,9 +95,10 @@ export function clientKey(request: Request): string | null {
   return ADDRESS.test(last) ? last : null;
 }
 
-function refusal(status: 429 | 503, code: Refusal["body"]["code"], error: string, retryAfterMs: number): Refusal {
+function refusal(status: 429 | 503, code: Refusal["body"]["code"], error: string, retryAfterMs: number, guidance?: Guidance): Refusal {
   const retryAfterSeconds = Math.max(1, Math.ceil(retryAfterMs / 1000));
-  return { status, body: { error, code, retryAfterSeconds }, headers: { "Retry-After": String(retryAfterSeconds) } };
+  const marker = guidance !== undefined && nextStepsEnabled() ? { guidance } : {};
+  return { status, body: { error, code, retryAfterSeconds, ...marker }, headers: { "Retry-After": String(retryAfterSeconds) } };
 }
 
 /** Counts the request against its limits. Null means it may proceed; a refused request uses up none of its allowance. */
@@ -97,17 +106,17 @@ export function checkRate(route: GuardedRoute, request: Request): Refusal | null
   if (route === "answer") {
     // The model has said when it will accept requests again. Asking it before then only gets another refusal.
     const left = state.modelCooldownUntil - state.now();
-    if (left > 0) return refusal(503, "model_cooldown", "The language model is rate limited right now. Try again later.", left);
+    if (left > 0) return refusal(503, "model_cooldown", "The language model is rate limited right now. Try again later.", left, "busy");
   }
   const key = clientKey(request);
   if (key !== null) {
     const mine = state.perClient[route].take(key);
-    if (!mine.ok) return refusal(429, "rate_limited", "Too many requests. Wait a moment and try again.", mine.retryAfterMs);
+    if (!mine.ok) return refusal(429, "rate_limited", "Too many requests. Wait a moment and try again.", mine.retryAfterMs, "wait");
   }
   const all = state.global[route].take("all");
   if (!all.ok) {
     if (key !== null) state.perClient[route].refund(key);
-    return refusal(429, "rate_limited", "The server is receiving too many requests. Wait a moment and try again.", all.retryAfterMs);
+    return refusal(429, "rate_limited", "The server is receiving too many requests. Wait a moment and try again.", all.retryAfterMs, "busy");
   }
   if (route === "answer") {
     const day = state.daily.take();
@@ -140,7 +149,7 @@ export function startModelCooldown(retryAfterMs: number | null): void {
 
 /** Takes a slot for work that is expensive while it runs. Returns the release function, or a refusal when all slots are taken. */
 export function enter(route: "answer" | "ingest"): (() => void) | Refusal {
-  return state.gates[route].tryEnter() ?? refusal(503, "busy", "The server is busy with other requests. Try again in a few seconds.", 5000);
+  return state.gates[route].tryEnter() ?? refusal(503, "busy", "The server is busy with other requests. Try again in a few seconds.", 5000, "busy");
 }
 
 export function isRefusal(value: (() => void) | Refusal): value is Refusal {

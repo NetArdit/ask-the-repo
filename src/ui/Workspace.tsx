@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type FormEvent, type KeyboardEvent } from "react";
 import type { CitedEvidence } from "../answer/answer";
 import { AnswerEntry } from "./AnswerEntry";
-import { describeAnswer, describeFailure, type FailureContext } from "./answer-view";
+import { describeAnswer, describeFailure, previousTurn, type FailureContext } from "./answer-view";
 import { askQuestion, fetchRepoSummary, ingestRepository, type ApiFailure, type RepoSummary } from "./api";
 import { Button, EmptyState, Eyebrow, Notice, Panel, Shell, Tag, Working, fieldErrorClass, fieldHintClass, fieldLabelClass, linkClass, textareaClass } from "./primitives";
 import { NO_CONTEXT, Sheet, SourceInspector, type SourceContext } from "./SourceInspector";
@@ -40,6 +40,7 @@ export function Workspace({ owner, repo, sha }: { owner: string; repo: string; s
 
   const [status, setStatus] = useState<Status>({ phase: "loading" });
   const [reload, setReload] = useState(0);
+  const [suggested, setSuggested] = useState<{ text: string; seq: number } | null>(null);
   const [selected, setSelected] = useState<{ entryId: string; evidence: CitedEvidence; context: SourceContext; quote?: string; focusRequest: number } | null>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
   const focusSeq = useRef(0);
@@ -92,14 +93,17 @@ export function Workspace({ owner, repo, sha }: { owner: string; repo: string; s
     else setStatus({ phase: "error", failure: res, context: "ingest" });
   }
 
-  async function ask(question: string, replaceId?: string) {
+  /** `withPrevious` false asks the question alone ("Ask as a new question"). Otherwise the turn just before it, of this repository and commit only, travels with it. */
+  async function ask(question: string, replaceId?: string, withPrevious = true) {
     const id = replaceId ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
     const pending: Outcome = { kind: "pending" };
     const before = store.getSnapshot();
+    const earlier = replaceId ? before.slice(before.findIndex((e) => e.id === id) + 1) : before;
+    const previous = withPrevious ? previousTurn(earlier) : null;
     store.set(replaceId ? before.map((e) => (e.id === id ? { ...e, outcome: pending } : e)) : [{ id, question, outcome: pending }, ...before]);
     if (selected?.entryId === id) setSelected(null);
     say("Working on your question.");
-    const res = await askQuestion(repoName, sha, question);
+    const res = await askQuestion(repoName, sha, question, undefined, previous ?? undefined);
     const outcome: Outcome = res.ok
       ? { kind: "result", result: res.data, ...(res.retryAfterSeconds ? { retryAt: Date.now() + res.retryAfterSeconds * 1000 } : {}) }
       : { kind: "failure", failure: res };
@@ -168,7 +172,7 @@ export function Workspace({ owner, repo, sha }: { owner: string; repo: string; s
       {status.phase === "ready" && status.summary.files > 0 && (
         <div data-workspace className="grid items-start gap-6 pb-12 wide:grid-cols-[minmax(0,11fr)_minmax(0,12fr)]">
           <div className="grid min-w-0 gap-6">
-            <AskForm busy={busy} onAsk={(q) => void ask(q)} />
+            <AskForm busy={busy} onAsk={(q) => void ask(q)} suggested={suggested} />
             <p data-announce role="status" className="sr-only">
               {live.text}
               {live.n % 2 === 1 ? " " : ""}
@@ -204,6 +208,8 @@ export function Workspace({ owner, repo, sha }: { owner: string; repo: string; s
                     selectedEvidenceId={selected?.entryId === entry.id ? selected.evidence.id : null}
                     onInspect={(evidence, trigger, quote) => inspect(entry.id, evidence, trigger, quote)}
                     onRetry={() => void ask(entry.question, entry.id)}
+                    onAskNew={() => void ask(entry.question, entry.id, false)}
+                    onAsk={(q) => setSuggested((s) => ({ text: q, seq: (s?.seq ?? 0) + 1 }))}
                     busy={busy}
                   />
                 ))
@@ -281,21 +287,35 @@ function StatusError({ failure, context, onRetry }: { failure: ApiFailure; conte
   );
 }
 
-function AskForm({ busy, onAsk }: { busy: boolean; onAsk: (question: string) => void }) {
+function AskForm({ busy, onAsk, suggested }: { busy: boolean; onAsk: (question: string) => void; suggested: { text: string; seq: number } | null }) {
   const [text, setText] = useState("");
   const [error, setError] = useState<string | null>(null);
   const over = text.length > MAX_QUESTION;
+  const handled = useRef(0);
 
-  function submit(event?: FormEvent) {
-    event?.preventDefault();
+  function send(raw: string) {
     if (busy) return;
-    const question = text.trim();
+    const question = raw.trim();
     if (question === "") return setError("Type a question first.");
-    if (over) return setError(`Questions are limited to ${MAX_QUESTION} characters.`);
+    if (question.length > MAX_QUESTION) return setError(`Questions are limited to ${MAX_QUESTION} characters.`);
     setError(null);
     setText("");
     onAsk(question);
   }
+
+  function submit(event?: FormEvent) {
+    event?.preventDefault();
+    send(text);
+  }
+
+  // A suggested question is put in the box and sent through the same path as typing it (busy state and length limit apply).
+  useEffect(() => {
+    if (suggested === null || suggested.seq === handled.current) return;
+    handled.current = suggested.seq;
+    setText(suggested.text);
+    send(suggested.text);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [suggested]);
 
   function onKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) submit(e);

@@ -1,4 +1,5 @@
 import type { AnswerResult } from "../answer/answer";
+import type { Previous } from "../answer/followup";
 import type { RepoSummary, SourceExcerpt } from "../server/repo-handler";
 
 export type { AnswerResult, RepoSummary, SourceExcerpt };
@@ -26,7 +27,12 @@ export interface ApiFailure {
   /** The server's own short message, when it sent one. Shown only for validation and size errors, which it words for users. */
   serverMessage: string | null;
   retryAfterSeconds: number | null;
+  /** W-13: what to do next, when the server said so (present only then, so older failures are unchanged). */
+  guidance?: FailureGuidance;
 }
+
+export type FailureGuidance = "wait" | "busy" | "error";
+const GUIDANCE: readonly string[] = ["wait", "busy", "error"];
 
 /** `retryAfterSeconds` is the wait a successful-as-data response named in its Retry-After header, when it named one. */
 export type ApiResult<T> = { ok: true; data: T; retryAfterSeconds?: number } | ApiFailure;
@@ -38,7 +44,7 @@ export interface IngestResult {
   cached: boolean;
 }
 
-type ErrorBody = { error?: unknown; code?: unknown; retryAfterSeconds?: unknown };
+type ErrorBody = { error?: unknown; code?: unknown; retryAfterSeconds?: unknown; guidance?: unknown };
 
 export function classifyFailure(status: number, body: ErrorBody | null): ApiFailure {
   const serverMessage = typeof body?.error === "string" ? body.error : null;
@@ -56,7 +62,8 @@ export function classifyFailure(status: number, body: ErrorBody | null): ApiFail
     else if (code === "model_cooldown") kind = "model_cooldown";
     else if (code === "source_rate_limited" || code === "github_rate_limited") kind = "github_rate_limited";
   }
-  return { ok: false, kind, status, serverMessage, retryAfterSeconds };
+  const guidance = typeof body?.guidance === "string" && GUIDANCE.includes(body.guidance) ? (body.guidance as FailureGuidance) : null;
+  return { ok: false, kind, status, serverMessage, retryAfterSeconds, ...(guidance === null ? {} : { guidance }) };
 }
 
 async function request<T>(input: string, init: RequestInit, accept: (status: number, body: unknown) => body is T): Promise<ApiResult<T>> {
@@ -97,8 +104,9 @@ export function fetchRepoSummary(repo: string, sha: string, signal?: AbortSignal
  * A 502, or a 429 from the model's own rate limit, still carries a full result (status "provider_error") with the evidence that
  * was retrieved, so it is data. This server's own limiter also answers 429, but with an error body, which is a failure.
  */
-export function askQuestion(repo: string, sha: string, question: string, signal?: AbortSignal): Promise<ApiResult<AnswerResult>> {
-  return request("/api/answer", { method: "POST", body: JSON.stringify({ repo, sha, question }), signal }, (status, body): body is AnswerResult => {
+export function askQuestion(repo: string, sha: string, question: string, signal?: AbortSignal, previous?: Previous): Promise<ApiResult<AnswerResult>> {
+  // W-11: the last turn of this repository and commit travels with the question when there is one; a server without the feature ignores it.
+  return request("/api/answer", { method: "POST", body: JSON.stringify(previous === undefined ? { repo, sha, question } : { repo, sha, question, previous }), signal }, (status, body): body is AnswerResult => {
     return (status === 200 || status === 502 || status === 429) && isObject(body) && typeof body.status === "string" && Array.isArray(body.claims) && Array.isArray(body.evidence);
   });
 }

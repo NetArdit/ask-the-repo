@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import type { CitedEvidence } from "../answer/answer";
-import { describeAnswer, describeFailure, isShortQuote, type AnswerTone, type AnswerView, type ViewClaim } from "./answer-view";
+import { describeAnswer, describeFailure, describeFollowup, isShortQuote, type AnswerTone, type AnswerView, type ViewClaim } from "./answer-view";
 import { Button, Eyebrow, Notice, Spinner, Tag, citeBrokenClass, citeClass, cx } from "./primitives";
 import type { ThreadEntry } from "./store";
 
@@ -13,6 +13,10 @@ interface Props {
   /** `quote` is given when the inspector is opened from a claim's own piece of evidence, so it can point at the quoted lines. */
   onInspect(evidence: CitedEvidence, trigger: HTMLElement, quote?: string): void;
   onRetry(): void;
+  /** A suggested question was pressed. Absent: the buttons are still shown but do nothing. */
+  onAsk?(question: string): void;
+  /** "Ask as a new question" was pressed: the same question is asked again without the previous turn. Absent: the button does nothing. */
+  onAskNew?(): void;
   /** A question is already being answered; another cannot start until it finishes. */
   busy: boolean;
 }
@@ -45,7 +49,7 @@ function Card({ tone, headingId, busy, question, children }: { tone: CardTone; h
   );
 }
 
-export function AnswerEntry({ entry, selectedEvidenceId, onInspect, onRetry, busy }: Props) {
+export function AnswerEntry({ entry, selectedEvidenceId, onInspect, onRetry, onAsk, onAskNew, busy }: Props) {
   const headingId = `q-${entry.id}`;
   const { outcome } = entry;
 
@@ -81,7 +85,8 @@ export function AnswerEntry({ entry, selectedEvidenceId, onInspect, onRetry, bus
     );
   }
 
-  const view = describeAnswer(outcome.result, typeof outcome.retryAt === "number" ? outcome.retryAt : undefined);
+  const view = describeAnswer(outcome.result, typeof outcome.retryAt === "number" ? outcome.retryAt : undefined, entry.question);
+  const followup = describeFollowup(outcome.result);
 
   // One piece of evidence: the id, pressable to read its lines, and beside it the passage the model quoted from it.
   const citation = (c: ViewClaim["citations"][number], i: number) => (
@@ -144,6 +149,15 @@ export function AnswerEntry({ entry, selectedEvidenceId, onInspect, onRetry, bus
 
   return (
     <Card tone={view.tone} headingId={headingId} question={entry.question}>
+      {followup && (
+        // W-11: this question was answered with the help of the one before it. The note is escaped text; the button asks the same question again, alone.
+        <div data-followup className="flex max-w-[44rem] flex-wrap items-center gap-x-3 gap-y-2 text-sm text-ink-soft">
+          <p>{followup.note}</p>
+          <Button size="sm" disabled={busy} onClick={() => onAskNew?.()}>
+            Ask as a new question
+          </Button>
+        </div>
+      )}
       <p data-status className="font-semibold">
         {view.title}
       </p>
@@ -194,6 +208,22 @@ export function AnswerEntry({ entry, selectedEvidenceId, onInspect, onRetry, bus
             ))}
           </ul>
           <p className="text-xs text-muted">Try naming a function, file or option that appears in the code.</p>
+        </div>
+      )}
+
+      {view.nextSteps && (
+        // Suggested questions: real buttons whose text is escaped plain text. Pressing one asks it; nothing is asked on render.
+        <div data-next-steps className="grid max-w-[44rem] gap-2 text-sm">
+          {view.nextSteps.heading !== view.detail && <p className="text-ink-soft">{view.nextSteps.heading}</p>}
+          <ul aria-label="Suggested questions" className="flex flex-wrap gap-2">
+            {view.nextSteps.suggestions.map((s) => (
+              <li key={s.question} data-suggestion className="min-w-0">
+                <Button size="sm" aria-label={s.question} disabled={busy} onClick={() => onAsk?.(s.question)} className="text-left wrap-anywhere">
+                  {s.label}
+                </Button>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 

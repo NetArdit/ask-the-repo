@@ -8,6 +8,8 @@ import { findImporters, importerCandidates, importerNote, type ImporterEvidenceO
 import { isOverviewQuestion, isWideOverviewQuestion, overviewCandidates, structureNote, type OverviewEvidenceOptions } from "./overview";
 import { ProviderError, type ModelProvider } from "./provider";
 import { englishKeywords, looksNonEnglish, repairInstruction, repairQuotes } from "./resilience";
+import { informativeTerms, isFollowUp, isUsablePrevious, MAX_INHERITED_BLOCKS, previousBlocks, searchTextFor, type InheritedBlock, type Previous } from "./followup";
+import { buildNextSteps, cleanText, MAX_TEXT, type NextSteps } from "./next-steps";
 import { decideSufficiency, type PolicyConfig, type SufficiencyDecision } from "./policy";
 import { buildPrompt, type PromptVariant } from "./prompt";
 import type { SourceProvider } from "./source";
@@ -70,6 +72,18 @@ export interface AnswerDeps {
    * and `refusalReason`. Absent or false means OFF: the result is exactly what it was without this option, with no new keys.
    */
   leadsOnRefusal?: boolean;
+  /**
+   * W-13: every refusal (insufficient_evidence or no_evidence) also carries `nextSteps`, a kind plus one to three suggestions for
+   * what to ask next. No model call is added. Absent or false means OFF: the result is exactly what it was, with no new keys.
+   */
+  nextSteps?: boolean;
+  /**
+   * W-11: follow-up context, deterministic and free (no model call). Present means ON: beginner filler is dropped from the search words;
+   * a question that points back ("what about that?") inherits the search words and the file hints of an answered `previous` turn; one that
+   * points back with nothing to point at is turned into a clarifying question before any model call. Nothing from `previous` is ever put
+   * in the prompt. Absent means OFF: the result is exactly what it was, with no new keys.
+   */
+  followUp?: { previous: Previous | null };
 }
 
 /** A file that matched the question best, named when the question could not be answered. A pointer only: no claim, no citation, no excerpt. */
@@ -137,6 +151,10 @@ export interface AnswerResult {
   leads?: AnswerLead[];
   /** Only with `leadsOnRefusal`, on a refusal before the model was called. */
   refusalReason?: "pre-model-coverage";
+  /** Only with `nextSteps`, on a refusal (insufficient_evidence or no_evidence): what the reader can ask next. */
+  nextSteps?: NextSteps;
+  /** Only with `followUp`, and only when the question was treated as a follow-up: whether it inherited the previous turn (`from` is that turn's question). */
+  followup?: { inherited: boolean; from?: string };
   /** Every evidence item offered to the model, with application-built permalinks. */
   evidence: CitedEvidence[];
   rejectedEvidence: RejectedCandidate[];
@@ -153,6 +171,8 @@ export interface AnswerResult {
     omittedForBudget: number;
     promptChars: number;
     modelCalled: boolean;
+    /** Only with `nextSteps`: the keyword-translation model call was made (it is a model call even when the question is then refused before the main one). */
+    expansionCalled?: boolean;
     inputTokens: number | null;
     outputTokens: number | null;
   };
@@ -170,9 +190,21 @@ const DEFAULT_MAX_TOKENS = 1_200;
  * Nothing in here logs; prompts, evidence text and model output are returned to the caller or dropped.
  */
 export async function answerQuestion(deps: AnswerDeps, question: string): Promise<AnswerResult> {
+  const retrieved: { path: string }[] = [];
+  const meta: { followup?: NonNullable<AnswerResult["followup"]> } = {};
+  const core = await answerCore(deps, question, retrieved, meta);
+  const res = meta.followup === undefined ? core : { ...core, followup: meta.followup };
+  if (deps.nextSteps !== true || res.nextSteps !== undefined || (res.status !== "insufficient_evidence" && res.status !== "no_evidence")) return res;
+  const shown = res.leads !== undefined && res.leads.length > 0;
+  return { ...res, nextSteps: buildNextSteps({ files: [...new Set(retrieved.map((e) => e.path))], closestFilesShown: shown }) };
+}
+
+async function answerCore(deps: AnswerDeps, question: string, retrieved: { path: string }[], meta: { followup?: NonNullable<AnswerResult["followup"]> }): Promise<AnswerResult> {
   const t0 = performance.now();
   let searchText = question;
+  let expansionCalled = false;
   if (deps.queryExpansion === true && looksNonEnglish(question)) {
+    expansionCalled = true;
     const words = await englishKeywords(deps.provider, question, AbortSignal.timeout(Math.min(deps.modelTimeoutMs ?? DEFAULT_TIMEOUT_MS, 10_000)));
     // The question's own words that are not in the repository at all (its Albanian, German, ...) only dilute the coverage score.
     // Keep the ones the index knows, so English or code words mixed into the question still count, and its identifiers.
@@ -180,7 +212,29 @@ export async function answerQuestion(deps: AnswerDeps, question: string): Promis
     const known = own.terms.filter((t) => deps.index.documentFrequency(t) > 0);
     if (words.length > 0) searchText = [...new Set([...words, ...own.identifiers, ...known])].join(" ");
   }
+  // W-11. Only with `followUp`. The decision is made on the search text, so a question the keyword step translated is judged by its English words.
+  let inherited: InheritedBlock[] = [];
+  let clarify = false;
+  let previousQuestion: string | undefined;
+  if (deps.followUp !== undefined) {
+    const known = (t: string) => deps.index.documentFrequency(t) > 0;
+    const mode = deps.index.stemMode;
+    const follow = isFollowUp(searchText, { repo: deps.repo.repo, mode, known });
+    const prev = deps.followUp.previous;
+    if (follow && isUsablePrevious(prev)) {
+      searchText = searchTextFor(searchText, prev.question);
+      inherited = previousBlocks(deps.index, prev.files, MAX_INHERITED_BLOCKS);
+      meta.followup = { inherited: true, from: cleanText(prev.question, MAX_TEXT) };
+    } else {
+      // Nothing to point at: a question with no topic word at all, or one that points back to a turn that was refused.
+      clarify = follow && (prev?.outcome === "refused" || informativeTerms(searchText, mode, known).length === 0);
+      searchText = searchTextFor(searchText);
+      previousQuestion = prev?.question;
+      if (clarify) meta.followup = { inherited: false };
+    }
+  }
   const result = search(deps.index, searchText, { ...deps.searchOptions, k: 10 });
+  retrieved.push(...result.evidence);
   const base = {
     claims: [] as ClaimVerdict[],
     reasons: [] as string[],
@@ -201,10 +255,17 @@ export async function answerQuestion(deps: AnswerDeps, question: string): Promis
     omittedForBudget: 0,
     promptChars: 0,
     modelCalled: false,
+    ...(deps.nextSteps === true ? { expansionCalled } : {}),
     /** Provider-reported token counts; null when the provider does not report them */
     inputTokens: null as number | null,
     outputTokens: null as number | null,
   };
+
+  if (clarify) {
+    // A question that only points back, with nothing to point at (no previous turn, or one that was not answered): ask what is meant. No model call.
+    const policy: SufficiencyDecision = { action: "insufficient", reason: "the question points back to a previous turn that cannot be used" };
+    return { ...base, status: "insufficient_evidence", policy, stats, nextSteps: buildNextSteps({ unresolvedPhrase: question, ...(previousQuestion === undefined ? {} : { previousQuestion }) }) };
+  }
 
   const overview = deps.overview !== undefined && (isOverviewQuestion(question) || (deps.overviewWide === true && isWideOverviewQuestion(question, deps.repo.repo)));
   const overviewBlocks = overview ? overviewCandidates(deps.index, deps.overview!) : [];
@@ -222,7 +283,7 @@ export async function answerQuestion(deps: AnswerDeps, question: string): Promis
   const assembled = await assembleEvidence({
     index: deps.index,
     repo: deps.repo,
-    candidates: overview ? [...overviewBlocks, ...result.evidence.filter((e) => !overviewBlocks.some((o) => o.chunkId === e.chunkId)).slice(0, OVERVIEW_RETRIEVED)] : result.evidence,
+    candidates: overview ? [...overviewBlocks, ...result.evidence.filter((e) => !overviewBlocks.some((o) => o.chunkId === e.chunkId)).slice(0, OVERVIEW_RETRIEVED)] : inherited.length > 0 ? [...inherited, ...result.evidence.filter((e) => !inherited.some((o) => o.chunkId === e.chunkId))] : result.evidence,
     source: deps.source,
     maxItems: deps.maxEvidence ?? DEFAULT_MAX_EVIDENCE,
     budgetChars,
